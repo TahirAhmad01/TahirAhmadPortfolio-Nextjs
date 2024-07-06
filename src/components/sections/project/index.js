@@ -1,12 +1,13 @@
-import { AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { Fade } from 'react-reveal';
-import projectList from '../../../utils/projectList';
-import Title from '../title';
-import ProjectButton from './projectButton';
-import Projects from './projects';
+"use client";
+import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { Fade } from "react-reveal";
+import projectList from "../../../utils/projectList";
+import Title from "../title";
+import ProjectButton from "./projectButton";
+import Projects from "./projects";
+import { useRouter } from "next/navigation";
 
 export default function Project() {
   const [items, setItems] = useState([
@@ -19,15 +20,15 @@ export default function Project() {
   return (
     <div className="containerCustom gap">
       <Title title="projects" />
-      {path !== '/' && <ProjectButton setItem={setItems} items={items} />}
+      {path !== "/" && <ProjectButton setItem={setItems} items={items} />}
 
       <AnimatePresence>
         <div className="grid lg:grid-cols-3 sm:grid-cols-2 columns-1 gap-1 justify-items-center">
-          <Projects items={items} setItem={setItems} />{' '}
+          <Projects items={items} setItem={setItems} />{" "}
         </div>
       </AnimatePresence>
 
-      {path === '/' && (
+      {path === "/" && (
         <Fade up>
           <div className="text-center mt-9 flex justify-center">
             <Link href="/projects">

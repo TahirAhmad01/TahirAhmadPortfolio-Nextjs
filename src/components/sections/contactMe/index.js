@@ -1,3 +1,4 @@
+"use client"
 import tellMeOn from '@/utils/tellMeOn';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';

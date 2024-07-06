@@ -1,9 +1,9 @@
 import { useWindowScrollPositions } from '@/hook/useWindowScrollPositions';
 import { useTheme } from 'next-themes';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { WhatsAppWidget } from 'react-whatsapp-widget';
 import Footer from './footer';
+import { useRouter } from "next/navigation";
 import Navbar from './navigation/nav';
 
 export default function Layout({ children }) {

@@ -1,3 +1,4 @@
+"use client"
 import { StarIcon } from "@heroicons/react/24/solid";
 import {
   Avatar,

@@ -1,5 +1,6 @@
+"use client"
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { LazyLoadImage } from 'react-lazy-load-image-component';

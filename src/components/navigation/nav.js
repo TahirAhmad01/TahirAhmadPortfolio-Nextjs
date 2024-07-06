@@ -3,7 +3,7 @@ import useWindowDimensions from '@/hook/getWindowDimensions';
 import menuList from '@/utils/menuList';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 import React, { useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import MobileDrawer from './mobileDrawer';

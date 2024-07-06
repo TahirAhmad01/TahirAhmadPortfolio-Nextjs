@@ -3,7 +3,7 @@ import menuList from '@/utils/menuList';
 import { Drawer } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
 export default function MobileDrawer({ setSidebar, isOpen }) {
   const { width } = useWindowDimensions();

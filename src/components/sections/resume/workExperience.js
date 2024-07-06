@@ -1,3 +1,4 @@
+"use client"
 import Icon from '@/assets/images/work.webp';
 import useWindowDimensions from '@/hook/getWindowDimensions';
 import Image from 'next/image';
