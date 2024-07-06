@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+require("dotenv").config();
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: false,
+  images: {
+    unoptimized: true,
+  },
+  env: {
+    name: "Tahir Ahmad",
+    fullName: "Tahir Ahmad (Sani)",
+  },
+};
+
+module.exports = nextConfig;
