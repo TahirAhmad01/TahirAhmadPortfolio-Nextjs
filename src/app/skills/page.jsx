@@ -1,9 +1,1 @@
-import React from 'react'
-
-function Skills() {
-  return (
-    <div>Skills</div>
-  )
-}
-
-export default Skills
+git@github.com:TahirAhmad01/QPorta.git
