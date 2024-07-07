@@ -1,9 +1,19 @@
-import React from 'react'
+import Head from "next/head";
+import AboutMe from "@/components/sections/about";
+import PageLayout from "@/components/pageLayout";
 
-function About() {
+export default function About() {
+  const title = `About - ${process.env.name}`;
+
   return (
-    <div>About</div>
-  )
-}
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
 
-export default About
+      <PageLayout>
+        <AboutMe />
+      </PageLayout>
+    </>
+  );
+}

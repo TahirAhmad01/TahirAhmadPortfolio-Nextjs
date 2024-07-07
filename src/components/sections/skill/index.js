@@ -1,4 +1,4 @@
-// import skillsList from '@/utils/skillData.json';
+"use client"
 import skillsList from '@/utils/skillsList.json';
 import { Fade } from 'react-reveal';
 import Title from '../title';

@@ -1,1 +1,0 @@
-git@github.com:TahirAhmad01/QPorta.git

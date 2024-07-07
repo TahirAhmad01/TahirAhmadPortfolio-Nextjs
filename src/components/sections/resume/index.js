@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import educationList from "../../../utils/educationList.json";
 import workList from "../../../utils/workList";

@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import ContactMe from '@/components/sections/contactMe';
 import PageLayout from '@/components/pageLayout';
+import Skills from '@/components/sections/skill';
 
-export default function Contact() {
-  const title = `Contact - ${process.env.name}`;
+export default function Skill() {
+  const title = `Skill - ${process.env.name}`;
 
   return (
     <>
@@ -12,7 +12,7 @@ export default function Contact() {
       </Head>
 
       <PageLayout>
-        <ContactMe />
+        <Skills />
       </PageLayout>
     </>
   );

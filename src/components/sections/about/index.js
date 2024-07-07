@@ -1,3 +1,4 @@
+"use client"
 import aboutInfo from '@/utils/about';
 import Image from 'next/image';
 import { Fade, Zoom } from 'react-reveal';
