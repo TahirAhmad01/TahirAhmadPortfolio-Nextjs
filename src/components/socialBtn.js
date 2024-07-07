@@ -6,6 +6,7 @@ function SocialBtn({ icon, hover, link }) {
           <i
             aria-hidden
             className={`${icon}  hover:scale-110`}
+            // eslint-disable-next-line react/jsx-no-duplicate-props
             aria-hidden="true"
           ></i>
         </button>

@@ -1,6 +1,7 @@
 import "@/assets/css/global.css";
 import { Inter } from "next/font/google";
 import ThemeProviderComp from "@/components/ThemeProviderComp";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,9 +13,35 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ThemeProviderComp>
-        <body className={inter.className}>{children}</body>
-      </ThemeProviderComp>
+      <Head>
+        {/* Metadata for SEO */}
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* External Styles */}
+        <link
+          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet"
+        />
+
+        {/* External Scripts */}
+        <script
+          src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"
+          async
+        ></script>
+        <script
+          src="https://kit.fontawesome.com/f70f4c2534.js"
+          aria-hidden="true"
+          async
+        ></script>
+      </Head>
+
+      <body className={inter.className}>
+        <ThemeProviderComp>{children}</ThemeProviderComp>
+      </body>
     </html>
   );
 }

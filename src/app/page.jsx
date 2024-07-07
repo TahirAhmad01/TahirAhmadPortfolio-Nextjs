@@ -16,6 +16,7 @@ export default function Index() {
   //   ssr: false, // Avoids server-side rendering for this component
   // });
   const title = `${process.env.name} - Portfolio`;
+  
 
   return (
     <main>
