@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import ContactMe from '@/components/sections/contactMe';
 import PageLayout from '@/components/pageLayout';
 
@@ -7,9 +6,9 @@ export default function Contact() {
 
   return (
     <>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
+      </head>
 
       <PageLayout>
         <ContactMe />

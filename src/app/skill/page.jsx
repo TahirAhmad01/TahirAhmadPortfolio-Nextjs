@@ -1,15 +1,14 @@
-import Head from 'next/head';
-import PageLayout from '@/components/pageLayout';
-import Skills from '@/components/sections/skill';
+import PageLayout from "@/components/pageLayout";
+import Skills from "@/components/sections/skill";
 
 export default function Skill() {
   const title = `Skill - ${process.env.name}`;
 
   return (
     <>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
+      </head>
 
       <PageLayout>
         <Skills />

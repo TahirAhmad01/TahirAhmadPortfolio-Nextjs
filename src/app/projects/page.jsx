@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Project from "@/components/sections/project";
 import PageLayout from "@/components/pageLayout";
 
@@ -7,9 +6,9 @@ export default function Projects() {
 
   return (
     <>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
+      </head>
 
       <PageLayout>
         <Project />

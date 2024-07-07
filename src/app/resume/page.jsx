@@ -1,4 +1,3 @@
-import Head from "next/head";
 import ResumeSec from "@/components/sections/resume";
 import PageLayout from "@/components/pageLayout";
 
@@ -7,9 +6,9 @@ export default function Resume() {
 
   return (
     <>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
+      </head>
       <PageLayout>
         <ResumeSec />
       </PageLayout>

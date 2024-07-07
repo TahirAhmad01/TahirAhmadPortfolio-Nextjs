@@ -8,8 +8,6 @@ import Project from "@/components/sections/project";
 import Resume from "@/components/sections/resume";
 import Skill from "@/components/sections/skill";
 import Testimonial from "@/components/sections/testimonial";
-import dynamic from "next/dynamic";
-import Head from "next/head";
 
 export default function Index() {
   // const DynamicFiverrWidget = dynamic(() => import('@/components/Fiverr'), {
@@ -20,9 +18,9 @@ export default function Index() {
 
   return (
     <main>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
+      </head>
 
       <Home />
       <PageLayout>

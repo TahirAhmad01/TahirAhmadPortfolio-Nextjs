@@ -1,4 +1,3 @@
-import Head from "next/head";
 import AboutMe from "@/components/sections/about";
 import PageLayout from "@/components/pageLayout";
 
@@ -7,9 +6,9 @@ export default function About() {
 
   return (
     <>
-      <Head>
+      <head>
         <title>{title}</title>
-      </Head>
+      </head>
 
       <PageLayout>
         <AboutMe />

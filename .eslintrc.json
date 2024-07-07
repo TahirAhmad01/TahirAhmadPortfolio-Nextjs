@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "eslint-disable-next-line": 0,
+    "react/jsx-no-duplicate-props": 0
+  }
 }
