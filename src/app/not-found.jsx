@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import PageLayout from '../components/pageLayout';
+import Head from "next/head";
+import Link from "next/link";
+import PageLayout from "../components/PageLayout";
 
 function NotFound() {
   const title = `404 page not found  - ${process.env.name}`;

@@ -1,48 +1,48 @@
-"use client"
-import tellMeOn from '@/utils/tellMeOn';
-import emailjs from '@emailjs/browser';
-import Image from 'next/image';
-import { useRef, useState } from 'react';
-import { Fade } from 'react-reveal';
-import swal from 'sweetalert';
-import ThankYouImg from '../../../assets/images/thank-you-envelope.png';
-import Title from '../title';
-import ContactInp from './contactInp';
-import SocialContact from './socialContact';
+"use client";
+import tellMeOn from "@/utils/tellMeOn";
+import emailjs from "@emailjs/browser";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { Fade } from "react-reveal";
+import swal from "sweetalert";
+import ThankYouImg from "../../../assets/images/thank-you-envelope.png";
+import Title from "../Title";
+import ContactInp from "./contactInp";
+import SocialContact from "./socialContact";
 
 export default function ContactMe() {
   const [loading, setLoading] = useState(false);
   const [showContactForm, setShowContactForm] = useState(true);
   const form = useRef();
 
-  const sendEmail = async e => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     await emailjs
       .sendForm(
-        'service_sob3n6t', //SERVICE ID
-        'template_ol3bs8a', //TEMPLATE ID
+        "service_sob3n6t", //SERVICE ID
+        "template_ol3bs8a", //TEMPLATE ID
         form.current,
-        'q-Wr4qVce_T4pGFt2', // PUBLIC KEY
+        "q-Wr4qVce_T4pGFt2" // PUBLIC KEY
       )
       .then(
-        result => {
+        (result) => {
           swal({
-            title: 'E-mail sent successful',
-            icon: 'success',
-            button: 'Close',
+            title: "E-mail sent successful",
+            icon: "success",
+            button: "Close",
             dangerMode: true,
           }).then(setShowContactForm(false));
         },
-        err => {
+        (err) => {
           swal({
-            title: 'Something went wrong',
-            icon: 'error',
-            button: 'close',
+            title: "Something went wrong",
+            icon: "error",
+            button: "close",
             dangerMode: true,
           });
-        },
+        }
       );
 
     setLoading(false);
@@ -50,9 +50,9 @@ export default function ContactMe() {
 
   if (loading) {
     swal({
-      title: 'Sending message',
-      icon: 'warning',
-      text: 'Please wait ...',
+      title: "Sending message",
+      icon: "warning",
+      text: "Please wait ...",
       button: false,
       closeOnClickOutside: false,
     });

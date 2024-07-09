@@ -1,5 +1,5 @@
-import ResumeSec from "@/components/sections/resume";
-import PageLayout from "@/components/pageLayout";
+import ResumeSec from "@/components/Sections/Resume";
+import PageLayout from "@/components/PageLayout";
 
 export default function Resume() {
   const title = `Resume - ${process.env.name}`;

@@ -1,8 +1,7 @@
-"use client"
-import React from "react";
+"use client";
 import educationList from "../../../utils/educationList.json";
 import workList from "../../../utils/workList";
-import Title from "../title";
+import Title from "../Title";
 import Education from "./education";
 import WorkExperience from "./workExperience";
 

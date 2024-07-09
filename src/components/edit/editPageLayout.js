@@ -1,5 +1,5 @@
-import PageLayout from '../pageLayout';
-import Breadcrumb from './breadcrumb';
+import PageLayout from "../PageLayout";
+import Breadcrumb from "./breadcrumb";
 
 function EditPageLayout({ PageName, children }) {
   return (

@@ -1,7 +1,7 @@
-"use client"
-import skillsList from '@/utils/skillsList.json';
-import { Fade } from 'react-reveal';
-import Title from '../title';
+"use client";
+import skillsList from "@/utils/skillsList.json";
+import { Fade } from "react-reveal";
+import Title from "../Title";
 
 export default function Skill() {
   return (
@@ -26,10 +26,12 @@ export default function Skill() {
             return (
               <div className="my-5" key={idx}>
                 <Fade up delay={idx * 20} cascade>
-                  <div className="mb-1 capitalize text-xs font-medium dark:text-gray-100">{name}</div>
+                  <div className="mb-1 capitalize text-xs font-medium dark:text-gray-100">
+                    {name}
+                  </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
                     {list?.map((list, idx) => {
-                      const { name, icon,position,progress } = list || {};
+                      const { name, icon, position, progress } = list || {};
 
                       return (
                         <div
@@ -37,21 +39,30 @@ export default function Skill() {
                           key={idx}
                         >
                           <Fade left>
-                            <div className="absolute top-0 left-0 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 h-full z-10 rounded-lg blur-md" style={{ width: progress + "%" }}>
-                            <div className="backdrop-blur-  xl bg-white/80 dark:bg-[#0b1327]/60 h-full w-full"></div>
-                          </div>
+                            <div
+                              className="absolute top-0 left-0 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 h-full z-10 rounded-lg blur-md"
+                              style={{ width: progress + "%" }}
+                            >
+                              <div className="backdrop-blur-  xl bg-white/80 dark:bg-[#0b1327]/60 h-full w-full"></div>
+                            </div>
                           </Fade>
                           <div className="flex items-center z-20 gap-2 relative">
-                          <img
-                            src={`${
-                              icon
-                                ? icon
-                                : 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
-                            }`}
-                            className="w-auto h-5 text-white"
-                          />
-                          <div className="capitalize text-md  line-clamp-1">{name} <span className="dark:text-gray-400 text-gray-500 text-xs">( {position} )</span></div>
-                        </div></div>
+                            <img
+                              src={`${
+                                icon
+                                  ? icon
+                                  : "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                              }`}
+                              className="w-auto h-5 text-white"
+                            />
+                            <div className="capitalize text-md  line-clamp-1">
+                              {name}{" "}
+                              <span className="dark:text-gray-400 text-gray-500 text-xs">
+                                ( {position} )
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>

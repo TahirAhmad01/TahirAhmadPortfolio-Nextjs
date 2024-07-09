@@ -1,5 +1,5 @@
-import ContactMe from '@/components/sections/contactMe';
-import PageLayout from '@/components/pageLayout';
+import ContactMe from "@/components/Sections/ContactMe";
+import PageLayout from "@/components/PageLayout";
 
 export default function Contact() {
   const title = `Contact - ${process.env.name}`;

@@ -1,13 +1,13 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Fade } from "react-reveal";
 import projectList from "../../../utils/projectList";
-import Title from "../title";
+import Title from "../Title";
 import ProjectButton from "./projectButton";
 import Projects from "./projects";
-import { useRouter } from "next/navigation";
 
 export default function Project() {
   const [items, setItems] = useState([

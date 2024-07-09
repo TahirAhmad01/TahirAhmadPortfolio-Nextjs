@@ -1,5 +1,5 @@
-import PageLayout from "@/components/pageLayout";
-import Skills from "@/components/sections/skill";
+import PageLayout from "@/components/PageLayout";
+import Skills from "@/components/Sections/Skill";
 
 export default function Skill() {
   const title = `Skill - ${process.env.name}`;

@@ -1,9 +1,7 @@
-import React from "react";
-import Title from "../title";
+import Title from "../Title";
 import FeedbackSlider from "./feedbackSlider";
 
 export default function Testimonial() {
-
   return (
     <>
       <div className="containerCustom gap">

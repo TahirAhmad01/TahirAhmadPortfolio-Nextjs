@@ -1,5 +1,5 @@
-import Project from "@/components/sections/project";
-import PageLayout from "@/components/pageLayout";
+import Project from "@/components/Sections/Project";
+import PageLayout from "@/components/PageLayout";
 
 export default function Projects() {
   const title = `Projects - ${process.env.name}`;

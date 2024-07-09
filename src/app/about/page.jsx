@@ -1,5 +1,5 @@
-import AboutMe from "@/components/sections/about";
-import PageLayout from "@/components/pageLayout";
+import AboutMe from "@/components/Sections/About";
+import PageLayout from "@/components/PageLayout";
 
 export default function About() {
   const title = `About - ${process.env.name}`;
