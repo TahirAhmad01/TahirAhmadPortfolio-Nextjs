@@ -1,15 +1,13 @@
 import PageLayout from "@/components/PageLayout";
 import Skills from "@/components/Sections/Skill";
 
-export default function Skill() {
-  const title = `Skill - ${process.env.name}`;
+export const metadata = {
+  title: `Skill - ${process.env.name}`,
+};
 
+export default function Skill() {
   return (
     <>
-      <head>
-        <title>{title}</title>
-      </head>
-
       <PageLayout>
         <Skills />
       </PageLayout>
