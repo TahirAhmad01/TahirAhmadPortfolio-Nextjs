@@ -14,20 +14,14 @@
 }
 
 .wave {
-  top: 0%;
-}
-
-.wave {
   background: linear-gradient(to top right, #68d391, #4299e1, #9f7aea);
   position: absolute;
-  top: 110%;
   height: 200%;
   width: 200%;
   border-radius: 38%;
   left: -50%;
-  transform: rotate(360deg);
-  transition: all 5s ease;
-  animation: wave 30s linear infinite;
+  top: 110%;
+  animation: wave 30s linear infinite, moveWave 3s ease forwards;
 }
 
 @keyframes wave {
@@ -39,3 +33,11 @@
   }
 }
 
+@keyframes moveWave {
+  0% {
+    top: 110%;
+  }
+  100% {
+    top: 0%;
+  }
+}
