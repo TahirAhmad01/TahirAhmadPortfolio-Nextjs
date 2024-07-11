@@ -7,7 +7,7 @@ import Typed from "react-typed";
 import Wave from "react-wavify";
 import SocialBtn from "../../SocialBtn";
 import socialBtnList from "./../../../utils/socialBtnList.json";
-import Button from "./button";
+import Button from "./Button";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();

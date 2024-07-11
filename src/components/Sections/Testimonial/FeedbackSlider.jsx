@@ -1,7 +1,7 @@
 import feedbackList from "@/utils/feedbackList.json";
 import { Slide } from "react-awesome-reveal";
 import Slider from "react-slick";
-import FeedbackCard from "./feedbackCard";
+import FeedbackCard from "./FeedbackCard";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;

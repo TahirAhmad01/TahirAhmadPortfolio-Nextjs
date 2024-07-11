@@ -1,7 +1,7 @@
 "use client";
 import { ThemeProvider } from "next-themes";
 import React from "react";
-import Layout from "./Layout";
+import Layout from "./LayoutComponent";
 
 function ThemeProviderComp({ children }) {
   return (

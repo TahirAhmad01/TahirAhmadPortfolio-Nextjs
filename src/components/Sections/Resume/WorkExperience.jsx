@@ -4,7 +4,7 @@ import useWindowDimensions from '@/hook/getWindowDimensions';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Fade, Zoom } from 'react-reveal';
-import CertificateModal from './certificateModal';
+import CertificateModal from './CertificateModal';
 
 export default function WorkExperience({ work }) {
   const {

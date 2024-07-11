@@ -1,7 +1,7 @@
 import { Fade } from "react-reveal";
 import blogList from "../../../utils/blogList.json";
 import Title from "../Title";
-import BlogCard from "./blogCard";
+import BlogCard from "./BlogCard";
 
 export default function Blog(props) {
   return (

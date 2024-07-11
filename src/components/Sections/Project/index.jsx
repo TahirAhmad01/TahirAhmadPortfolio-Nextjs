@@ -6,8 +6,8 @@ import { useState } from "react";
 import { Fade } from "react-reveal";
 import projectList from "../../../utils/projectList";
 import Title from "../Title";
-import ProjectButton from "./projectButton";
-import Projects from "./projects";
+import ProjectButton from "./ProjectButton";
+import Projects from "./Projects";
 
 export default function Project() {
   const [items, setItems] = useState([

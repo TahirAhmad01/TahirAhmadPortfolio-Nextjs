@@ -7,7 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import useWindowDimensions from '@/hook/getWindowDimensions';
 import blur from '@/assets/images/blur.webp';
 import projectList from '@/utils/projectList';
-import ProjectModal from './projectModal';
+import ProjectModal from './ProjectModal';
 
 export default function Projects({ items }) {
   const [open, setOpen] = useState(false);

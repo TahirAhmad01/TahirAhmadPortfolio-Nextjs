@@ -2,8 +2,8 @@
 import educationList from "../../../utils/educationList.json";
 import workList from "../../../utils/workList";
 import Title from "../Title";
-import Education from "./education";
-import WorkExperience from "./workExperience";
+import Education from "./Education";
+import WorkExperience from "./WorkExperience";
 
 export default function Resume() {
   let experience;

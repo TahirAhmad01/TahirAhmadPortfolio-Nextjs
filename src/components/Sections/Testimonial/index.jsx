@@ -1,5 +1,5 @@
 import Title from "../Title";
-import FeedbackSlider from "./feedbackSlider";
+import FeedbackSlider from "./FeedbackSlider";
 
 export default function Testimonial() {
   return (

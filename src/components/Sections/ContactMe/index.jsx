@@ -7,8 +7,8 @@ import { Fade } from "react-reveal";
 import swal from "sweetalert";
 import ThankYouImg from "../../../assets/images/thank-you-envelope.png";
 import Title from "../Title";
-import ContactInp from "./contactInp";
-import SocialContact from "./socialContact";
+import ContactInp from "./ContactInp";
+import SocialContact from "./SocialContact";
 
 export default function ContactMe() {
   const [loading, setLoading] = useState(false);
