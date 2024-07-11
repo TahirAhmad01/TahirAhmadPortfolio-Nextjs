@@ -8,6 +8,7 @@ import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Resume";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
+import { Suspense } from "react";
 
 export default function Index() {
   // const DynamicFiverrWidget = dynamic(() => import('@/components/Fiverr'), {
@@ -21,7 +22,9 @@ export default function Index() {
         <title>{title}</title>
       </head>
 
-      <Home />
+      <Suspense fallback={<p>Loading feed...</p>} delay="2s">
+        <Home />
+      </Suspense>
       <PageLayout>
         <About />
         <Skill />

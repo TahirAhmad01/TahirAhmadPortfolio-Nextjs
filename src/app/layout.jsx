@@ -1,6 +1,7 @@
 import "@/assets/css/global.css";
 import { Inter } from "next/font/google";
 import ThemeProviderComp from "@/components/ThemeProviderComp";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,7 +55,9 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={inter.className}>
+        <Suspense fallback={<p>Loading feed...</p>}>
         <ThemeProviderComp>{children}</ThemeProviderComp>
+        </Suspense>
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from "next/navigation";
 import React, { useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import MobileDrawer from './mobileDrawer';
+import MobileDrawer from './MobileDrawer';
 import NextTopLoader from 'nextjs-toploader';
 
 export default function Navbar({ theme, toggleDarkMode, loading }) {

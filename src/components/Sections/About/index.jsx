@@ -29,10 +29,6 @@ export default function About() {
                     const { name, details } = info || {};
                     return <Info name={name} details={details} key={idx} />;
                   })}
-
-                  {/* <Info name="phone" details="+8801610881871" />
-                  <Info name="phone" details="Rajshahi, Bangladesh" />
-                  <Info name="status" details="Available" /> */}
                 </Fade>
               </div>
             </Fade>

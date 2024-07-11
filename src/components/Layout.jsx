@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { WhatsAppWidget } from 'react-whatsapp-widget';
 import Footer from './Footer';
 import { useRouter } from "next/navigation";
-import Navbar from './navigation/nav';
+import Navbar from './Navigation/Nav';
 
 export default function Layout({ children }) {
   const { theme, setTheme } = useTheme();
