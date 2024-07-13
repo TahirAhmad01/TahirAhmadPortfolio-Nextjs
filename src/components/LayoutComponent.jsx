@@ -1,9 +1,10 @@
+"use client"
 import { useWindowScrollPositions } from '@/hook/useWindowScrollPositions';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { WhatsAppWidget } from 'react-whatsapp-widget';
 import Footer from './Footer';
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Navbar from './Navigation/Nav';
 
 export default function Layout({ children }) {
@@ -12,8 +13,7 @@ export default function Layout({ children }) {
 
   const { scrollY } = useWindowScrollPositions();
   const colorTheme = theme === 'dark' ? 'light' : 'dark';
-  const location = useRouter();
-  const path = location.pathname;
+  const path = usePathname()
 
   const backToTop = () => {
     if (typeof window !== 'undefined') {

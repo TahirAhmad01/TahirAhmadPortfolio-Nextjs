@@ -3,12 +3,11 @@ import menuList from '@/utils/menuList';
 import { Drawer } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function MobileDrawer({ setSidebar, isOpen }) {
   const { width } = useWindowDimensions();
-  const location = useRouter();
-  const path = location.pathname;
+  const path = usePathname()
 
   const closeSidebar = () => {
     setSidebar(false);
@@ -35,7 +34,7 @@ export default function MobileDrawer({ setSidebar, isOpen }) {
             role="presentation"
             // onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
-            className="h-full dark:text-white bg-white dark:bg-[#1f2937]"
+            className="h-full dark:text-white bg-white dark:bg-[#1f2937] font-nunito"
           >
             <div className="text-2xl pb-4 pt-5 bg-gray-50 dark:bg-[#111827] flex items-center px-4 justify-between font-medium border dark:border-gray-900">
               <div>Menu</div>

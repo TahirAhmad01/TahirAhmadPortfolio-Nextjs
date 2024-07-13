@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Fade } from "react-reveal";
 import projectList from "../../../utils/projectList";
@@ -14,8 +14,7 @@ export default function Project() {
     ...projectList.sort((b, a) => a.id - b.id),
   ]);
 
-  const location = useRouter();
-  const path = location.pathname;
+  const path = usePathname()
 
   return (
     <div className="containerCustom gap">

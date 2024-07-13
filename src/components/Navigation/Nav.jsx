@@ -3,7 +3,7 @@ import useWindowDimensions from '@/hook/getWindowDimensions';
 import menuList from '@/utils/menuList';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React, { useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import MobileDrawer from './MobileDrawer';
@@ -12,8 +12,7 @@ import NextTopLoader from 'nextjs-toploader';
 export default function Navbar({ theme, toggleDarkMode, loading }) {
   const { width } = useWindowDimensions();
 
-  const location = useRouter();
-  const path = location.pathname;
+  const path = usePathname()
   const [isSidebarOpen, setSidebarOpen] = useState(width > 768);
 
   const toggleSidebar = () => {

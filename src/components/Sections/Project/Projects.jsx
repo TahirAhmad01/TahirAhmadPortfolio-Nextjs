@@ -1,6 +1,6 @@
 "use client"
 import { motion } from 'framer-motion';
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -17,8 +17,7 @@ export default function Projects({ items }) {
     setProjectId(id);
   };
 
-  const location = useRouter();
-  const path = location.pathname;
+  const path = usePathname();
   const { width } = useWindowDimensions();
 
   let slice;

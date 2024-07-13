@@ -1,7 +1,8 @@
 import "@/assets/css/global.css";
+import LayoutComponent from "@/components/LayoutComponent";
+import AppThemeProvider from "@/context/ThemeProvider";
 import { Inter } from "next/font/google";
-import ThemeProviderComp from "@/components/ThemeProviderComp";
-import { Suspense } from "react";
+import { cookies } from 'next/headers';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,8 +12,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const theme = cookies().get("__theme__")?.value || "system";
+
   return (
-    <html lang="en">
+    <html
+      className={theme}
+      lang="en"
+      style={theme !== "system" ? { colorScheme: theme } : {}}
+    >
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" sizes="16x16" href="/favicon.ico" />
@@ -55,9 +62,9 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={inter.className}>
-        <Suspense fallback={<p>Loading feed...</p>}>
-        <ThemeProviderComp>{children}</ThemeProviderComp>
-        </Suspense>
+        <AppThemeProvider attribute="class" defaultTheme={theme} enableSystem>
+          <LayoutComponent>{children}</LayoutComponent>
+        </AppThemeProvider>
       </body>
     </html>
   );
