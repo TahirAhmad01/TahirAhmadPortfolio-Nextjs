@@ -8,7 +8,11 @@ import { cookies } from 'next/headers';
 
 export const metadata = {
   title: "Tahir Ahmad - Portfolio",
-  description: `Hello! I Am ${process.env.name}. I am web developer.....`,
+  description: `Hello! I Am ${process.env.name}. I am a full stack web developer.....`,
+  author: `Qubartech, ${process.env.name}, Tahir Ahmad`,
+  keywords: [
+    `Qubartech, tech, tech company, technology, Tahir Ahmad, ${process.env.name}, ${process.env.fullName} portfolio, portfolio`,
+  ],
   icons: {
     icon: [
       {
@@ -60,16 +64,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
-        <meta name="author" content={`Qubartech ${process.env.name}`} />
-        <meta
-          name="description"
-          content={`Hello! I Am ${process.env.name}. I am web developer.....`}
-        />
-        <meta
-          name="keywords"
-          content={`Qubartech, tech, tech company, technology, Tahir Ahmad, ${process.env.name}, ${process.env.fullName} portfolio`}
-        />
-
+        <meta name="author" content={`Qubartech ${process.env.name}`} />        
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
