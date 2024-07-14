@@ -23,6 +23,11 @@ export default function Layout({ children }) {
 
   const toggleDarkMode = () => {
     setTheme(colorTheme);
+
+    setCookie("__theme__", colorTheme, {
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
+      path: "/",
+    });
   };
 
   useEffect(() => {
@@ -39,7 +44,6 @@ export default function Layout({ children }) {
         />
         {children}
         <Footer />
-
         {path === '/' ? (
           scrollY > 90 && (
             <>
