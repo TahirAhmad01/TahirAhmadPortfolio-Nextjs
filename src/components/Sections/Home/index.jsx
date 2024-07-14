@@ -1,9 +1,10 @@
+"use client"
 import avatar from "@/assets/images/avater.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import Link from "next/link";
 import { Fade } from "react-reveal";
-import Typed from "react-typed";
+import { ReactTyped } from "react-typed";
 import Wave from "react-wavify";
 import SocialBtn from "../../SocialBtn";
 import socialBtnList from "./../../../utils/socialBtnList.json";
@@ -18,10 +19,9 @@ export default function Home() {
         height > 694 && width > 992 && "h-screen"
       }`}
     >
-      {/* // */}
       <div className="w-full h-full background bg-lightBgImg dark:bg-darkBgImg">
         {" "}
-        <div className="h-auto md:h-full bg-black/15 pt-24 py-8 containerCustom relative z-10">
+        <div className="h-auto md:h-full pt-24 py-8 containerCustom relative z-10">
           <div className="backdrop-blur-xl bg-white/60 dark:bg-[#0b1327]/80 rounded-2xl h-full w-full relative overflow-hidden">
             <div
               className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-20 md:pb-28 pb-32`}
@@ -34,7 +34,7 @@ export default function Home() {
                   {process.env.fullName}
                 </Fade>
               </h2>{" "}
-              <Typed
+              <ReactTyped
                 strings={[
                   "Full-stack Web Developer",
                   "Javascript Developer",

@@ -8,30 +8,17 @@ import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Resume";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
-import { Suspense } from "react";
 
 export default function Index() {
-  // const DynamicFiverrWidget = dynamic(() => import('@/components/Fiverr'), {
-  //   ssr: false, // Avoids server-side rendering for this component
-  // });
-  const title = `${process.env.name} - Portfolio`;
-
   return (
     <main>
-      <head>
-        <title>{title}</title>
-      </head>
-
-      <Suspense fallback={<p>Loading feed...</p>} delay="2s">
-        <Home />
-      </Suspense>
+      <Home />
       <PageLayout>
         <About />
         <Skill />
         <Project />
         <Resume />
         <Blog />
-        {/* <DynamicFiverrWidget /> */}
         <Testimonial />
         <ContactMe />
       </PageLayout>
