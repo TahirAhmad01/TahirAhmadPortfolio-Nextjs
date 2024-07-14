@@ -1,3 +1,4 @@
+"use client"
 import { Fade } from "react-reveal";
 import blogList from "../../../utils/blogList.json";
 import Title from "../Title";

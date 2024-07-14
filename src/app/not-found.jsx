@@ -1,16 +1,13 @@
-import Head from "next/head";
 import Link from "next/link";
 import PageLayout from "../components/PageLayout";
 
-function NotFound() {
-  const title = `404 page not found  - ${process.env.name}`;
+export const metadata = {
+  title: `404 Page Not Found - ${process.env.name}`,
+};
 
+function NotFound() {
   return (
     <>
-      <head>
-        <title>{title}</title>
-      </head>
-
       <PageLayout>
         <section className="flex items-center h-full p-16 dark:bg-gray-900 dark:text-gray-100 md:h-[calc(100vh-8rem)]">
           <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">

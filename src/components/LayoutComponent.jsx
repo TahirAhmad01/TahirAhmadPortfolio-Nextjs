@@ -6,6 +6,7 @@ import { WhatsAppWidget } from 'react-whatsapp-widget';
 import Footer from './Footer';
 import { usePathname } from "next/navigation";
 import Navbar from './Navigation/Nav';
+import { setCookie } from "cookies-next";
 
 export default function Layout({ children }) {
   const { theme, setTheme } = useTheme();

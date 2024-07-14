@@ -1,4 +1,3 @@
-"use client";
 import PageLayout from "@/components/PageLayout";
 import About from "@/components/Sections/About";
 import Blog from "@/components/Sections/Blog";
@@ -8,6 +7,10 @@ import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Resume";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
+
+export const metadata = {
+  title: `Home - ${process.env.name}`,
+};
 
 export default function Index() {
   return (
