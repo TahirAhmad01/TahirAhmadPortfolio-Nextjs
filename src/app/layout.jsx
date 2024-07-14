@@ -50,13 +50,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const theme = cookies().get("__theme__")?.value || "system";
+  const theme = cookies().get("__theme__")?.value || "dark";
 
   return (
     <html
       className={theme}
       lang="en"
-      style={theme !== "system" ? { colorScheme: theme } : {}}
+      style={{ colorScheme: theme }}
     >
       <head>
         <link rel="manifest" href="/site.webmanifest" />
@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
-        <AppThemeProvider attribute="class" defaultTheme={theme} enableSystem>
+        <AppThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <LayoutComponent theme={theme}>{children}</LayoutComponent>
         </AppThemeProvider>
       </body>

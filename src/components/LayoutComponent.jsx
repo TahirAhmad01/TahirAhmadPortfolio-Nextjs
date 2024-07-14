@@ -7,8 +7,8 @@ import Footer from './Footer';
 import { usePathname } from "next/navigation";
 import Navbar from './Navigation/Nav';
 
-export default function Layout({ theme, children }) {
-  const { setTheme } = useTheme();
+export default function Layout({ children }) {
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   const { scrollY } = useWindowScrollPositions();
