@@ -4,7 +4,7 @@ import PageLayout from "@/components/PageLayout";
 import Image from "next/image";
 import TLogo from "@/assets/images/TLogo.png"
 
-function loading() {
+function Loading() {
   return (
     <PageLayout>
       <div className="lg:my-48 my-32 flex justify-center">
@@ -45,4 +45,4 @@ function loading() {
   );
 }
 
-export default loading;
+export default Loading;

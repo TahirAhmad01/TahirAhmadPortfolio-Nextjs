@@ -10,6 +10,17 @@ const nextConfig = {
     name: "Tahir Ahmad",
     fullName: "Tahir Ahmad (Sani)",
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ibb.co",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

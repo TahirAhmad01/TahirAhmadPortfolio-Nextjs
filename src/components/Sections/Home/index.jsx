@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import avatar from "@/assets/images/avater.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
@@ -9,9 +9,13 @@ import Wave from "react-wavify";
 import SocialBtn from "../../SocialBtn";
 import socialBtnList from "./../../../utils/socialBtnList.json";
 import Button from "./Button";
+import bgDarkImg from "@/assets/images/dark.jpg";
+import bgLightImg from "@/assets/images/light.jpg";
+import { useTheme } from "next-themes";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
+  const {theme} = useTheme()
 
   return (
     <div
@@ -20,7 +24,22 @@ export default function Home() {
       }`}
     >
       <div className="w-full h-full background bg-lightBgImg dark:bg-darkBgImg">
-        {" "}
+        {theme === "dark" ? (
+          <Image
+            src={bgDarkImg}
+            fill={true}
+            priority={true}
+            className="h-full w-full absolute z-10 top-0 left-0"
+          />
+        ) : theme === "light" ? (
+          <Image
+            src={bgLightImg}
+            fill={true}
+            priority={true}
+            className="h-full w-full absolute z-10 top-0 left-0"
+          />
+        ) : null}
+
         <div className="h-auto md:h-full pt-24 py-8 containerCustom relative z-10">
           <div className="backdrop-blur-xl bg-white/60 dark:bg-[#0b1327]/80 rounded-2xl h-full w-full relative overflow-hidden">
             <div

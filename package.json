@@ -45,6 +45,7 @@
     "react-typed": "^2.0.12",
     "react-wavify": "^1.11.0",
     "react-whatsapp-widget": "^2.2.0",
+    "sharp": "^0.33.4",
     "slick-carousel": "^1.8.1",
     "sweetalert": "^2.1.2",
     "tailwind-scrollbar-hide": "^1.1.7",
