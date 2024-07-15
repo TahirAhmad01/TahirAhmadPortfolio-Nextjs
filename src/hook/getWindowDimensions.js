@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 // Hook
 function useWindowDimensions() {
   const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
+    width: 1024, // Default width
+    height: 768, // Default height
   });
 
   useEffect(() => {
@@ -22,6 +22,7 @@ function useWindowDimensions() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return windowSize;
 }
 

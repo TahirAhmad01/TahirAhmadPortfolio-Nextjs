@@ -12,7 +12,9 @@ export const metadata = {
   title: `Home - ${process.env.name}`,
 };
 
-export default function Index() {
+export default async function Index() {
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+  
   return (
     <main>
       <Home />
@@ -28,3 +30,5 @@ export default function Index() {
     </main>
   );
 }
+
+export const dynamic = "force-dynamic"

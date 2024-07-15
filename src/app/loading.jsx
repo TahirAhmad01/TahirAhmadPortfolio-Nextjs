@@ -1,6 +1,8 @@
 import React from "react";
 import "@/assets/css/loading.css";
 import PageLayout from "@/components/PageLayout";
+import Image from "next/image";
+import TLogo from "@/assets/images/TLogo.png"
 
 function loading() {
   return (
@@ -9,6 +11,9 @@ function loading() {
         <div className="parent">
           <div className="box">
             <div className="wave" />
+            <div className="relative z-[99999999] flex justify-center items-center h-full w-full">
+              <Image src={TLogo} className="w-72"/>
+            </div>
           </div>
         </div>
       </div>

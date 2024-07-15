@@ -1,10 +1,7 @@
 import "@/assets/css/global.css";
 import LayoutComponent from "@/components/LayoutComponent";
 import AppThemeProvider from "@/context/ThemeProvider";
-// import { Inter } from "next/font/google";
 import { cookies } from 'next/headers';
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Tahir Ahmad - Portfolio",
@@ -82,7 +79,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <AppThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <LayoutComponent theme={theme}>{children}</LayoutComponent>
+          <LayoutComponent>{children}</LayoutComponent>
         </AppThemeProvider>
       </body>
     </html>
