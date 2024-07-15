@@ -1,6 +1,4 @@
 .box {
-  width: 340px;
-  height: 400px;
   background: black;
   color: white;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);

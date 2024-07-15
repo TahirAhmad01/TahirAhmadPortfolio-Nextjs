@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div
-      className={`lightBg dark:darkBg relative  ${
+      className={`lightBg dark:darkBg relative ${
         height > 694 && width > 992 && "h-screen"
       }`}
     >

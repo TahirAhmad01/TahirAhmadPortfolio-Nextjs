@@ -7,9 +7,9 @@ import TLogo from "@/assets/images/TLogo.png"
 function loading() {
   return (
     <PageLayout>
-      <div className="my-48 flex justify-center">
+      <div className="lg:my-48 my-32 flex justify-center">
         <div className="parent">
-          <div className="box">
+          <div className="box lg:h-[400px] lg:w-[340px] h-[340px] w-[290px]">
             <div className="wave" />
             <div className="relative z-[99999999] flex justify-center items-center h-full w-full">
               <Image src={TLogo} className="w-72"/>

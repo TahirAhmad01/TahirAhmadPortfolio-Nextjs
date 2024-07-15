@@ -10,10 +10,8 @@ import MobileDrawer from './MobileDrawer';
 import NextTopLoader from 'nextjs-toploader';
 
 export default function Navbar({ theme, toggleDarkMode, loading }) {
-  const { width } = useWindowDimensions();
-
   const path = usePathname()
-  const [isSidebarOpen, setSidebarOpen] = useState(width > 768);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
