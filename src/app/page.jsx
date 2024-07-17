@@ -15,7 +15,7 @@ export const metadata = {
 };
 
 export default async function Index() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 300000));
 
   return (
     // <Suspense fallback={<Loading />}>

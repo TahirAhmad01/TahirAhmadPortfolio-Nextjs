@@ -39,3 +39,7 @@
     top: 0%;
   }
 }
+
+.box_shadow{
+  filter: drop-shadow( rgba(13, 38, 76, 0.30) 0px 9px 20px);
+}

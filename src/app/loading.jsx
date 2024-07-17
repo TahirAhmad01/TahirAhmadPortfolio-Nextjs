@@ -2,7 +2,8 @@ import React from "react";
 import "@/assets/css/loading.css";
 import PageLayout from "@/components/PageLayout";
 import Image from "next/image";
-import TLogo from "@/assets/images/TLogo.png"
+import TLogoTop from "@/assets/images/svg/TLogoTop.svg"
+import TLogoBottom from "@/assets/images/svg/TLogoBottom.svg"
 
 function Loading() {
   return (
@@ -12,7 +13,18 @@ function Loading() {
           <div className="box lg:h-[400px] lg:w-[340px] h-[340px] w-[290px]">
             <div className="wave" />
             <div className="relative z-[99999999] flex justify-center items-center h-full w-full">
-              <Image src={TLogo} className="w-72"/>
+              <div className="w-52 flex justify-center items-center flex-col h-full relative top-10">
+                <Image
+                  src={TLogoTop}
+                  className="w-full h-16 box_shadow z-20"
+                  alt="T Logo SVG"
+                />
+                <Image
+                  src={TLogoBottom}
+                  className="relative -top-10 h-36 w-16 box_shadow z-10"
+                  alt="T Logo SVG"
+                />
+              </div>
             </div>
           </div>
         </div>
