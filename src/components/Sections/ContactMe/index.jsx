@@ -37,9 +37,9 @@ export default function ContactMe() {
         },
         (err) => {
           swal({
-            title: "Something went wrong",
+            title: "Something went wrong!",
             icon: "error",
-            button: "close",
+            button: "Close",
             dangerMode: true,
           });
         }

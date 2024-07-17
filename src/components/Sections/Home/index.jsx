@@ -29,14 +29,14 @@ export default function Home() {
             src={bgDarkImg}
             fill={true}
             priority={true}
-            className="h-full w-full absolute z-10 top-0 left-0 hidden"
+            className="h-full w-full absolute z-10 top-0 left-0 opacity-0"
           />
         ) : theme === "light" ? (
           <Image
             src={bgLightImg}
             fill={true}
             priority={true}
-            className="h-full w-full absolute z-10 top-0 left-0 hidden"
+            className="h-full w-full absolute z-10 top-0 left-0 opacity-0"
           />
         ) : null}
 
