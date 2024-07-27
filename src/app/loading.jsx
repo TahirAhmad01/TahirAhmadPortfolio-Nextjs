@@ -1,9 +1,8 @@
-import React from "react";
 import "@/assets/css/loading.css";
+import TLogoBottom from "@/assets/images/svg/TLogoBottom.svg";
+import TLogoTop from "@/assets/images/svg/TLogoTop.svg";
 import PageLayout from "@/components/PageLayout";
 import Image from "next/image";
-import TLogoTop from "@/assets/images/svg/TLogoTop.svg";
-import TLogoBottom from "@/assets/images/svg/TLogoBottom.svg";
 
 function Loading() {
   return (
