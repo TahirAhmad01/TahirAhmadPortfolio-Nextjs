@@ -1,11 +1,11 @@
-"use client"
-import { useWindowScrollPositions } from '@/hook/useWindowScrollPositions';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { WhatsAppWidget } from 'react-whatsapp-widget';
-import Footer from './Footer';
+"use client";
+import { useWindowScrollPositions } from "@/hook/useWindowScrollPositions";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { WhatsAppWidget } from "react-whatsapp-widget";
+import Footer from "./Footer";
 import { usePathname } from "next/navigation";
-import Navbar from './Navigation/Nav';
+import Navbar from "./Navigation/Nav";
 import { setCookie } from "cookies-next";
 
 export default function Layout({ children }) {
@@ -13,12 +13,12 @@ export default function Layout({ children }) {
   const [mounted, setMounted] = useState(false);
 
   const { scrollY } = useWindowScrollPositions();
-  const colorTheme = theme === 'dark' ? 'light' : 'dark';
-  const path = usePathname()
+  const colorTheme = theme === "dark" ? "light" : "dark";
+  const path = usePathname();
 
   const backToTop = () => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
         />
         {children}
         <Footer />
-        {path === '/' ? (
+        {path === "/" ? (
           scrollY > 90 && (
             <>
               <WhatsAppWidget
@@ -73,7 +73,7 @@ export default function Layout({ children }) {
           x-data="topBtn"
           id="topButton"
           className={`fixed z-10 p-2 sm:p-3 bg-gray-100 text-black rounded-full shadow-md bottom-[7.4rem] right-[13px]  sm:bottom-[3.4rem] sm:right-24  animate-bounce ${
-            scrollY > 250 ? 'block' : 'hidden'
+            scrollY > 250 ? "block" : "hidden"
           }`}
           onClick={backToTop}
         >

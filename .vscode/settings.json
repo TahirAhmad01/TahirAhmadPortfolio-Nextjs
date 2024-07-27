@@ -1,3 +1,29 @@
 {
-  "cSpell.words": ["Qubartech", "wavify"]
+  "cSpell.words": [
+    "devicon",
+    "flowbite",
+    "heroicons",
+    "linebreak",
+    "nextjs",
+    "Qubartech",
+    "scroller",
+    "sweetalert",
+    "toploader",
+    "wavify"
+  ],
+
+  // eslint prettier formatter
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "javascript.validate.enable": true,
+
+  //for javascript eslint & prettier
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": "explicit",
+      "source.organizeImports": "explicit",
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit"
+    }
+  }
 }

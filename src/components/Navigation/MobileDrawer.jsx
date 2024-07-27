@@ -1,23 +1,23 @@
-import useWindowDimensions from '@/hook/getWindowDimensions';
-import menuList from '@/utils/menuList';
-import { Drawer } from '@mui/material';
-import Box from '@mui/material/Box';
-import Link from 'next/link';
+import useWindowDimensions from "@/hook/getWindowDimensions";
+import menuList from "@/utils/menuList";
+import { Drawer } from "@mui/material";
+import Box from "@mui/material/Box";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function MobileDrawer({ setSidebar, isOpen }) {
   const { width } = useWindowDimensions();
-  const path = usePathname()
+  const path = usePathname();
 
   const closeSidebar = () => {
     setSidebar(false);
   };
 
-  const toggleDrawer = open => event => {
+  const toggleDrawer = (open) => (event) => {
     if (
       event &&
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
     }
@@ -54,9 +54,9 @@ export default function MobileDrawer({ setSidebar, isOpen }) {
                   <ul className="w-full py-2 px-2 my-1">
                     <li
                       className={`py-1 px-4 block w-full capitalize rounded-lg overflow-hidden ${
-                        path === menu?.link || path === menu?.link + '/'
-                          ? 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white'
-                          : 'active:bg-gray-300 dark:active:bg-gray-600'
+                        path === menu?.link || path === menu?.link + "/"
+                          ? "bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white"
+                          : "active:bg-gray-300 dark:active:bg-gray-600"
                       }`}
                     >
                       {menu.name}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Fiverr() {
   return (
@@ -6,22 +6,22 @@ function Fiverr() {
       itemScope=""
       itemType="http://schema.org/Person"
       className="fiverr-seller-widget"
-      style={{ display: 'inline-block' }}
+      style={{ display: "inline-block" }}
     >
       <a
-        itemProp="url"
-        href="https://www.fiverr.com/tahirahmad02"
+        itemProp="url"      
+        href="https://www.fiverr.com/tahirahmad02"        
         rel="nofollow"
         target="_blank"
-        style={{ display: 'inline-block' }}
+        style={{ display: "inline-block" }}
       >
         <div
           className="fiverr-seller-content"
           id="fiverr-seller-widget-content-19471011-286c-4fdc-9a8d-bbcbccd0d2f1"
           itemProp="contentURL"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
         />
-        <div id="fiverr-widget-seller-data" style={{ display: 'none' }}>
+        <div id="fiverr-widget-seller-data" style={{ display: "none" }}>
           <div itemProp="name">tahirahmad02</div>
           <div itemScope="" itemType="http://schema.org/Organization">
             <span itemProp="name">Fiverr</span>
@@ -43,4 +43,4 @@ function Fiverr() {
   );
 }
 
-export default Fiverr
+export default Fiverr;

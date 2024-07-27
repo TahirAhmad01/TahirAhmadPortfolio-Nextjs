@@ -7,8 +7,6 @@ import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Resume";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
-import { Suspense } from "react";
-import Loading from './loading';
 
 export const metadata = {
   title: `Home - ${process.env.name}`,
@@ -19,18 +17,17 @@ export default async function Index() {
 
   return (
     // <Suspense fallback={<Loading />}>
-      <main>
-        <Home />
-        <PageLayout>
-          <About />
-          <Skill />
-          <Project />
-          <Resume />
-          <Blog />
-          <Testimonial />
-          <ContactMe />
-        </PageLayout>
-      
+    <main>
+      <Home />
+      <PageLayout>
+        <About />
+        <Skill />
+        <Project />
+        <Resume />
+        <Blog />
+        <Testimonial />
+        <ContactMe />
+      </PageLayout>
     </main>
     // </Suspense>
   );
