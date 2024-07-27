@@ -49,7 +49,11 @@ export default function FeedbackSlider() {
             return (
               <div key={idx}>
                 <Slide direction="up" triggerOnce>
-                  <FeedbackCard name={name} star={star} description={description} />
+                  <FeedbackCard
+                    name={name}
+                    star={star}
+                    description={description}
+                  />
                 </Slide>
               </div>
             );

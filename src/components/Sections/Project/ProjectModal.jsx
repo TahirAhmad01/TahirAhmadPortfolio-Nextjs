@@ -16,12 +16,15 @@ const style = {
 function ProjectModal({ setOpen, open, projectId }) {
   const handleClose = () => setOpen(false);
 
-  const findProject = projectList.filter((project) => project?.id === projectId);
+  const findProject = projectList.filter(
+    (project) => project?.id === projectId,
+  );
 
   let content = null;
 
   content = findProject.map((project, idx) => {
-    const { name, imageSrc, category, link, source, description } = project || {};
+    const { name, imageSrc, category, link, source, description } =
+      project || {};
     const src = imageSrc;
     return (
       <>
@@ -76,7 +79,10 @@ function ProjectModal({ setOpen, open, projectId }) {
               {link && (
                 <a href={link} target="_blank" rel="noreferrer">
                   <button className="bg-[#7c3aed] hover:bg-[#5b21b6] text-sm text-white font-medium py-2 px-3 rounded-lg inline-flex items-center">
-                    <i aria-hidden className="fa-solid fa-share-from-square mr-2"></i>
+                    <i
+                      aria-hidden
+                      className="fa-solid fa-share-from-square mr-2"
+                    ></i>
                     <span>Live Preview</span>
                   </button>
                 </a>

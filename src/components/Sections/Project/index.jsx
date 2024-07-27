@@ -10,7 +10,9 @@ import ProjectButton from "./ProjectButton";
 import Projects from "./Projects";
 
 export default function Project() {
-  const [items, setItems] = useState([...projectList.sort((b, a) => a.id - b.id)]);
+  const [items, setItems] = useState([
+    ...projectList.sort((b, a) => a.id - b.id),
+  ]);
 
   const path = usePathname();
 

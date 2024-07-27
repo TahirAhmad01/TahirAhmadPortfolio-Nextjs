@@ -1,6 +1,12 @@
 "use client";
 import { StarIcon } from "@heroicons/react/24/solid";
-import { Avatar, Card, CardBody, CardHeader, Typography } from "@material-tailwind/react";
+import {
+  Avatar,
+  Card,
+  CardBody,
+  CardHeader,
+  Typography,
+} from "@material-tailwind/react";
 
 export default function FeedBackCard({ name, star, description }) {
   const rating = [];
@@ -9,7 +15,7 @@ export default function FeedBackCard({ name, star, description }) {
       <StarIcon
         className="h-4 w-4 md:h-5 md:w-5 text-yellow-700 dark:text-yellow-300 text-xs"
         key={i}
-      />
+      />,
     );
   }
 
@@ -35,10 +41,17 @@ export default function FeedBackCard({ name, star, description }) {
           />
           <div className="flex w-full gap-0.5 justify-start md:justify-between flex-col md:flex-row">
             <div className="flex flex-col">
-              <Typography variant="h5" color="blue-gray" className="dark:text-gray-300">
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="dark:text-gray-300"
+              >
                 {name}
               </Typography>
-              <Typography color="blue-gray" className="dark:text-gray-400 text-xs font-medium">
+              <Typography
+                color="blue-gray"
+                className="dark:text-gray-400 text-xs font-medium"
+              >
                 Frontend Lead @ Google
               </Typography>
             </div>
@@ -53,7 +66,9 @@ export default function FeedBackCard({ name, star, description }) {
           </div>
         </CardHeader>
         <CardBody className="mb-6 p-0">
-          <Typography className="text-center dark:text-gray-300">{description}</Typography>
+          <Typography className="text-center dark:text-gray-300">
+            {description}
+          </Typography>
         </CardBody>
       </Card>
     </div>

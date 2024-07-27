@@ -28,12 +28,14 @@ function Fiverr() {
           </div>
           <div itemProp="jobtitle">Seller</div>
           <div itemProp="description">
-            Hi, I am a front-end web developer. Experienced front-end developer with React JS,
-            proficient in HTML5, CSS3, Bootstrap, JS, jQuery, React JS, Redux, and Next JS. Converts
-            PSD, image, and PDF to clean, responsive HTML. Ensures seamless cross-browser
-            performance, and delivers efficient code. Active GitHub contributor committed to clean
-            coding for optimal performance. I have a team member with 5+ years of experience in PHP,
-            and MYSQL. So we can provide any kind of backend and API-related support.
+            Hi, I am a front-end web developer. Experienced front-end developer
+            with React JS, proficient in HTML5, CSS3, Bootstrap, JS, jQuery,
+            React JS, Redux, and Next JS. Converts PSD, image, and PDF to clean,
+            responsive HTML. Ensures seamless cross-browser performance, and
+            delivers efficient code. Active GitHub contributor committed to
+            clean coding for optimal performance. I have a team member with 5+
+            years of experience in PHP, and MYSQL. So we can provide any kind of
+            backend and API-related support.
           </div>
         </div>
       </a>

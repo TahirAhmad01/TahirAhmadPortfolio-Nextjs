@@ -100,21 +100,21 @@
         "id": 1,
         "name": "Tailwind",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 2,
         "name": "Bootstrap",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 3,
         "name": "Sass",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       }
     ]
@@ -166,14 +166,14 @@
         "id": 1,
         "name": "Firebase",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 2,
         "name": "supabase",
         "icon": "https://i.ibb.co/6vqNfZ5/supabase-logo-DCC676-FFE2-seeklogo-com-1.png",
-        "position":"expert",
+        "position": "expert",
         "progress": 75
       }
     ]
@@ -185,40 +185,42 @@
         "id": 1,
         "name": "Google Chrome",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 2,
         "name": "Firefox",
         "icon": "https://i.ibb.co/0JfH6fF/Firefox-logo-2019-svg.png",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 3,
         "name": "Opera",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opera/opera-original.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
-      },{
+      },
+      {
         "id": 4,
         "name": "Microsoft Edge",
         "icon": "https://i.ibb.co/mhndCJX/Microsoft-Edge-logo-2019.png",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
-      },{
+      },
+      {
         "id": 5,
         "name": "brave",
         "icon": "https://i.ibb.co/xfZpJZM/brave-software-logo-B77-E610153-seeklogo-com.png",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 6,
         "name": "Safari",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/safari/safari-original.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 80
       }
     ]
@@ -230,28 +232,28 @@
         "id": 1,
         "name": "figma",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-        "position":"expert",
+        "position": "expert",
         "progress": 90
       },
       {
         "id": 2,
         "name": "Adobe xd",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg",
-        "position":"junior",
+        "position": "junior",
         "progress": 55
       },
       {
         "id": 3,
         "name": "Adobe Photoshop",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg",
-        "position":"junior",
+        "position": "junior",
         "progress": 35
       },
       {
         "id": 4,
         "name": "Adobe Illustrator",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg",
-        "position":"junior",
+        "position": "junior",
         "progress": 25
       }
     ]

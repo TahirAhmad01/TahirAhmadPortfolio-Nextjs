@@ -12,7 +12,9 @@ function SocialContact({ link, name, icon, delay }) {
           rel="noreferrer"
         >
           <i aria-hidden className={icon}></i>
-          <span className="flex-1 ml-3 whitespace-nowrap capitalize">{name}</span>
+          <span className="flex-1 ml-3 whitespace-nowrap capitalize">
+            {name}
+          </span>
         </a>
       </li>
     </Fade>

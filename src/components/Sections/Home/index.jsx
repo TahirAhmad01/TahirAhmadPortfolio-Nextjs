@@ -18,7 +18,9 @@ export default function Home() {
   const { theme } = useTheme();
 
   return (
-    <div className={`lightBg dark:darkBg relative ${height > 694 && width > 992 && "h-screen"}`}>
+    <div
+      className={`lightBg dark:darkBg relative ${height > 694 && width > 992 && "h-screen"}`}
+    >
       <div className="w-full h-full background bg-lightBgImg dark:bg-darkBgImg">
         {theme === "dark" ? (
           <Image
@@ -67,7 +69,12 @@ export default function Home() {
                   const { link, hover, icon } = btn || {};
                   return (
                     <span key={idx}>
-                      <SocialBtn key={idx} link={link} hover={hover} icon={icon} />
+                      <SocialBtn
+                        key={idx}
+                        link={link}
+                        hover={hover}
+                        icon={icon}
+                      />
                     </span>
                   );
                 })}

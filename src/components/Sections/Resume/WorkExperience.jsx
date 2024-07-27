@@ -7,8 +7,15 @@ import { Fade, Zoom } from "react-reveal";
 import CertificateModal from "./CertificateModal";
 
 export default function WorkExperience({ work }) {
-  const { description, endDate, startDate, workTitle, position, location, certificates } =
-    work || {};
+  const {
+    description,
+    endDate,
+    startDate,
+    workTitle,
+    position,
+    location,
+    certificates,
+  } = work || {};
   const { width } = useWindowDimensions();
   const [isOpen, setOpen] = useState(false);
   const [contents, setContent] = useState([]);
@@ -25,7 +32,13 @@ export default function WorkExperience({ work }) {
       <div className="p-6 flex items-center">
         <div className=" mr-6 hidden lg:block overflow-hidden">
           <Zoom>
-            <Image src={Icon} alt="work_ico" className="w-64" width={0} height={0} />
+            <Image
+              src={Icon}
+              alt="work_ico"
+              className="w-64"
+              width={0}
+              height={0}
+            />
           </Zoom>
         </div>
         <div className="w-full">
@@ -40,10 +53,14 @@ export default function WorkExperience({ work }) {
                     <Fade left delay={150}>
                       <div className="flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
                         <span className="inline-flex items-center capitalize gap-1">
-                          <i aria-hidden className="bx bxs-briefcase-alt-2"></i> {position}
+                          <i aria-hidden className="bx bxs-briefcase-alt-2"></i>{" "}
+                          {position}
                         </span>
                         <span className="inline-flex items-center capitalize gap-1">
-                          <i aria-hidden className="fa-solid fa-location-dot text-xs"></i>{" "}
+                          <i
+                            aria-hidden
+                            className="fa-solid fa-location-dot text-xs"
+                          ></i>{" "}
                           {location}
                         </span>
                       </div>
@@ -59,7 +76,10 @@ export default function WorkExperience({ work }) {
                   >
                     <div className=" flex items-center ">
                       <div className="mr-1">
-                        <i aria-hidden className="fa-regular fa-calendar-days text-xs"></i>
+                        <i
+                          aria-hidden
+                          className="fa-regular fa-calendar-days text-xs"
+                        ></i>
                       </div>
                       <div className="uppercase">{startDate}</div>
                       <div className="mx-1"> - </div>
@@ -72,7 +92,9 @@ export default function WorkExperience({ work }) {
           </div>
           <div>
             <Fade up>
-              <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">{description}</p>
+              <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
+                {description}
+              </p>
               {certificates &&
                 certificates.map((certificate, idx) => {
                   const { image, title } = certificate || {};

@@ -13,7 +13,11 @@ function Loading() {
             <div className="wave"></div>
             <div className="absolute top-0 left-0 z-[99999999] flex justify-center items-center h-full w-full">
               <div className="md:w-52 w-40 flex justify-center items-center flex-col h-full relative top-10 opacity-100">
-                <Image src={TLogoTop} className="w-full h-16 box_shadow z-20" alt="T Logo SVG" />
+                <Image
+                  src={TLogoTop}
+                  className="w-full h-16 box_shadow z-20"
+                  alt="T Logo SVG"
+                />
                 <Image
                   src={TLogoBottom}
                   className="relative -top-10 h-28 md:h-36 w-12 md:w-16 box_shadow z-10"
@@ -33,7 +37,11 @@ function Loading() {
       >
         <defs>
           <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation={15} result="blur" />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation={15}
+              result="blur"
+            />
             <feColorMatrix
               in="blur"
               mode="matrix"

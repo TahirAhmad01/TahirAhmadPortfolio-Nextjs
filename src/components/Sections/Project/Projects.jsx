@@ -58,7 +58,9 @@ export default function Projects({ items }) {
                 />
                 <div className="absolute bg-white/80 backdrop-blur  h-[80px] w-full -bottom-full left-0 z-30 md:flex justify-center items-center slide-up transition-all ease-in-out duration-500 dark:text-black hidden">
                   <div>
-                    <div className="font-semibold capitalize text-base text-center">{name}</div>
+                    <div className="font-semibold capitalize text-base text-center">
+                      {name}
+                    </div>
                     <div className="text-center text-sm">
                       {category.map((cat, idx) => (
                         <span key={idx}>{(idx ? ", " : "") + cat}</span>
@@ -72,7 +74,12 @@ export default function Projects({ items }) {
         );
       })}
 
-      <ProjectModal open={open} handleOpen={handleOpen} setOpen={setOpen} projectId={projectId} />
+      <ProjectModal
+        open={open}
+        handleOpen={handleOpen}
+        setOpen={setOpen}
+        projectId={projectId}
+      />
     </>
   );
 }
