@@ -50,18 +50,15 @@ export default function RootLayout({ children }) {
   const theme = cookies().get("__theme__")?.value || "dark";
 
   return (
-    <html
-      className={theme}
-      lang="en"
-      style={{ colorScheme: theme }}
-    >
+    <html className={theme} lang="en" style={{ colorScheme: theme }}>
       <head>
         <link rel="manifest" href="/site.webmanifest" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
-        <meta name="author" content={`Qubartech ${process.env.name}`} />        
+        <meta name="author" content={`Qubartech ${process.env.name}`} />
+        <title>Tahir Ahmad - Portfolio</title>
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
