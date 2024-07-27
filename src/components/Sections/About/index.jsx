@@ -35,13 +35,7 @@ export default function About() {
           </div>
           <Zoom>
             <div className="relative h-auto w-full mt-5 md:mt-0 overflow-hidden rounded-xl md:col-span-4 lg:col-span-4 aspect-[4/4]">
-              <Image
-                fill
-                priority
-                src={picture}
-                alt="Tahir's image"
-                className="w-full h-auto"
-              />
+              <Image fill priority src={picture} alt="Tahir's image" className="w-full h-auto" />
             </div>{" "}
           </Zoom>
         </div>

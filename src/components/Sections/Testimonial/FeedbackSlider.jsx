@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import feedbackList from "@/utils/feedbackList.json";
 import { Slide } from "react-awesome-reveal";
 import Slider from "react-slick";
@@ -26,11 +26,10 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function FeedbackSlider(props) {
+export default function FeedbackSlider() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -49,12 +48,8 @@ export default function FeedbackSlider(props) {
             const { name, star, description } = feedback || {};
             return (
               <div key={idx}>
-                <Slide direction="up" triggerOnce >
-                  <FeedbackCard
-                    name={name}
-                    star={star}
-                    description={description}
-                  />
+                <Slide direction="up" triggerOnce>
+                  <FeedbackCard name={name} star={star} description={description} />
                 </Slide>
               </div>
             );

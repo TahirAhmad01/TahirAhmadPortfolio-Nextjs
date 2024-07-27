@@ -72,13 +72,7 @@ export default function ContactMe() {
                 {tellMeOn.map((tellMe, idx) => {
                   const { icon, name, link, delay } = tellMe || {};
                   return (
-                    <SocialContact
-                      key={idx}
-                      icon={icon}
-                      name={name}
-                      link={link}
-                      delay={delay}
-                    />
+                    <SocialContact key={idx} icon={icon} name={name} link={link} delay={delay} />
                   );
                 })}
               </ul>
@@ -97,12 +91,7 @@ export default function ContactMe() {
               className="md:col-span-7 lg:col-span-8 w-full h-full flex flex-col justify-between"
             >
               <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 w-full mt-4 md:mt-0">
-                <ContactInp
-                  placeholder="Your Name"
-                  type="text"
-                  name="from_name"
-                  required
-                />
+                <ContactInp placeholder="Your Name" type="text" name="from_name" required />
                 <ContactInp
                   placeholder="Your Email"
                   type="email"
@@ -116,13 +105,7 @@ export default function ContactMe() {
                   delay={200}
                   name="phone"
                 />
-                <ContactInp
-                  placeholder="Subject"
-                  type="text"
-                  delay={230}
-                  name="subject"
-                  required
-                />
+                <ContactInp placeholder="Subject" type="text" delay={230} name="subject" required />
               </div>
               <div className="w-full  my-4 flex-1">
                 <Fade up delay={240}>
@@ -163,8 +146,7 @@ export default function ContactMe() {
                 </div>
                 <h1 className="text-4xl font-bold">Thank You !</h1>
                 <p className="text-center">
-                  for contacting with me, I will reply promptly once your
-                  message is received.
+                  for contacting with me, I will reply promptly once your message is received.
                 </p>
                 <button
                   type="submit"

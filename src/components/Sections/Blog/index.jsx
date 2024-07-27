@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { Fade } from "react-reveal";
 import blogList from "../../../utils/blogList.json";
 import Title from "../Title";
 import BlogCard from "./BlogCard";
 
-export default function Blog(props) {
+export default function Blog() {
   return (
     <>
       <div className="containerCustom gap">

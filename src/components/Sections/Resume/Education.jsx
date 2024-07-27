@@ -1,17 +1,10 @@
-import Icon from '@/assets/images/university.png';
-import useWindowDimensions from '@/hook/getWindowDimensions';
-import Image from 'next/image';
-import { Fade, Zoom } from 'react-reveal';
+import Icon from "@/assets/images/university.png";
+import useWindowDimensions from "@/hook/getWindowDimensions";
+import Image from "next/image";
+import { Fade, Zoom } from "react-reveal";
 
 export default function Education({ education }) {
-  const {
-    description,
-    endDate,
-    startDate,
-    educationTitle,
-    position,
-    location,
-  } = education || {};
+  const { description, endDate, startDate, educationTitle, position, location } = education || {};
   const { width } = useWindowDimensions();
 
   return (
@@ -19,13 +12,7 @@ export default function Education({ education }) {
       <div className="p-6 flex items-center">
         <div className=" mr-6 hidden lg:block overflow-hidden">
           <Zoom>
-            <Image
-              src={Icon}
-              alt="work_ico"
-              className="w-64"
-              height={0}
-              width={0}
-            />
+            <Image src={Icon} alt="work_ico" className="w-64" height={0} width={0} />
           </Zoom>
         </div>
         <div className="w-full">
@@ -40,14 +27,10 @@ export default function Education({ education }) {
                     <Fade left delay={150}>
                       <div className="flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
                         <span className="inline-flex items-center capitalize gap-1">
-                          <i aria-hidden className="bx bxs-graduation"></i>{' '}
-                          {position}
+                          <i aria-hidden className="bx bxs-graduation"></i> {position}
                         </span>
                         <span className="inline-flex items-center capitalize gap-1">
-                          <i
-                            aria-hidden
-                            className="fa-solid fa-location-dot text-xs"
-                          ></i>{' '}
+                          <i aria-hidden className="fa-solid fa-location-dot text-xs"></i>{" "}
                           {location}
                         </span>
                       </div>
@@ -63,10 +46,7 @@ export default function Education({ education }) {
                   >
                     <div className=" flex items-center ">
                       <div className="mr-1">
-                        <i
-                          aria-hidden
-                          className="fa-regular fa-calendar-days text-xs"
-                        ></i>
+                        <i aria-hidden className="fa-regular fa-calendar-days text-xs"></i>
                       </div>
                       <div>{startDate}</div>
                       <div className="mx-1"> - </div>
@@ -79,9 +59,7 @@ export default function Education({ education }) {
           </div>
           <div>
             <Fade up>
-              <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
-                {description}
-              </p>
+              <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">{description}</p>
             </Fade>
           </div>
         </div>

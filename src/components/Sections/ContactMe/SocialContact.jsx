@@ -1,9 +1,9 @@
-import { Fade } from 'react-reveal';
+import { Fade } from "react-reveal";
 
 function SocialContact({ link, name, icon, delay }) {
   return (
     <Fade up delay={delay}>
-      {' '}
+      {" "}
       <li>
         <a
           href={link}
@@ -12,9 +12,7 @@ function SocialContact({ link, name, icon, delay }) {
           rel="noreferrer"
         >
           <i aria-hidden className={icon}></i>
-          <span className="flex-1 ml-3 whitespace-nowrap capitalize">
-            {name}
-          </span>
+          <span className="flex-1 ml-3 whitespace-nowrap capitalize">{name}</span>
         </a>
       </li>
     </Fade>

@@ -5,7 +5,6 @@ export const metadata = {
   title: `Projects - ${process.env.name}`,
 };
 
-
 export default function Projects() {
   return (
     <>

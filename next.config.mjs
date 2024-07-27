@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-require("dotenv").config();
+// require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 const nextConfig = {
   reactStrictMode: false,
@@ -23,4 +25,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

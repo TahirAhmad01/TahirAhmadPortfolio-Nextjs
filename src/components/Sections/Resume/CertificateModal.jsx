@@ -1,13 +1,13 @@
-import { Box, Modal } from '@mui/material';
-import Image from 'next/image';
+import { Box, Modal } from "@mui/material";
+import Image from "next/image";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  maxHeight: '90vh',
-  border: 'none',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  maxHeight: "90vh",
+  border: "none",
   boxShadow: 90,
 };
 

@@ -5,7 +5,6 @@ export const metadata = {
   title: `Contact - ${process.env.name}`,
 };
 
-
 export default function Contact() {
   return (
     <>

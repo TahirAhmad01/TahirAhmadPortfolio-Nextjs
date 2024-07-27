@@ -8,9 +8,7 @@ export default function ProgressBar({ name, progress, color, ...rest }) {
     <React.Fragment>
       <div className="mb-4 w-full md:w-1/2 px-2" {...rest}>
         <div className="flex justify-between mb-1">
-          <span
-            className={`text-base font-semibold text-black dark:text-white uppercase`}
-          >
+          <span className={`text-base font-semibold text-black dark:text-white uppercase`}>
             {name}
           </span>
           <span className={`text-sm font-medium text-black dark:text-white`}>

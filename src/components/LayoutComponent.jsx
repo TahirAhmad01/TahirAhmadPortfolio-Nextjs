@@ -38,11 +38,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <div className="relative dark:text-white bg-gray-50 dark:bg-[#111827] transition-all overflow-hidden font-nunito">
-        <Navbar
-          theme={theme}
-          toggleDarkMode={toggleDarkMode}
-          loading={mounted}
-        />
+        <Navbar theme={theme} toggleDarkMode={toggleDarkMode} loading={mounted} />
         {children}
         <Footer />
         {path === "/" ? (

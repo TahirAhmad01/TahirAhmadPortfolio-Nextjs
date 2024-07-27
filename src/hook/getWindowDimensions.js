@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 
 // Hook
 function useWindowDimensions() {
   const [windowSize, setWindowSize] = useState({
-    width: 1024, 
+    width: 1024,
     height: 768,
   });
 

@@ -1,16 +1,16 @@
-import avatar from '@/assets/images/logo.webp';
-import useWindowDimensions from '@/hook/getWindowDimensions';
-import menuList from '@/utils/menuList';
-import Image from 'next/image';
-import Link from 'next/link';
+import avatar from "@/assets/images/logo.webp";
+import useWindowDimensions from "@/hook/getWindowDimensions";
+import menuList from "@/utils/menuList";
+import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from 'react';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import MobileDrawer from './MobileDrawer';
-import NextTopLoader from 'nextjs-toploader';
+import React, { useState } from "react";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+import MobileDrawer from "./MobileDrawer";
+import NextTopLoader from "nextjs-toploader";
 
 export default function Navbar({ theme, toggleDarkMode, loading }) {
-  const path = usePathname()
+  const path = usePathname();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -29,7 +29,7 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
             <Link
               href="/"
               onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
               <h4 className="flex items-center text-xl">
@@ -51,9 +51,9 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
                   <Link href={menu?.link} className="capitalize" key={idx}>
                     <li
                       className={`px-3 hover:text-transparent bg-clip-text bg-gradient-to-r from-[#18c8fd] to-purple-600 font-medium ${
-                        path === menu?.link || path === menu?.link + '/'
-                          ? 'text-transparent font-semibold'
-                          : ''
+                        path === menu?.link || path === menu?.link + "/"
+                          ? "text-transparent font-semibold"
+                          : ""
                       }`}
                     >
                       {menu.name}
@@ -65,7 +65,7 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
             <div className="w-7 flex justify-end">
               {loading && (
                 <DarkModeSwitch
-                  checked={theme === 'dark' ? true : false}
+                  checked={theme === "dark" ? true : false}
                   onChange={toggleDarkMode}
                   size={19}
                 />

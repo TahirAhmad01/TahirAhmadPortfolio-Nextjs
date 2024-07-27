@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  HorizontalScrollContainer,
-  HorizontalScrollItem,
-} from "react-simple-horizontal-scroller";
+import { HorizontalScrollContainer, HorizontalScrollItem } from "react-simple-horizontal-scroller";
 import buttonList from "../../../utils/buttonList";
 import projectList from "../../../utils/projectList";
 
@@ -13,9 +10,7 @@ export default function ProjectButton({ setItem }) {
     if (category === "all") {
       setItem(projectList);
     } else {
-      const updateItem = projectList.filter((item) =>
-        item.category.includes(category)
-      );
+      const updateItem = projectList.filter((item) => item.category.includes(category));
       setItem(updateItem);
     }
   };

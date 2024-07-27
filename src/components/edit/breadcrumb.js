@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Breadcrumb() {
   const location = useRouter();
   const path = location.pathname;
-  const pathArr = path.slice(1).split('/');
+  const pathArr = path.slice(1).split("/");
   return (
     <>
       <nav className="flex" aria-label="Breadcrumb">
@@ -46,7 +46,7 @@ function Breadcrumb() {
                 {idx === 0 ? (
                   <>
                     <Link
-                      href={`/${idx === 0 ? path : ''}`}
+                      href={`/${idx === 0 ? path : ""}`}
                       className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white capitalize"
                     >
                       {path}

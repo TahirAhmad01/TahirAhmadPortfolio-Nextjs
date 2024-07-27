@@ -24,14 +24,7 @@ export default function Footer() {
           <div className="icons text-gray-600 dark:text-white/60 flex justify-center flex-wrap mt-2 lg:mt-0">
             {socialBtnList.map((btn, idx) => {
               const { link, hover, icon } = btn || {};
-              return (
-                <SocialBtn
-                  key={idx}
-                  link={link}
-                  hover={`${hover}`}
-                  icon={icon}
-                />
-              );
+              return <SocialBtn key={idx} link={link} hover={`${hover}`} icon={icon} />;
             })}
           </div>
         </div>
