@@ -50,11 +50,7 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
                 {menuList.map((menu, idx) => (
                   <Link href={menu?.link} className="capitalize" key={idx}>
                     <li
-                      className={`px-3 hover:text-transparent bg-clip-text bg-gradient-to-r from-[#18c8fd] to-purple-600 font-medium ${
-                        path === menu?.link || path === menu?.link + "/"
-                          ? "text-transparent font-semibold"
-                          : ""
-                      }`}
+                      className={`px-3 hover:text-transparent bg-clip-text bg-gradient-to-r from-[#18c8fd] to-purple-600 font-medium ${path === menu?.link || path === menu?.link + "/" ? "text-transparent font-semibold" : ""}`}
                     >
                       {menu.name}
                     </li>

@@ -48,11 +48,7 @@ export default function Skill() {
                           </Fade>
                           <div className="flex items-center z-20 gap-2 relative">
                             <img
-                              src={`${
-                                icon
-                                  ? icon
-                                  : "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                              }`}
+                              src={`${icon ? icon : "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"}`}
                               className="w-auto h-5 text-white"
                             />
                             <div className="capitalize text-md  line-clamp-1">

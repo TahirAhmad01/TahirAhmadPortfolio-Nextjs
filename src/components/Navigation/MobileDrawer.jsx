@@ -53,11 +53,7 @@ export default function MobileDrawer({ setSidebar, isOpen }) {
                 >
                   <ul className="w-full py-2 px-2 my-1">
                     <li
-                      className={`py-1 px-4 block w-full capitalize rounded-lg overflow-hidden ${
-                        path === menu?.link || path === menu?.link + "/"
-                          ? "bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white"
-                          : "active:bg-gray-300 dark:active:bg-gray-600"
-                      }`}
+                      className={`py-1 px-4 block w-full capitalize rounded-lg overflow-hidden ${path === menu?.link || path === menu?.link + "/" ? "bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white" : "active:bg-gray-300 dark:active:bg-gray-600"}`}
                     >
                       {menu.name}
                     </li>
