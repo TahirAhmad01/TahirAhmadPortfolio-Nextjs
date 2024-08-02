@@ -7,7 +7,7 @@ import Image from "next/image";
 function Loading() {
   return (
     <PageLayout>
-      <div className="flex items-center justify-center h-full w-full p-14 dark:bg-gray-900 dark:text-gray-100 md:h-[calc(100vh-8.31rem)]">
+      <div className="flex items-center justify-center h-full w-full px-14 py-24 md:py-14 dark:bg-gray-900 dark:text-gray-100 md:h-[calc(100vh-8.31rem)]">
         <div className="parent">
           <div className="box lg:h-[400px] lg:w-[340px] h-[340px] w-[290px] relative">
             <div className="wave"></div>
