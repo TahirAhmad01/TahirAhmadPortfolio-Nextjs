@@ -228,5 +228,14 @@
     "link": "https://image-gallery-ollyo-task-typescript.vercel.app/",
     "source": "https://github.com/TahirAhmad01/ImageGalleryOllyoTaskTypescript",
     "description": "Welcome to our React JS Image Gallery project—a hands-on experience for budding developers. Dive into a visually captivating grid layout, featuring a standout image as the focal point. Effortlessly reorder images with intuitive drag-and-drop functionality, and efficiently manage your gallery by deleting multiple images. Setting a feature image is a breeze, with the first image from left to right taking the spotlight. Enjoy a seamless user experience with smooth transitions and animations."
+  },
+  {
+    "id": 26,
+    "name": "Uddogi",
+    "category": ["html", "ruby", "rails", "bootstrap"],
+    "placeholderSrc": "https://i.ibb.co/s1HzSXV/Screenshot-21.jpg",
+    "imageSrc": "https://i.ibb.co/k9NLnvc/Screenshot-21.png",
+    "link": "https://uddogi.com/",
+    "description": "Welcome to our React JS Image Gallery project—a hands-on experience for budding developers. Dive into a visually captivating grid layout, featuring a standout image as the focal point. Effortlessly reorder images with intuitive drag-and-drop functionality, and efficiently manage your gallery by deleting multiple images. Setting a feature image is a breeze, with the first image from left to right taking the spotlight. Enjoy a seamless user experience with smooth transitions and animations."
   }
 ]
