@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Fade, Zoom } from "react-reveal";
 import CertificateModal from "./CertificateModal";
 import projectList from "@/utils/projectList";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import ProjectModal from "../Project/ProjectModal";
 
 export default function WorkExperience({ work }) {
   const {
@@ -20,11 +22,18 @@ export default function WorkExperience({ work }) {
   } = work || {};
   const { width } = useWindowDimensions();
   const [isOpen, setOpen] = useState(false);
+  const [OpenProject, setOpenProject] = useState(false);
   const [contents, setContent] = useState([]);
+  const [projectId, setProjectId] = useState("");
 
   const handleOpen = () => {
     setOpen(true);
     setContent(certificates);
+  };
+
+  const handleOpenProject = (id) => {
+    setOpenProject(true);
+    setProjectId(id);
   };
 
   const relatedProjects = Array.isArray(project_list)
@@ -130,17 +139,42 @@ export default function WorkExperience({ work }) {
             <div className="mt-4">
               <h3 className="font-medium text-md">Related Projects:</h3>
               <ul className="list-disc pl-5">
-                {relatedProjects.map((project) => (
-                  <li key={project.id}>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                {relatedProjects.map((project, idx) => {
+                  const { id, imageSrc, placeholderSrc, name, category } =
+                    project || {};
+                  return (
+                    <div
+                      className="relative projectBtn w-full object-contain  overflow-hidden hover:cursor-pointer h-64 sm:h-52 lg:h-56 "
+                      onClick={() => handleOpenProject(id)}
+                      key={idx}
                     >
-                      {project.name}
-                    </a>
-                  </li>
-                ))}
+                      <LazyLoadImage
+                        src={imageSrc}
+                        placeholderSrc={placeholderSrc ? placeholderSrc : blur}
+                        threshold="100"
+                        alt={name}
+                        effect="blur"
+                        height="100%"
+                        width="100%"
+                        className="object-cover min-h-full w-full block"
+                        key={idx}
+                        loading="lazy"
+                      />
+                      <div className="absolute bg-white/80 backdrop-blur  h-[80px] w-full -bottom-full left-0 z-30 md:flex justify-center items-center slide-up transition-all ease-in-out duration-500 dark:text-black hidden">
+                        <div>
+                          <div className="font-semibold capitalize text-base text-center">
+                            {name}
+                          </div>
+                          <div className="text-center text-sm">
+                            {category.map((cat, idx) => (
+                              <span key={idx}>{(idx ? ", " : "") + cat}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </ul>
             </div>
           )}
@@ -152,6 +186,13 @@ export default function WorkExperience({ work }) {
         open={isOpen}
         setOpen={setOpen}
         handleOpen={handleOpen}
+      />
+
+      <ProjectModal
+        open={OpenProject}
+        handleOpen={handleOpenProject}
+        setOpen={setOpenProject}
+        projectId={projectId}
       />
     </>
   );
