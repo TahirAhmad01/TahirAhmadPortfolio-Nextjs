@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Fade, Zoom } from "react-reveal";
 import CertificateModal from "./CertificateModal";
+import projectList from "@/utils/projectList";
 
 export default function WorkExperience({ work }) {
   const {
@@ -15,6 +16,7 @@ export default function WorkExperience({ work }) {
     position,
     location,
     certificates,
+    project_list,
   } = work || {};
   const { width } = useWindowDimensions();
   const [isOpen, setOpen] = useState(false);
@@ -24,6 +26,10 @@ export default function WorkExperience({ work }) {
     setOpen(true);
     setContent(certificates);
   };
+
+  const relatedProjects = Array.isArray(project_list)
+    ? projectList.filter((project) => project_list.includes(project.id))
+    : [];
 
   // console.log(certificates)
 
@@ -119,6 +125,25 @@ export default function WorkExperience({ work }) {
                 })}
             </Fade>
           </div>
+
+          {relatedProjects.length > 0 && (
+            <div className="mt-4">
+              <h3 className="font-medium text-md">Related Projects:</h3>
+              <ul className="list-disc pl-5">
+                {relatedProjects.map((project) => (
+                  <li key={project.id}>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
