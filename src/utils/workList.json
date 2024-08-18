@@ -7,8 +7,7 @@
     "position": "React developer",
     "location": "Dhaka, Bangladesh",
     "description": "I am a web designer. Also, I am a React front-end developer. I have been doing web design for the last many years. I have worked in web design with HTML5, CSS3, CSS3 Animation, Bootstrap, JavaScript, JQuery, JQuery Animation, React. I am ready to convert your Html conversion ( PSD, image, pdf to Html ). I know many wonderful effects of use on websites and how to keep the website clean. Effective and clean cross-browser support has been a priority in many of the projects I've worked on.",
-    "certificates": "",
-    "project_list" : [26]
+    "certificates": ""
   },
   {
     "id": 2,
@@ -33,6 +32,7 @@
     "position": "Trainee Software Engineer",
     "location": "House: 6, 14 Block A, Dhaka 1207",
     "description": "As a Trainee Software Engineer at Nascenia, I handle website development using Ruby, Ruby on Rails, and React. Managing multiple projects, I code, debug, and enhance website functionality while collaborating with teams to deliver high-quality solutions. Committed to continuous learning, I contribute to Nascenia's success by leveraging innovative technologies and exceeding client expectations in web development.",
-    "certificates": ""
+    "certificates": "",
+    "project_list": [26]
   }
 ]

@@ -8,6 +8,7 @@ import CertificateModal from "./CertificateModal";
 import projectList from "@/utils/projectList";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ProjectModal from "../Project/ProjectModal";
+import blur from "@/assets/images/blur.webp";
 
 export default function WorkExperience({ work }) {
   const {
@@ -136,41 +137,43 @@ export default function WorkExperience({ work }) {
           </div>
 
           {relatedProjects.length > 0 && (
-            <div className="mt-4">
-              <h3 className="font-medium text-md">Related Projects:</h3>
-              <ul className="list-disc pl-5">
+            <div className="mt-4 text-gray-500 dark:text-gray-400">
+              {/* <h3 className="font-medium text-md">Related Projects:</h3> */}
+              <ul className="list-disc">
                 {relatedProjects.map((project, idx) => {
-                  const { id, imageSrc, placeholderSrc, name, category } =
-                    project || {};
+                  const {
+                    id,
+                    imageSrc,
+                    placeholderSrc,
+                    name,
+                    category,
+                    description:projectDes,
+                  } = project || {};
                   return (
                     <div
-                      className="relative projectBtn w-full object-contain  overflow-hidden hover:cursor-pointer h-64 sm:h-52 lg:h-56 "
-                      onClick={() => handleOpenProject(id)}
+                      className="flex justify-start items-start gap-2 w-full"
                       key={idx}
+                      onClick={() => handleOpenProject(id)}
                     >
-                      <LazyLoadImage
-                        src={imageSrc}
-                        placeholderSrc={placeholderSrc ? placeholderSrc : blur}
-                        threshold="100"
-                        alt={name}
-                        effect="blur"
-                        height="100%"
-                        width="100%"
-                        className="object-cover min-h-full w-full block"
-                        key={idx}
-                        loading="lazy"
-                      />
-                      <div className="absolute bg-white/80 backdrop-blur  h-[80px] w-full -bottom-full left-0 z-30 md:flex justify-center items-center slide-up transition-all ease-in-out duration-500 dark:text-black hidden">
-                        <div>
-                          <div className="font-semibold capitalize text-base text-center">
-                            {name}
-                          </div>
-                          <div className="text-center text-sm">
-                            {category.map((cat, idx) => (
-                              <span key={idx}>{(idx ? ", " : "") + cat}</span>
-                            ))}
-                          </div>
-                        </div>
+                      <div className="object-contain overflow-hidden hover:cursor-pointer h-24 w-32 rounded-md">
+                        <LazyLoadImage
+                          src={imageSrc}
+                          placeholderSrc={
+                            placeholderSrc ? placeholderSrc : blur
+                          }
+                          threshold="100"
+                          alt={name}
+                          effect="blur"
+                          height="100%"
+                          width="100%"
+                          className="object-cover min-h-full w-full block"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      <div className="w-[calc(100%-9rem)]">
+                        <div className="font-semibold text-lg">{name}</div>
+                        <div className="line-clamp-3">{projectDes}</div>
                       </div>
                     </div>
                   );
