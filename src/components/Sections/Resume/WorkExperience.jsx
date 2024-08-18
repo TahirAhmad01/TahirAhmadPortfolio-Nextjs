@@ -45,7 +45,7 @@ export default function WorkExperience({ work }) {
 
   return (
     <>
-      <div className="p-6 flex items-center">
+      <div className="p-6 flex items-start">
         <div className=" mr-6 hidden lg:block overflow-hidden">
           <Zoom>
             <Image
@@ -146,8 +146,7 @@ export default function WorkExperience({ work }) {
                     imageSrc,
                     placeholderSrc,
                     name,
-                    category,
-                    description:projectDes,
+                    description: projectDes,
                   } = project || {};
                   return (
                     <div
@@ -155,7 +154,7 @@ export default function WorkExperience({ work }) {
                       key={idx}
                       onClick={() => handleOpenProject(id)}
                     >
-                      <div className="object-contain overflow-hidden hover:cursor-pointer h-24 w-32 rounded-md">
+                      <div className="object-contain overflow-hidden hover:cursor-pointer h-20 md:h-24 w-28 md:w-32 rounded-md">
                         <LazyLoadImage
                           src={imageSrc}
                           placeholderSrc={
@@ -173,7 +172,7 @@ export default function WorkExperience({ work }) {
 
                       <div className="w-[calc(100%-9rem)]">
                         <div className="font-semibold text-lg">{name}</div>
-                        <div className="line-clamp-3">{projectDes}</div>
+                        <div className="line-clamp-3 text-xs md:text-sm md:pt-2">{projectDes}</div>
                       </div>
                     </div>
                   );
