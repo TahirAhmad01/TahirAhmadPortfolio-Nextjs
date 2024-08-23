@@ -18,7 +18,7 @@ export default function Project() {
 
   return (
     <div className="containerCustom gap">
-      <Title title="projects" />
+      <Title title="projects" titleDes="Here are some of the projects I've worked on" />
       {path !== "/" && <ProjectButton setItem={setItems} items={items} />}
 
       <AnimatePresence>

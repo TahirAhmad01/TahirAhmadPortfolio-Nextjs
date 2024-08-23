@@ -12,7 +12,7 @@ export default function About() {
   return (
     <div className=" flex items-center flex-wrap relative">
       <div className="containerCustom gap overflow-hidden">
-        <Title title="about me" />
+        <Title title="about me" titleDes="Ge to know about me" />
 
         <div className="md:grid items-center md:gap-3 lg:gap-4 grid-cols-9 md:col-start-9">
           <div className="md:col-span-5 lg:col-span-5 lg:pr-28">

@@ -7,7 +7,7 @@ export default function Skill() {
   return (
     <>
       <div className=" containerCustom gap">
-        <Title title="skill" />
+        <Title title="skill" titleDes="Skills aquired over the years" />
 
         {/* {skillsList?.length > 0 &&
             skillsList?.map((skill, idx) => {

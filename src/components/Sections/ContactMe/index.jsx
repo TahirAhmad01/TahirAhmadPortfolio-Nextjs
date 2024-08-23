@@ -61,7 +61,7 @@ export default function ContactMe() {
   return (
     <>
       <div className="containerCustom gap">
-        <Title title="CONTACT" />
+        <Title title="CONTACT" titleDes="Do you want to know more or have any queries?"/>
         <div className="md:grid grid-cols-12 gap-4">
           <div className="md:col-span-5 lg:col-span-4">
             <div className="w-full p-4 bg-white border rounded-lg shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
