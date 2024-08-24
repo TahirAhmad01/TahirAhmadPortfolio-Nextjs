@@ -21,10 +21,10 @@ export default function ContactMe() {
 
     await emailjs
       .sendForm(
-        "service_sob3n6t", //SERVICE ID
-        "template_ol3bs8a", //TEMPLATE ID
+        process.env.EMAIL_JS_SERVICE_ID, //SERVICE ID
+        process.env.EMAIL_JS_TEMPLATE_ID, //TEMPLATE ID
         form.current,
-        "q-Wr4qVce_T4pGFt2", // PUBLIC KEY
+        process.env.EMAIL_JS_PUBLIC_KEY // PUBLIC KEY
       )
       .then(
         (result) => {
@@ -42,7 +42,9 @@ export default function ContactMe() {
             button: "Close",
             dangerMode: true,
           });
-        },
+
+          console.log(err)
+        }
       );
 
     setLoading(false);
