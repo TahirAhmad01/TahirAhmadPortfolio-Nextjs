@@ -125,7 +125,7 @@ export default function WorkExperience({ work }) {
                         loader={() => src}
                         src={src}
                         alt={title}
-                        className="w-28 rounded-md overflow-hidden"
+                        className="h-20 md:h-24 w-28 md:w-32 rounded-md overflow-hidden"
                         height={300}
                         width={300}
                       />
@@ -137,7 +137,7 @@ export default function WorkExperience({ work }) {
           </div>
 
           {relatedProjects.length > 0 && (
-            <div className="mt-4 text-gray-500 dark:text-gray-400">
+            <div className="mt-3 text-gray-500 dark:text-gray-400">
               {/* <h3 className="font-medium text-md">Related Projects:</h3> */}
               <ul className="list-disc">
                 {relatedProjects.map((project, idx) => {
@@ -150,7 +150,7 @@ export default function WorkExperience({ work }) {
                   } = project || {};
                   return (
                     <div
-                      className="flex justify-start items-start gap-2 w-full"
+                      className="flex justify-start items-start gap-2 w-full mb-3 hover:cursor-pointer"
                       key={idx}
                       onClick={() => handleOpenProject(id)}
                     >

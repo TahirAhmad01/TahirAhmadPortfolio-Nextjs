@@ -237,5 +237,23 @@
     "imageSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
     "link": "https://uddogi.com/",
     "description": "As a proficient full-stack web developer, I proudly serve at Nascenia Ltd., where my expertise shines in maintaining and enhancing VAT management software. Within this dynamic role, I diligently craft and implement innovative features, swiftly troubleshoot bugs, and meticulously refine code for optimal performance. My focal point lies in the intricate realm of VAT calculation, where precision and efficiency converge to deliver seamless solutions for our esteemed clientele."
+  },
+  {
+    "id": 27,
+    "name": "Decofetch",
+    "category": ["html", "rest-api", "rails", "bootstrap"],
+    "placeholderSrc": "https://i.ibb.co/X21sWh9/Screenshot-from-2024-08-27-10-57-22.jpg",
+    "imageSrc": "https://i.ibb.co/X21sWh9/Screenshot-from-2024-08-27-10-57-22.jpg",
+    "link": "https://www.decofetch.com/",
+    "description": "This E-commerce application specializes in furniture sales, offering various categories and customizable product options. Users can choose different variations and order custom sizes. Payments are processed via Stripe and PayPal. A unique 'Shop The Look' feature allows users to explore room designs and select products by clicking on white dots within the image. We also offer a trade program with discounted pricing for eligible users. An admin dashboard manages all features, allowing dynamic content updates across the site, similar to a CMS system.This E-commerce application specializes in furniture sales, offering various categories and customizable product options. Users can choose different variations and order custom sizes. Payments are processed via Stripe and PayPal. A unique 'Shop The Look' feature allows users to explore room designs and select products by clicking on white dots within the image. We also offer a trade program with discounted pricing for eligible users. An admin dashboard manages all features, allowing dynamic content updates across the site, similar to a CMS system."
+  },
+  {
+    "id": 28,
+    "name": "Dojoteq",
+    "category": ["html", "next", "rails", "tailwind"],
+    "placeholderSrc": "https://i.ibb.co/Mkc6yz6/Dashboard.jpg",
+    "imageSrc": "https://i.ibb.co/pzKnS2d/Dashboard.png",
+    "link": "https://dojoteq-instructor.edalytics.com/login",
+    "description": "Our online training platform features live video classes with One-to-One and One-to-Many call options. Students join classes via a mobile app, instructors use a dashboard for scheduling, and admins oversee everything through an admin dashboard. Video sharing is enabled for both in One-to-One, but only for instructors in One-to-Many. We use Stripe for secure payments."
   }
 ]
