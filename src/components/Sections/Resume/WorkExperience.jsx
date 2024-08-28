@@ -41,60 +41,60 @@ export default function WorkExperience({ work }) {
     ? projectList.filter((project) => project_list.includes(project.id))
     : [];
 
-  // console.log(certificates)
 
   return (
     <>
       <div className="p-6 flex items-start">
-        <div className=" mr-6 hidden lg:block overflow-hidden">
-          <Zoom>
-            <Image
-              src={Icon}
-              alt="work_ico"
-              className="w-64"
-              width={0}
-              height={0}
-            />
-          </Zoom>
-        </div>
         <div className="w-full">
           <div className="flex items-center">
             <div className="overflow-hidden w-full">
               <div className="flex flex-col md:flex-row justify-between md:items-center">
-                <div>
-                  <h2 className="font-medium text-lg ">
-                    <Fade left>{workTitle}</Fade>
-                  </h2>
-                  <div className="text-gray-500 dark:text-gray-200 text-sm">
-                    <Fade left delay={150}>
-                      <div className="flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
-                        <span className="inline-flex items-center capitalize gap-1">
-                          <i aria-hidden className="bx bxs-briefcase-alt-2"></i>{" "}
-                          {position}
-                        </span>
-                        <span className="inline-flex items-center capitalize gap-1">
-                          <i
-                            aria-hidden
-                            className="fa-solid fa-location-dot text-xs"
-                          ></i>{" "}
-                          {location}
-                        </span>
-                      </div>
-                    </Fade>
+                <div className="flex items-center justify-start gap-2">
+                  <div>
+                    <Zoom>
+                      <Image
+                        src={Icon}
+                        alt="work_ico"
+                        className="w-14 h-14 rounded-full bg-gray-200 object-cover"
+                        width={0}
+                        height={0}
+                      />
+                    </Zoom>
+                  </div>
+                  <div>
+                    <h2 className="font-medium text-lg ">
+                      <Fade left>{workTitle}</Fade>
+                    </h2>
+                    <div className="text-gray-500 dark:text-gray-200 text-sm uppercase">
+                      <Fade left delay={150}>
+                        <div className="flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
+                          <span className="inline-flex items-center capitalize gap-1">
+                            <i
+                              aria-hidden
+                              className="bx bxs-briefcase-alt-2"
+                            ></i>{" "}
+                            {position}
+                          </span>
+                          <span className="inline-flex items-center capitalize gap-1">
+                            <i
+                              aria-hidden
+                              className="fa-solid fa-location-dot text-xs"
+                            ></i>{" "}
+                            {location}
+                          </span>
+                        </div>
+                      </Fade>
+                    </div>
                   </div>
                 </div>
 
-                <div className="text-gray-500 dark:text-gray-200 text-xs mt-1 md:mt-0">
-                  <Fade
-                    left={width < 768 ? true : false}
-                    right={width > 768 ? true : false}
-                    duration={1300}
-                  >
-                    <div className=" flex items-center ">
+                <div className="text-gray-500 dark:text-gray-200 mt-1 md:mt-0 ml-14 pl-2 text-xs">
+                  <Fade left={width < 768} right={width > 768} duration={1300}>
+                    <div className="flex items-center">
                       <div className="mr-1">
                         <i
                           aria-hidden
-                          className="fa-regular fa-calendar-days text-xs"
+                          className="fa-regular fa-calendar-days"
                         ></i>
                       </div>
                       <div className="uppercase">{startDate}</div>
@@ -106,7 +106,7 @@ export default function WorkExperience({ work }) {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:ml-14 md:pl-2">
             <Fade up>
               <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
                 {description}
@@ -134,52 +134,54 @@ export default function WorkExperience({ work }) {
                   );
                 })}
             </Fade>
+
+            {relatedProjects.length > 0 && (
+              <div className="mt-3 text-gray-500 dark:text-gray-400">
+                {/* <h3 className="font-medium text-md">Related Projects:</h3> */}
+                <ul className="list-disc">
+                  {relatedProjects.map((project, idx) => {
+                    const {
+                      id,
+                      imageSrc,
+                      placeholderSrc,
+                      name,
+                      description: projectDes,
+                    } = project || {};
+                    return (
+                      <div
+                        className="flex justify-start items-start gap-2 w-full mb-3 hover:cursor-pointer"
+                        key={idx}
+                        onClick={() => handleOpenProject(id)}
+                      >
+                        <div className="object-contain overflow-hidden hover:cursor-pointer h-20 md:h-24 w-28 md:w-32 rounded-md">
+                          <LazyLoadImage
+                            src={imageSrc}
+                            placeholderSrc={
+                              placeholderSrc ? placeholderSrc : blur
+                            }
+                            threshold="100"
+                            alt={name}
+                            effect="blur"
+                            height="100%"
+                            width="100%"
+                            className="object-cover min-h-full w-full block"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <div className="w-[calc(100%-9rem)]">
+                          <div className="font-semibold text-lg">{name}</div>
+                          <div className="line-clamp-3 text-xs md:text-sm md:pt-2">
+                            {projectDes}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </div>
-
-          {relatedProjects.length > 0 && (
-            <div className="mt-3 text-gray-500 dark:text-gray-400">
-              {/* <h3 className="font-medium text-md">Related Projects:</h3> */}
-              <ul className="list-disc">
-                {relatedProjects.map((project, idx) => {
-                  const {
-                    id,
-                    imageSrc,
-                    placeholderSrc,
-                    name,
-                    description: projectDes,
-                  } = project || {};
-                  return (
-                    <div
-                      className="flex justify-start items-start gap-2 w-full mb-3 hover:cursor-pointer"
-                      key={idx}
-                      onClick={() => handleOpenProject(id)}
-                    >
-                      <div className="object-contain overflow-hidden hover:cursor-pointer h-20 md:h-24 w-28 md:w-32 rounded-md">
-                        <LazyLoadImage
-                          src={imageSrc}
-                          placeholderSrc={
-                            placeholderSrc ? placeholderSrc : blur
-                          }
-                          threshold="100"
-                          alt={name}
-                          effect="blur"
-                          height="100%"
-                          width="100%"
-                          className="object-cover min-h-full w-full block"
-                          loading="lazy"
-                        />
-                      </div>
-
-                      <div className="w-[calc(100%-9rem)]">
-                        <div className="font-semibold text-lg">{name}</div>
-                        <div className="line-clamp-3 text-xs md:text-sm md:pt-2">{projectDes}</div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </ul>
-            </div>
-          )}
         </div>
       </div>
 
