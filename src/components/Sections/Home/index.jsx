@@ -28,6 +28,9 @@ export default function Home() {
             fill={true}
             priority={true}
             className="h-full w-full absolute z-10 top-0 left-0 opacity-0"
+            height={0}
+            width={0}
+            alt="bg image"
           />
         ) : theme === "light" ? (
           <Image
@@ -35,6 +38,9 @@ export default function Home() {
             fill={true}
             priority={true}
             className="h-full w-full absolute z-10 top-0 left-0 opacity-0"
+            height={0}
+            width={0}
+            alt="bg image"
           />
         ) : null}
 

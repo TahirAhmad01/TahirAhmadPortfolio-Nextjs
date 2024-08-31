@@ -14,8 +14,8 @@ module.exports = withMT({
   theme: {
     extend: {
       backgroundImage: {
-        darkBgImg: "url('/bg_img/dark.jpg')",
-        lightBgImg: "url(/bg_img/light.jpg')",
+        darkBgImg: "url('/images/bg_img/dark.jpg')",
+        lightBgImg: "url('/images/bg_img/light.jpg')",
       },
     },
     fontFamily: {

@@ -58,11 +58,6 @@ export default function FeedBackCard({ feedback }) {
               </Typography>
             </div>
             <div className="5 flex items-center gap-0">
-              {/* <StarIcon className="h-5 w-5 text-yellow-700 dark:text-yellow-300" />
-              <StarIcon className="h-5 w-5 text-yellow-700 dark:text-yellow-300" />
-              <StarIcon className="h-5 w-5 text-yellow-700 dark:text-yellow-300" />
-              <StarIcon className="h-5 w-5 text-yellow-700 dark:text-yellow-300" />
-              <StarIcon className="h-5 w-5 text-yellow-700 dark:text-yellow-300" /> */}
               {rating}
             </div>
           </div>
