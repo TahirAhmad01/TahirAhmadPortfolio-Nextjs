@@ -2,6 +2,7 @@
   {
     "id": 1,
     "workTitle": "Front End Web Developer",
+    "company_logo" : "/images/company_logo/front_end_logo.webp",
     "startDate": "12-06-2020",
     "endDate": "NOW",
     "position": "React developer",
@@ -12,6 +13,7 @@
   {
     "id": 2,
     "workTitle": "Kalpas innovation pvt. ltd",
+    "company_logo": "/images/company_logo/kalpas_logo.png",
     "startDate": "29-12-2021",
     "endDate": "29-04-2022",
     "position": "React internship",
@@ -28,6 +30,7 @@
   {
     "id": 3,
     "workTitle": "Nascenia ltd",
+    "company_logo": "/images/company_logo/nascenia_logo.png",
     "startDate": "15-12-2023",
     "endDate": "Now",
     "position": "Trainee Software Engineer",

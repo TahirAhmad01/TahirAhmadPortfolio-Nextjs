@@ -20,6 +20,7 @@ export default function WorkExperience({ work }) {
     location,
     certificates,
     project_list,
+    company_logo,
   } = work || {};
   const { width } = useWindowDimensions();
   const [isOpen, setOpen] = useState(false);
@@ -52,11 +53,11 @@ export default function WorkExperience({ work }) {
                   <div>
                     <Zoom>
                       <Image
-                        src={Icon}
+                        src={company_logo ? company_logo : Icon}
                         alt="work_ico"
-                        className="w-20 h-20 rounded-full bg-gray-200 object-cover"
-                        width={0}
-                        height={0}
+                        className="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-600 p-2 object-cover"
+                        width={250}
+                        height={250}
                       />
                     </Zoom>
                   </div>
