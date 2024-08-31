@@ -77,6 +77,11 @@
   color: #9a9a9a !important;
 }
 
+.slick-slider .slick-track, .slick-slider .slick-list {
+    display: flex;
+    align-items: center;
+}
+
 /* social button */
 .facebook:hover {
   background-color: #4267b2;

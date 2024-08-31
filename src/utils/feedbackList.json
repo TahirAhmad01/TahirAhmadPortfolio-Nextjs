@@ -1,48 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Paul Starr",
+    "name": "alexander1420",
+    "profile_image" : "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/d97e6c704cad52b8efe3b0af0dc21cda-1625138403028/db021335-cffe-4363-8fec-f70090c64412.jpeg",
+    "position": "",
     "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
+    "description": "Tahirahmad did an outstanding job designing a modern, intuitive, and fully responsive UI/UX for our website. The level of professionalism and creativity brought to the project was exceptional. The new design has significantly improved user engagement and accessibility across all devices. Highly recommended for anyone in need of top-notch web design services!"
   },
   {
-    "id": 1,
-    "name": "Paul Starr",
-    "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
-  },
-  {
-    "id": 1,
-    "name": "Paul Starr",
-    "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
-  },
-  {
-    "id": 1,
-    "name": "Paul Starr",
-    "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
-  },
-  {
-    "id": 1,
-    "name": "Paul Starr",
-    "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
-  },
-  {
-    "id": 1,
-    "name": "Paul Starr",
-    "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
-  },
-  {
-    "id": 1,
-    "name": "Paul Starr",
-    "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
-  },
-  {
-    "id": 1,
+    "id": 2,
     "name": "Paul Starr",
     "star": 5,
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"

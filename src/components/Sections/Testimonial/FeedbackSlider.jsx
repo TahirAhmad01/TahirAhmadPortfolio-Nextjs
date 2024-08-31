@@ -45,34 +45,14 @@ export default function FeedbackSlider() {
       <div>
         <Slider {...settings}>
           {feedbackList.map((feedback, idx) => {
-            const { name, star, description } = feedback || {};
             return (
               <div key={idx}>
-                <Slide direction="up" triggerOnce>
-                  <FeedbackCard
-                    name={name}
-                    star={star}
-                    description={description}
-                  />
-                </Slide>
+                <FeedbackCard
+                  feedback={feedback}
+                />
               </div>
             );
           })}
-          {/* <div>
-            <Slide up>
-              <FeedbackCard />
-            </Slide>
-          </div>{" "}
-          <div>
-            <Slide up>
-              <FeedbackCard />
-            </Slide>
-          </div>{" "}
-          <div>
-            <Slide up>
-              <FeedbackCard />
-            </Slide>
-          </div> */}
         </Slider>
       </div>
     </>

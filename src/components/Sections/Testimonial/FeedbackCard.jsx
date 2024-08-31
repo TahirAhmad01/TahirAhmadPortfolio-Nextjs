@@ -8,14 +8,16 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-export default function FeedBackCard({ name, star, description }) {
+export default function FeedBackCard({ feedback }) {
+  const { name, star, description, position } = feedback || {};
+
   const rating = [];
   for (let i = 0; i < (star || 5); i++) {
     rating.push(
       <StarIcon
         className="h-4 w-4 md:h-5 md:w-5 text-yellow-700 dark:text-yellow-300 text-xs"
         key={i}
-      />,
+      />
     );
   }
 
@@ -52,7 +54,7 @@ export default function FeedBackCard({ name, star, description }) {
                 color="blue-gray"
                 className="dark:text-gray-400 text-xs font-medium"
               >
-                Frontend Lead @ Google
+                {position ? position : "Frontend Lead @ Google"}
               </Typography>
             </div>
             <div className="5 flex items-center gap-0">
