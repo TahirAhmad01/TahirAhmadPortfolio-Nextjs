@@ -27,7 +27,7 @@ export default function FeedBackCard({ feedback }) {
       <Card
         color="transparent"
         shadow={false}
-        className="w-full max-w-[50rem] mx-auto bg-white px-5 py-1 shadow-md mb-4 dark:bg-gray-800 border dark:border-gray-700 dark:text-white"
+        className="w-full max-w-[50rem] mx-auto  px-5 py-1 shadow-md mb-4 dark:bg-gray-800 backdrop-blur-xl bg-white/90 dark:border-gray-700 dark:text-white"
       >
         <CardHeader
           color="transparent"

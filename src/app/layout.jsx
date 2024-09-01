@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/aria-unsupported-elements */
 import "@/assets/css/global.css";
 import LayoutComponent from "@/components/LayoutComponent";
 import AppThemeProvider from "@/context/ThemeProvider";

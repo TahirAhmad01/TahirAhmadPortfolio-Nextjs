@@ -138,11 +138,11 @@ export default function WorkExperience({ work }) {
                           loader={() => src}
                           src={src}
                           alt={title}
-                          className="h-20 md:h-24 w-28 md:w-32 rounded-md overflow-hidden"
+                          className="h-20 md:h-24 w-28 md:w-32 rounded-md overflow-hidden shadow-md"
                           height={300}
                           width={300}
                         />
-                        <div className="ml-2 text-gray-400"> {title}</div>
+                        <div className="ml-2 text-gray-500 dark:text-gray-400"> {title}</div>
                       </div>
                     );
                   })}
@@ -164,7 +164,7 @@ export default function WorkExperience({ work }) {
                           key={idx}
                           onClick={() => handleOpenProject(id)}
                         >
-                          <div className="object-contain overflow-hidden hover:cursor-pointer h-20 md:h-24 w-28 md:w-32 rounded-md">
+                          <div className="object-contain overflow-hidden hover:cursor-pointer h-20 md:h-24 w-28 md:w-32 rounded-md shadow-md">
                             <LazyLoadImage
                               src={imageSrc}
                               placeholderSrc={
@@ -189,7 +189,7 @@ export default function WorkExperience({ work }) {
                             {category.map((cat, idx) => (
                               <>
                                 <div
-                                  className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 capitalize md:inline-block hidden"
+                                  className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 capitalize md:inline-block hidden shadow-md"
                                   key={idx}
                                 >
                                   {cat}
