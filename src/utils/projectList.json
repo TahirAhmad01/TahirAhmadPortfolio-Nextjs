@@ -231,6 +231,7 @@
   },
   {
     "id": 26,
+    "worked_company_id" : 3,
     "name": "Uddogi",
     "category": ["html", "ruby", "rails", "bootstrap"],
     "placeholderSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
@@ -240,6 +241,7 @@
   },
   {
     "id": 27,
+    "worked_company_id": 2,
     "name": "Decofetch",
     "category": ["html", "rest-api", "rails", "bootstrap"],
     "placeholderSrc": "https://i.ibb.co/X21sWh9/Screenshot-from-2024-08-27-10-57-22.jpg",
@@ -249,6 +251,7 @@
   },
   {
     "id": 28,
+    "worked_company_id": 2,
     "name": "Dojoteq",
     "category": ["html", "next", "rails", "tailwind"],
     "placeholderSrc": "https://i.ibb.co/Mkc6yz6/Dashboard.jpg",

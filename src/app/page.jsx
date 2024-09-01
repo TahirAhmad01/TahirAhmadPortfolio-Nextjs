@@ -4,7 +4,7 @@ import Blog from "@/components/Sections/Blog";
 import ContactMe from "@/components/Sections/ContactMe";
 import Home from "@/components/Sections/Home";
 import Project from "@/components/Sections/Project";
-import Resume from "@/components/Sections/Resume";
+import Resume from "@/components/Sections/Qualifications";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
 

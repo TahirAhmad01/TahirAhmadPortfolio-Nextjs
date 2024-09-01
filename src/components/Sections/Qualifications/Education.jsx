@@ -39,11 +39,11 @@ export default function Education({ education }) {
                   <div className="text-gray-500 dark:text-gray-200 text-sm">
                     <Fade left delay={150}>
                       <div className="flex items-start sm:items-center flex-col sm:flex-row sm:gap-2">
-                        <span className="inline-flex items-center capitalize gap-1">
+                        <span className="inline-flex items-center capitalize gap-1 line-clamp-1 md:line-clamp-none">
                           <i aria-hidden className="bx bxs-graduation"></i>{" "}
                           {position}
                         </span>
-                        <span className="inline-flex items-center capitalize gap-1">
+                        <span className="inline-flex items-center capitalize gap-1 line-clamp-1 md:line-clamp-none">
                           <i
                             aria-hidden
                             className="fa-solid fa-location-dot text-xs"

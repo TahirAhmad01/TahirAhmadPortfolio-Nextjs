@@ -12,6 +12,7 @@ import blur from "@/assets/images/blur.webp";
 
 export default function WorkExperience({ work }) {
   const {
+    id,
     description,
     endDate,
     startDate,
@@ -19,7 +20,6 @@ export default function WorkExperience({ work }) {
     position,
     location,
     certificates,
-    project_list,
     company_logo,
   } = work || {};
   const { width } = useWindowDimensions();
@@ -38,9 +38,9 @@ export default function WorkExperience({ work }) {
     setProjectId(id);
   };
 
-  const relatedProjects = Array.isArray(project_list)
-    ? projectList.filter((project) => project_list.includes(project.id))
-    : [];
+  const relatedProjects = projectList.filter(
+    ({ worked_company_id }) => worked_company_id === id
+  );
 
   return (
     <>
@@ -68,14 +68,14 @@ export default function WorkExperience({ work }) {
                     <div className="text-gray-500 dark:text-gray-400 text-sm uppercase">
                       <Fade left delay={150}>
                         <div className="flex items-start md:items-center flex-col md:flex-row md:gap-2">
-                          <span className="inline-flex items-center capitalize gap-1">
+                          <span className="inline-flex items-center capitalize gap-1 line-clamp-1 md:line-clamp-none">
                             <i
                               aria-hidden
                               className="bx bxs-briefcase-alt-2"
                             ></i>{" "}
                             {position}
                           </span>
-                          <span className="md:inline-flex items-center capitalize gap-1">
+                          <span className="md:inline-flex items-center capitalize gap-1 line-clamp-1 md:line-clamp-none">
                             <i
                               aria-hidden
                               className="fa-solid fa-location-dot text-xs"
@@ -90,9 +90,9 @@ export default function WorkExperience({ work }) {
                                 className="fa-regular fa-calendar-days"
                               ></i>
                             </div>
-                            <div className="uppercase">{startDate}</div>
-                            <div className="mx-1"> - </div>
-                            <div className="uppercase">{endDate}</div>
+                            <div className="uppercase">
+                              {startDate} - {endDate}
+                            </div>
                           </span>
                         </div>
                       </Fade>
@@ -100,7 +100,7 @@ export default function WorkExperience({ work }) {
                   </div>
                 </div>
 
-                <div className="text-gray-500 dark:text-gray-200 mt-1 pl-2 text-xs hidden md:block flex-grow text-nowrap">
+                <div className="text-gray-500 dark:text-gray-400 mt-1 pl-2 text-xs hidden md:block flex-grow text-nowrap">
                   <Fade left={width < 768} right={width > 768} duration={1300}>
                     <div className="flex items-center">
                       <div className="mr-1">
@@ -109,9 +109,9 @@ export default function WorkExperience({ work }) {
                           className="fa-regular fa-calendar-days"
                         ></i>
                       </div>
-                      <div className="uppercase">{startDate}</div>
-                      <div className="mx-1"> - </div>
-                      <div className="uppercase">{endDate}</div>
+                      <div className="uppercase">
+                        {startDate} - {endDate}
+                      </div>
                     </div>
                   </Fade>
                 </div>
