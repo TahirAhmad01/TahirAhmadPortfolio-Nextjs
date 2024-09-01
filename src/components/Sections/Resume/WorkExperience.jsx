@@ -1,5 +1,5 @@
 "use client";
-import Icon from "@/assets/images/work.webp";
+import icon from "@/assets/images/work.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import { useState } from "react";
@@ -48,24 +48,24 @@ export default function WorkExperience({ work }) {
         <div className="w-full">
           <div className="flex items-center">
             <div className="overflow-hidden w-full">
-              <div className="flex flex-col md:flex-row justify-between md:items-center">
-                <div className="flex items-center justify-start gap-2 md:gap-4">
-                  <div>
+              <div className="flex flex-col md:flex-row justify-between md:items-center w-full">
+                <div className="flex items-start md:items-center justify-start gap-2 md:gap-4 w-full">
+                  <div className="min-w-16 md:min-w-20">
                     <Zoom>
                       <Image
-                        src={company_logo ? company_logo : Icon}
+                        src={company_logo ? company_logo : icon}
                         alt="work_ico"
-                        className="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-600 p-2 object-cover"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 dark:bg-gray-600 p-2 object-cover"
                         width={250}
                         height={250}
                       />
                     </Zoom>
                   </div>
                   <div>
-                    <h2 className="font-medium text-lg md:text-xl md:font-bold">
+                    <h2 className="text-sm md:text-xl font-bold sm:line-clamp-1">
                       <Fade left>{workTitle}</Fade>
                     </h2>
-                    <div className="text-gray-500 dark:text-gray-200 text-sm uppercase">
+                    <div className="text-gray-500 dark:text-gray-400 text-sm uppercase">
                       <Fade left delay={150}>
                         <div className="flex items-start md:items-center flex-col md:flex-row md:gap-2">
                           <span className="inline-flex items-center capitalize gap-1">
@@ -75,7 +75,7 @@ export default function WorkExperience({ work }) {
                             ></i>{" "}
                             {position}
                           </span>
-                          <span className="inline-flex items-center capitalize gap-1">
+                          <span className="md:inline-flex items-center capitalize gap-1">
                             <i
                               aria-hidden
                               className="fa-solid fa-location-dot text-xs"
@@ -100,12 +100,8 @@ export default function WorkExperience({ work }) {
                   </div>
                 </div>
 
-                <div className="text-gray-500 dark:text-gray-200 mt-1 ml-20 pl-2 text-xs hidden md:block">
-                  <Fade
-                    left={width < 768}
-                    right={width > 768}
-                    duration={1300}
-                  >
+                <div className="text-gray-500 dark:text-gray-200 mt-1 pl-2 text-xs hidden md:block flex-grow text-nowrap">
+                  <Fade left={width < 768} right={width > 768} duration={1300}>
                     <div className="flex items-center">
                       <div className="mr-1">
                         <i
@@ -186,14 +182,14 @@ export default function WorkExperience({ work }) {
 
                           <div className="w-[calc(100%-9rem)]">
                             <div className="font-semibold text-lg">{name}</div>
-                            <div className="line-clamp-2 text-xs md:text-sm">
+                            <div className="line-clamp-3 md:line-clamp-2 text-xs md:text-sm">
                               {projectDes}
                             </div>
 
                             {category.map((cat, idx) => (
                               <>
                                 <div
-                                  className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 capitalize inline-block"
+                                  className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 capitalize md:inline-block hidden"
                                   key={idx}
                                 >
                                   {cat}
