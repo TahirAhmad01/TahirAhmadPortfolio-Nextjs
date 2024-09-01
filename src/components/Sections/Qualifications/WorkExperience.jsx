@@ -55,7 +55,7 @@ export default function WorkExperience({ work }) {
                       <Image
                         src={company_logo ? company_logo : icon}
                         alt="work_ico"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 dark:bg-gray-600 p-2 object-cover"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 dark:bg-gray-500 p-1 object-cover"
                         width={250}
                         height={250}
                       />
