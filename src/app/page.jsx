@@ -16,7 +16,6 @@ export default async function Index() {
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return (
-    // <Suspense fallback={<Loading />}>
     <main>
       <Home />
       <PageLayout>
@@ -29,7 +28,6 @@ export default async function Index() {
         <ContactMe />
       </PageLayout>
     </main>
-    // </Suspense>
   );
 }
 
