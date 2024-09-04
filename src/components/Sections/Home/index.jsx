@@ -15,6 +15,7 @@ import { useTheme } from "next-themes";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
+import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <div
-      className={`lightBg dark:darkBg relative ${height > 694 && width > 992 && "h-screen"}`}
+      className={`lightBg dark:darkBg relative ${height > 694 && width > 992 && "h-screen"} overflow-hidden`}
     >
       <div className="w-full h-full background bg-lightBgImg dark:bg-darkBgImg">
         {theme === "dark" ? (
@@ -48,7 +49,7 @@ export default function Home() {
         ) : null}
 
         <div className="h-auto md:h-full pt-24 py-8 containerCustom relative z-10">
-          <div className="backdrop-blur-xl bg-white/60 dark:bg-[#0b1327]/80 rounded-2xl h-full w-full relative overflow-hidden">
+          <div className="backdrop-blur-xl bg-white/10 dark:bg-[#0b1327]/20 rounded-2xl h-full w-full relative overflow-hidden">
             <div
               className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-20 md:pb-28 pb-32`}
             >
@@ -125,15 +126,32 @@ export default function Home() {
               className="absolute bottom-0 z-10 "
             />
 
-            <BorderBeam size={500} duration={12} delay={9} className="z-[99999]"/>
-            <DotPattern
-              className={`${cn(
-                "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] "
-              )} bg-white/6`}
+            <BorderBeam
+              size={500}
+              duration={12}
+              delay={9}
+              className="z-[99999]"
             />
           </div>
         </div>
       </div>
+
+      <DotPattern
+        className={`${cn(
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] "
+        )} bg-white/6`}
+      />
+
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.1}
+        duration={3}
+        repeatDelay={1}
+        className={`${cn(
+          "[mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
+        )} opacity-90`}
+      />
     </div>
   );
 }
