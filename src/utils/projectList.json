@@ -231,13 +231,13 @@
   },
   {
     "id": 26,
-    "worked_company_id" : 3,
-    "name": "Uddogi",
-    "category": ["html", "ruby", "rails", "bootstrap"],
-    "placeholderSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
-    "imageSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
-    "link": "https://uddogi.com/",
-    "description": "As a proficient full-stack web developer, I proudly serve at Nascenia Ltd., where my expertise shines in maintaining and enhancing VAT management software. Within this dynamic role, I diligently craft and implement innovative features, swiftly troubleshoot bugs, and meticulously refine code for optimal performance. My focal point lies in the intricate realm of VAT calculation, where precision and efficiency converge to deliver seamless solutions for our esteemed clientele."
+    "worked_company_id": 2,
+    "name": "Dojoteq",
+    "category": ["html", "next", "react", "tailwind"],
+    "placeholderSrc": "https://i.ibb.co/Mkc6yz6/Dashboard.jpg",
+    "imageSrc": "https://i.ibb.co/pzKnS2d/Dashboard.png",
+    "link": "https://dojoteq-instructor.edalytics.com/login",
+    "description": "Our online training platform features live video classes with One-to-One and One-to-Many call options. Students join classes via a mobile app, instructors use a dashboard for scheduling, and admins oversee everything through an admin dashboard. Video sharing is enabled for both in One-to-One, but only for instructors in One-to-Many. We use Stripe for secure payments."
   },
   {
     "id": 27,
@@ -251,12 +251,30 @@
   },
   {
     "id": 28,
-    "worked_company_id": 2,
-    "name": "Dojoteq",
-    "category": ["html", "next", "react", "tailwind"],
-    "placeholderSrc": "https://i.ibb.co/Mkc6yz6/Dashboard.jpg",
-    "imageSrc": "https://i.ibb.co/pzKnS2d/Dashboard.png",
-    "link": "https://dojoteq-instructor.edalytics.com/login",
-    "description": "Our online training platform features live video classes with One-to-One and One-to-Many call options. Students join classes via a mobile app, instructors use a dashboard for scheduling, and admins oversee everything through an admin dashboard. Video sharing is enabled for both in One-to-One, but only for instructors in One-to-Many. We use Stripe for secure payments."
+    "worked_company_id": 3,
+    "name": "Course Management Application",
+    "category": [
+      "html",
+      "ruby",
+      "rails",
+      "rspec",
+      "bootstrap",
+      "jquery",
+      "javascript"
+    ],
+    "placeholderSrc": "https://i.ibb.co/sCTYyvL/course-management.jpg",
+    "imageSrc": "https://i.ibb.co/yYmbmFZ/course-management.png",
+    "source": "https://github.com/TahirAhmad01/CourseManagementApplication-ROR",
+    "description": "The university student course registration system is unable to cope with the high volume manual process of recording, retrieving and updating each record at registration time. During peak transaction times for each new semester, registration lines are getting longer as well as each student’s waiting and processing time. So an online student course registration system needs to be developed.In the case of a university course registration process, students will be able to register their courses online. The available courses will be chosen by the students under a user authentication process. Registered courses should be listed under a specific semester for each student.There should be search activity by Semester Name so that we can see the registered courses under that semester.Admin can create a semester and mark the semester as the current semester.Lastly Admin will update the each semester result and result will be published calculating the CGPA of each subject and result will be emailed to students.Each student will be able to see their own result through his registered email id."
+  },
+  {
+    "id": 29,
+    "worked_company_id": 3,
+    "name": "Uddogi",
+    "category": ["html", "ruby", "rails", "bootstrap", "jquery", "javascript"],
+    "placeholderSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
+    "imageSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
+    "link": "https://uddogi.com/",
+    "description": "As a proficient full-stack web developer, I proudly serve at Nascenia Ltd., where my expertise shines in maintaining and enhancing VAT management software. Within this dynamic role, I diligently craft and implement innovative features, swiftly troubleshoot bugs, and meticulously refine code for optimal performance. My focal point lies in the intricate realm of VAT calculation, where precision and efficiency converge to deliver seamless solutions for our esteemed clientele."
   }
 ]

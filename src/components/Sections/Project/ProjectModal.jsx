@@ -60,10 +60,8 @@ function ProjectModal({ setOpen, open, projectId }) {
           </div>
 
           <div className=" mb-5">
-            {/* <span className="font-medium">Using:</span>{" "} */}
             {category.map((cat, idx) => (
               <>
-                {/* <span key={idx}>{(idx ? ", " : "") + cat}</span> */}
                 <div
                   className="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-0.5 rounded-2xl dark:bg-blue-200 dark:text-blue-800 capitalize inline-block"
                   key={idx}
