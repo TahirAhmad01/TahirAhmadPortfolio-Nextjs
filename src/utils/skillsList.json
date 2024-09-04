@@ -61,7 +61,7 @@
         "name": "Node.js",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
         "position": "junior",
-        "progress": 30
+        "progress": 40
       },
       {
         "id": 4,
@@ -89,7 +89,7 @@
         "name": "Ruby on Rails",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-plain.svg",
         "position": "expert",
-        "progress": 60
+        "progress": 90
       }
     ]
   },

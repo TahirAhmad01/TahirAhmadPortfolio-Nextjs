@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function AnimatedGridPattern({
-  width = 40,
-  height = 40,
+  width = 30,
+  height = 30,
   x = -1,
   y = -1,
   strokeDasharray = 0,
@@ -85,7 +85,7 @@ export function AnimatedGridPattern({
       ref={containerRef}
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full fill-gray-600/30 dark:fill-gray-300 stroke-gray-800/30 dark:stroke-gray-400/25",
+        "pointer-events-none absolute inset-0 h-full w-full fill-gray-600/50 dark:fill-gray-300 stroke-gray-800/30 dark:stroke-gray-600/25",
         className
       )}
       {...props}

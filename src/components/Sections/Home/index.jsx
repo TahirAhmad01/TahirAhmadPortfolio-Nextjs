@@ -9,13 +9,12 @@ import Wave from "react-wavify";
 import SocialBtn from "../../SocialBtn";
 import socialBtnList from "./../../../utils/socialBtnList.json";
 import Button from "./Button";
-import bgDarkImg from "@/assets/images/dark.jpg";
-import bgLightImg from "@/assets/images/light.jpg";
 import { useTheme } from "next-themes";
 import { BorderBeam } from "@/components/magicui/border-beam";
-import DotPattern from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
+import GradualSpacing from "@/components/magicui/gradual-spacing";
+import BoxReveal from "@/components/magicui/box-reveal";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
@@ -35,51 +34,56 @@ export default function Home() {
                 <Image src={avatar} alt="avatar" fill={true} priority={true} />
               </div>
               <h2 className="text-3xl md:text-4xl font-medium pb-4 pt-2 ">
-                <Fade up cascade>
-                  {process.env.fullName}
-                </Fade>
+                <GradualSpacing
+                  className="font-display text-center text-2xl font-bold tracking-[-0.1em]  text-black dark:text-white md:text-3xl leading-[1rem] md:leading-[2rem]"
+                  text={process.env.fullName}
+                />
               </h2>{" "}
-              <ReactTyped
-                strings={[
-                  "Full-stack Web Developer",
-                  "Javascript Developer",
-                  "React Developer",
-                  "Ruby Developer",
-                  "Web Designer",
-                ]}
-                typeSpeed={90}
-                backSpeed={80}
-                loop
-                className="text-md md:text-xl text-gray-600 dark:text-gray-300"
-              />
-              <div className="icons mt-4 text-gray-600 dark:text-white/60 flex justify-center flex-wrap">
-                {socialBtnList.map((btn, idx) => {
-                  const { link, hover, icon } = btn || {};
-                  return (
-                    <span key={idx}>
-                      <SocialBtn
-                        key={idx}
-                        link={link}
-                        hover={hover}
-                        icon={icon}
-                      />
-                    </span>
-                  );
-                })}
-              </div>
-              <div className="flex mt-5">
-                <Link href="/contact">
-                  <Button name="Get in touch" />
-                </Link>
-
-                {/* https://drive.google.com/file/d/1Fk19gxqaJQnGJ8ThNbvC-MySTzK6N57c/view?usp=drive_link */}
-                <a
-                  href="https://drive.google.com/uc?export=download&id=133oZZsA2HoTxaVnt_4ZwJPPYjTkjopKs"
-                  download
-                >
-                  <Button name="Download CV" />
-                </a>
-              </div>
+              <BoxReveal boxColor={"#0b1327"} duration={0.5}>
+                <ReactTyped
+                  strings={[
+                    "Full-stack Web Developer",
+                    "Javascript Developer",
+                    "React Developer",
+                    "Ruby Developer",
+                    "Web Designer",
+                  ]}
+                  typeSpeed={90}
+                  backSpeed={80}
+                  loop
+                  className="text-md md:text-xl text-gray-600 dark:text-gray-300"
+                />
+              </BoxReveal>
+              <BoxReveal boxColor={"#0b1327"} duration={0.5}>
+                <div className="icons mt-4 text-gray-600 dark:text-white/60 flex justify-center flex-wrap">
+                  {socialBtnList.map((btn, idx) => {
+                    const { link, hover, icon } = btn || {};
+                    return (
+                      <span key={idx}>
+                        <SocialBtn
+                          key={idx}
+                          link={link}
+                          hover={hover}
+                          icon={icon}
+                        />
+                      </span>
+                    );
+                  })}
+                </div>
+              </BoxReveal>
+              <BoxReveal boxColor={"#0b1327"} duration={0.5}>
+                <div className="flex mt-5">
+                  <Link href="/contact">
+                    <Button name="Get in touch" />
+                  </Link>
+                  <a
+                    href="https://drive.google.com/uc?export=download&id=133oZZsA2HoTxaVnt_4ZwJPPYjTkjopKs"
+                    download
+                  >
+                    <Button name="Download CV" />
+                  </a>
+                </div>
+              </BoxReveal>
             </div>
             <Wave
               fill="#fff4"
@@ -116,11 +120,11 @@ export default function Home() {
 
       <AnimatedGridPattern
         numSquares={30}
-        maxOpacity={0.1}
-        duration={3}
+        maxOpacity={0.05}
+        duration={1}
         repeatDelay={1}
         className={`${cn(
-          "md:[mask-image:radial-gradient(900px_circle_at_center,white,transparent)] [mask-image:radial-gradient(500px_circle_at_center,white,transparent)] ",
+          "md:[mask-image:radial-gradient(700px_circle_at_center,white,transparent)] lg:[mask-image:radial-gradient(1100px_circle_at_center,white,transparent)] [mask-image:radial-gradient(350px_circle_at_center,white,transparent)] ",
           "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
         )} opacity-90`}
       />
