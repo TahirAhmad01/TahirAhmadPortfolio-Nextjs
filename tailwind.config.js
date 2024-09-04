@@ -155,12 +155,7 @@ module.exports = withMT({
         ".lightBg": {
           backgroundImage:
             "linear-gradient(150deg,#BBC8EA,#CEC0D1,#D7ABC2,#CD8FB8,#B672BF)",
-        },
-
-        ".darkBg": {
-          backgroundImage:
-            "linear-gradient(150deg,#072847, #0E2F50,#2A4B5E,#39545F,#545F59,#636155,#885C41,#91583B,#9C4F33)",
-        },
+        }
       });
     }),
   ],
