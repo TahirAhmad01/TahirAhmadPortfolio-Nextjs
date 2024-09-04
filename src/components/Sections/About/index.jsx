@@ -40,7 +40,7 @@ export default function About() {
                 priority
                 src={picture}
                 alt="Tahir's image"
-                className="w-full h-auto o"
+                className="w-full h-auto object-top object-cover"
               />
             </div>{" "}
           </Zoom>

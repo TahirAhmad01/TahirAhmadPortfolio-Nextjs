@@ -125,7 +125,7 @@ export default function Home() {
               className="absolute bottom-0 z-10 "
             />
 
-            <BorderBeam size={500} duration={12} delay={9} />
+            <BorderBeam size={500} duration={12} delay={9} className="z-[99999]"/>
             <DotPattern
               className={`${cn(
                 "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] "

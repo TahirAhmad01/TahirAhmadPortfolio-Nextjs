@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 
 export const BorderBeam = ({
   className,
-  size = 200,
-  duration = 15,
+  size = 700,
+  duration = 2,
   anchor = 90,
   borderWidth = 2.5,
   colorFrom = "rgba(27, 199, 255, 1)",
