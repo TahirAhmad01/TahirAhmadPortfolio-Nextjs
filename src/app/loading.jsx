@@ -1,4 +1,4 @@
-import "@/assets/css/loading.css";
+import "@/assets/css/loading.scss";
 import TLogoBottom from "@/assets/images/svg/TLogoBottom.svg";
 import TLogoTop from "@/assets/images/svg/TLogoTop.svg";
 import PageLayout from "@/components/PageLayout";
