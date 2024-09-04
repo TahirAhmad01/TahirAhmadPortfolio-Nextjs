@@ -12,14 +12,34 @@ export default function FeedBackCard({ feedback }) {
   const { name, star, description, position, ref_comp, profile_image } =
     feedback || {};
 
+  const totalStars = 5;
+  const filledStars = Math.floor(star || totalStars);
+  const hasHalfStar = star % 1 !== 0;
+
   const rating = [];
-  for (let i = 0; i < (star || 5); i++) {
-    rating.push(
-      <StarIcon
-        className="h-4 w-4 md:h-5 md:w-5 text-yellow-700 dark:text-yellow-300 text-xs"
-        key={i}
-      />
-    );
+  for (let i = 0; i < totalStars; i++) {
+    if (i < filledStars) {
+      rating.push(
+        <StarIcon
+          className="h-4 w-4 md:h-5 md:w-5 text-yellow-700 dark:text-yellow-300"
+          key={i}
+        />
+      );
+    } else if (i === filledStars && hasHalfStar) {
+      rating.push(
+        <StarIcon
+          className="h-4 w-4 md:h-5 md:w-5 text-gray-300 dark:text-gray-600"
+          key={i}
+        />
+      );
+    } else {
+      rating.push(
+        <StarIcon
+          className="h-4 w-4 md:h-5 md:w-5 text-gray-300 dark:text-gray-600"
+          key={i}
+        />
+      );
+    }
   }
 
   return (
