@@ -12,6 +12,9 @@ import Button from "./Button";
 import bgDarkImg from "@/assets/images/dark.jpg";
 import bgLightImg from "@/assets/images/light.jpg";
 import { useTheme } from "next-themes";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import DotPattern from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
@@ -120,6 +123,13 @@ export default function Home() {
                 points: 5,
               }}
               className="absolute bottom-0 z-10 "
+            />
+
+            <BorderBeam size={500} duration={12} delay={9} />
+            <DotPattern
+              className={`${cn(
+                "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] "
+              )} bg-white/6`}
             />
           </div>
         </div>
