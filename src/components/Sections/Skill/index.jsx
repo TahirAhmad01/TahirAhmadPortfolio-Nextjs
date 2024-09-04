@@ -2,24 +2,14 @@
 import skillsList from "@/utils/skillsList.json";
 import { Fade } from "react-reveal";
 import Title from "../Title";
+import Image from "next/image";
 
 export default function Skill() {
   return (
     <>
       <div className=" containerCustom gap">
-        <Title title="skill" titleDes="Skills aquired over the years" />
+        <Title title="skill" titleDes="Skills acquired over the years" />
 
-        {/* {skillsList?.length > 0 &&
-            skillsList?.map((skill, idx) => {
-              const { name, progress } = skill || {};
-              return (
-                <>
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" />
-                  <ProgressBar name={name} progress={progress} key={idx} />
-                </>
-              );
-            })} */}
-        {/* <div className="grid grid-cols-2 gap-2 w-full row-start-auto"> */}
         {skillsList?.length > 0 &&
           skillsList?.map((skill, idx) => {
             const { name, list } = skill;
@@ -47,9 +37,13 @@ export default function Skill() {
                             </div>
                           </Fade>
                           <div className="flex items-center z-20 gap-2 relative">
-                            <img
+                            <Image
                               src={`${icon ? icon : "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"}`}
+                              alt="tahir ahmad's skills"
                               className="w-auto h-5 text-white"
+                              height={0}
+                              width={0}
+                              unoptimized
                             />
                             <div className="capitalize text-md  line-clamp-1">
                               {name}{" "}
