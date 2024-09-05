@@ -8,12 +8,27 @@ import Resume from "@/components/Sections/Qualifications";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
 
+function loadStylesAndScripts() {
+  return new Promise((resolve) => {
+    const stylesPromise = new Promise((styleResolve) =>
+      setTimeout(styleResolve, 1000)
+    );
+    const scriptsPromise = new Promise((scriptResolve) =>
+      setTimeout(scriptResolve, 1000)
+    );
+
+    Promise.all([stylesPromise, scriptsPromise]).then(() => {
+      resolve();
+    });
+  });
+}
+
 export const metadata = {
   title: `Home - ${process.env.name}`,
 };
 
 export default async function Index() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await loadStylesAndScripts();
 
   return (
     <main>

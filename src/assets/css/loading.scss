@@ -42,16 +42,16 @@
   border-radius: 45%;
   background: #2d3436;
   animation:
-    animate 5s linear infinite,
-    moveWave 3s ease forwards;
+    animate 4s linear infinite,
+    moveWave 2s ease forwards;
   z-index: 10;
 }
 .wave:after {
   border-radius: 40%;
   background: #636e7280;
   animation:
-    animate 10s linear infinite,
-    moveWave 3s ease forwards;
+    animate 6s linear infinite,
+    moveWave 2s ease forwards;
   z-index: 10;
 }
 
