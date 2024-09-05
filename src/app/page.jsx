@@ -11,13 +11,10 @@ import Testimonial from "@/components/Sections/Testimonial";
 function loadStylesAndScripts() {
   return new Promise((resolve) => {
     const stylesPromise = new Promise((styleResolve) =>
-      setTimeout(styleResolve, 1000)
-    );
-    const scriptsPromise = new Promise((scriptResolve) =>
-      setTimeout(scriptResolve, 1000)
+      setTimeout(styleResolve, 2500)
     );
 
-    Promise.all([stylesPromise, scriptsPromise]).then(() => {
+    Promise.all([stylesPromise]).then(() => {
       resolve();
     });
   });
