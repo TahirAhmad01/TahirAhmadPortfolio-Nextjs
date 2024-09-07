@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,
@@ -26,13 +27,14 @@ const categories = [
 export function FilterProject({ selectedCategories, setSelectedCategories }) {
   const handleCategoryChange = (category) => {
     const lowerCaseCategory = category.toLowerCase();
-    setSelectedCategories((prev) =>
-      prev.includes(lowerCaseCategory)
-        ? prev.filter((item) => item !== lowerCaseCategory)
-        : [...prev, lowerCaseCategory]
-    );
+    setSelectedCategories((prev) => {
+      if (prev.includes(lowerCaseCategory)) {
+        return prev.filter((item) => item !== lowerCaseCategory);
+      } else {
+        return [...prev, lowerCaseCategory];
+      }
+    });
   };
-  
 
   return (
     <Sheet>
@@ -49,23 +51,30 @@ export function FilterProject({ selectedCategories, setSelectedCategories }) {
         <div className="grid gap-4 py-4">
           {categories.map((category) => {
             const lowerCaseCategory = category.toLowerCase();
+            const isChecked = selectedCategories.includes(lowerCaseCategory);
+
             return (
-              <div className="flex items-center" key={category}>
-                <input
-                  type="checkbox"
-                  id={category}
-                  checked={selectedCategories.includes(lowerCaseCategory)}
-                  onChange={() => handleCategoryChange(category)}
-                  className="mr-2"
+              <div className="flex items-center" key={lowerCaseCategory}>
+                <Checkbox
+                  id={lowerCaseCategory}
+                  checked={isChecked}
+                  onCheckedChange={() => handleCategoryChange(category)}
                 />
-                <Label htmlFor={category}>{category}</Label>
+                <Label
+                  htmlFor={lowerCaseCategory}
+                  className="ml-2 text-sm font-medium"
+                >
+                  {category}
+                </Label>
               </div>
             );
           })}
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit">Apply Filters</Button>
+            <Button type="button" onClick={() => {}}>
+              Apply Filters
+            </Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
