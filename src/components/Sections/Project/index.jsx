@@ -14,24 +14,21 @@ export default function Project() {
   const [items, setItems] = useState([
     ...projectList.sort((b, a) => a.id - b.id),
   ]);
-  const [searchTerm, setSearchTerm] = useState(""); // State for search input
-  const [selectedCategories, setSelectedCategories] = useState([]); // State for selected categories
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState([]); 
   const path = usePathname();
 
-  // Effect to filter projects based on search term and categories
   useEffect(() => {
     let filteredItems = projectList;
 
-    // Filter by search term
     if (searchTerm !== "") {
       filteredItems = filteredItems.filter(
         (project) =>
-          project.title &&
-          project.title.toLowerCase().includes(searchTerm.toLowerCase())
+          project.name &&
+          project.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    // Filter by categories
     if (selectedCategories.length > 0) {
       filteredItems = filteredItems.filter((project) =>
         selectedCategories.every((category) =>
@@ -55,8 +52,8 @@ export default function Project() {
           <Input
             type="text"
             placeholder="Search Project"
-            value={searchTerm} // Set value to searchTerm state
-            onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} 
             className="max-w-[360px] focus-visible:ring-0 focus-visible:ring-offset-0"
           />
           <FilterProject
