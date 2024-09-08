@@ -61,55 +61,64 @@ export function FilterProject({
             Select categories and types to filter projects.
           </SheetDescription>
         </SheetHeader>
-        <div className="grid gap-4 py-4">
-          {categories.map((category) => {
-            const lowerCaseCategory = category.toLowerCase();
-            const isChecked = selectedCategories.includes(lowerCaseCategory);
 
-            return (
-              <div className="flex items-center" key={lowerCaseCategory}>
-                <Checkbox
-                  id={lowerCaseCategory}
-                  checked={isChecked}
-                  onCheckedChange={() => handleCategoryChange(category)}
-                />
-                <Label
-                  htmlFor={lowerCaseCategory}
-                  className="ml-2 text-sm font-medium capitalize"
-                >
-                  {category}
-                </Label>
-              </div>
-            );
-          })}
+        {/* Language Filter */}
+        <div className="py-4">
+          <h3 className="text-lg font-semibold">Select Language</h3>
+          <div className="grid gap-4 py-2">
+            {categories.map((category) => {
+              const lowerCaseCategory = category.toLowerCase();
+              const isChecked = selectedCategories.includes(lowerCaseCategory);
+
+              return (
+                <div className="flex items-center" key={lowerCaseCategory}>
+                  <Checkbox
+                    id={lowerCaseCategory}
+                    checked={isChecked}
+                    onCheckedChange={() => handleCategoryChange(category)}
+                  />
+                  <Label
+                    htmlFor={lowerCaseCategory}
+                    className="ml-2 text-sm font-medium capitalize"
+                  >
+                    {category}
+                  </Label>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="pt-2">
-          <Checkbox
-            id="Associated"
-            checked={selectedTypes.includes("associated")}
-            onCheckedChange={() => handleTypeChange("associated")}
-          />
-          <Label
-            htmlFor="Associated"
-            className="ml-2 text-sm font-medium capitalize"
-          >
-            Worked with company
-          </Label>
-        </div>
+        {/* Project Type Filter */}
+        <div className="py-4">
+          <h3 className="text-lg font-semibold">Project Type</h3>
+          <div className="pt-2">
+            <Checkbox
+              id="Associated"
+              checked={selectedTypes.includes("associated")}
+              onCheckedChange={() => handleTypeChange("associated")}
+            />
+            <Label
+              htmlFor="Associated"
+              className="ml-2 text-sm font-medium capitalize"
+            >
+              Associated with company
+            </Label>
+          </div>
 
-        <div className="pt-2">
-          <Checkbox
-            id="PersonalProject"
-            checked={selectedTypes.includes("personal")}
-            onCheckedChange={() => handleTypeChange("personal")}
-          />
-          <Label
-            htmlFor="PersonalProject"
-            className="ml-2 text-sm font-medium capitalize"
-          >
-            Personal Project
-          </Label>
+          <div className="pt-2">
+            <Checkbox
+              id="PersonalProject"
+              checked={selectedTypes.includes("personal")}
+              onCheckedChange={() => handleTypeChange("personal")}
+            />
+            <Label
+              htmlFor="PersonalProject"
+              className="ml-2 text-sm font-medium capitalize"
+            >
+              Personal Project
+            </Label>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
