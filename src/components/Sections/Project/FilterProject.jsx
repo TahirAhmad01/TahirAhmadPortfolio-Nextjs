@@ -3,12 +3,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -24,7 +22,12 @@ const categories = [
   "tailwind",
 ];
 
-export function FilterProject({ selectedCategories, setSelectedCategories }) {
+export function FilterProject({
+  selectedCategories,
+  setSelectedCategories,
+  selectedTypes,
+  setSelectedTypes,
+}) {
   const handleCategoryChange = (category) => {
     const lowerCaseCategory = category.toLowerCase();
     setSelectedCategories((prev) => {
@@ -32,6 +35,16 @@ export function FilterProject({ selectedCategories, setSelectedCategories }) {
         return prev.filter((item) => item !== lowerCaseCategory);
       } else {
         return [...prev, lowerCaseCategory];
+      }
+    });
+  };
+
+  const handleTypeChange = (type) => {
+    setSelectedTypes((prev) => {
+      if (prev.includes(type)) {
+        return prev.filter((item) => item !== type);
+      } else {
+        return [...prev, type];
       }
     });
   };
@@ -45,38 +58,68 @@ export function FilterProject({ selectedCategories, setSelectedCategories }) {
         <SheetHeader>
           <SheetTitle>Filter Projects</SheetTitle>
           <SheetDescription>
-            Select categories to filter projects.
+            Select categories and types to filter projects.
           </SheetDescription>
         </SheetHeader>
-        <div className="grid gap-4 py-4">
-          {categories.map((category) => {
-            const lowerCaseCategory = category.toLowerCase();
-            const isChecked = selectedCategories.includes(lowerCaseCategory);
 
-            return (
-              <div className="flex items-center" key={lowerCaseCategory}>
-                <Checkbox
-                  id={lowerCaseCategory}
-                  checked={isChecked}
-                  onCheckedChange={() => handleCategoryChange(category)}
-                />
-                <Label
-                  htmlFor={lowerCaseCategory}
-                  className="ml-2 text-sm font-medium"
-                >
-                  {category}
-                </Label>
-              </div>
-            );
-          })}
+        {/* Language Filter */}
+        <div className="py-4">
+          <h3 className="text-lg font-semibold">Select Language</h3>
+          <div className="grid gap-4 py-2">
+            {categories.map((category) => {
+              const lowerCaseCategory = category.toLowerCase();
+              const isChecked = selectedCategories.includes(lowerCaseCategory);
+
+              return (
+                <div className="flex items-center" key={lowerCaseCategory}>
+                  <Checkbox
+                    id={lowerCaseCategory}
+                    checked={isChecked}
+                    onCheckedChange={() => handleCategoryChange(category)}
+                  />
+                  <Label
+                    htmlFor={lowerCaseCategory}
+                    className="ml-2 text-sm font-medium capitalize"
+                  >
+                    {category}
+                  </Label>
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="button" onClick={() => {}}>
-              Apply Filters
-            </Button>
-          </SheetClose>
-        </SheetFooter>
+
+        {/* Project Type Filter */}
+        <div className="py-4">
+          <h3 className="text-lg font-semibold">Project Type</h3>
+          <div className="pt-2">
+            <Checkbox
+              id="Associated"
+              checked={selectedTypes.includes("associated")}
+              onCheckedChange={() => handleTypeChange("associated")}
+            />
+            <Label
+              htmlFor="Associated"
+              className="ml-2 text-sm font-medium capitalize"
+            >
+              Associated with company
+            </Label>
+          </div>
+
+          <div className="pt-2">
+            <Checkbox
+              id="PersonalProject"
+              checked={selectedTypes.includes("personal")}
+              onCheckedChange={() => handleTypeChange("personal")}
+            />
+            <Label
+              htmlFor="PersonalProject"
+              className="ml-2 text-sm font-medium capitalize"
+            >
+              Personal Project
+            </Label>
+          </div>
+        </div>
       </SheetContent>
     </Sheet>
   );
