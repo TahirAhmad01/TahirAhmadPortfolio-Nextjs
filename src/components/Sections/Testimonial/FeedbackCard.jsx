@@ -44,25 +44,39 @@ export default function FeedBackCard({ feedback }) {
   }
 
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showViewMore, setShowViewMore] = useState(false); 
+  const [showViewMore, setShowViewMore] = useState(false);
   const descRef = useRef(null);
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   useEffect(() => {
-    if (descRef.current) {
-      const element = descRef.current;
-      const lineHeight = parseInt(
-        window.getComputedStyle(element).lineHeight,
-        10
-      );
-      const maxHeight = lineHeight * 4;
-      if (element.scrollHeight > maxHeight) {
-        setShowViewMore(true);
-      } else {
-        setShowViewMore(false);
+    const checkDescriptionHeight = () => {
+      if (descRef.current) {
+        const element = descRef.current;
+        const lineHeight = parseInt(
+          window.getComputedStyle(element).lineHeight,
+          10
+        );
+        const maxHeight = lineHeight * 4;
+        if (element.scrollHeight > maxHeight) {
+          setShowViewMore(true);
+        } else {
+          setShowViewMore(false);
+        }
       }
+    };
+
+    checkDescriptionHeight();
+    const resizeObserver = new ResizeObserver(() => checkDescriptionHeight());
+    if (descRef.current) {
+      resizeObserver.observe(descRef.current);
     }
+
+    return () => {
+      if (descRef.current) {
+        resizeObserver.unobserve(descRef.current);
+      }
+    };
   }, [description]);
 
   return (
@@ -113,14 +127,14 @@ export default function FeedBackCard({ feedback }) {
           <Typography
             ref={descRef}
             className={`text-center dark:text-gray-300 ${
-              isExpanded ? "" : "line-clamp-4"
+              isExpanded ? "" : showViewMore ? "line-clamp-3" : "line-clamp-4"
             }`}
           >
             {description}
           </Typography>
 
           {showViewMore && (
-            <div className="text-center mt-2">
+            <div className="text-center mt-1">
               <button
                 onClick={toggleExpand}
                 className="text-blue-500 hover:underline"
