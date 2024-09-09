@@ -40,8 +40,14 @@ export function FilterProject({
   };
 
   const handleTypeChange = (type) => {
-    setSelectedTypes([type]); 
-  };
+    setSelectedTypes((prev) => {
+      if (prev.includes(type)) {
+        return [];
+      } else {
+        return [type];
+      }
+    });
+  }
 
   return (
     <Sheet>
