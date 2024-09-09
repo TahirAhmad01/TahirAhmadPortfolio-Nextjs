@@ -63,6 +63,7 @@ export function FilterProject({
         </SheetHeader>
 
         {/* Language Filter */}
+        <div className="px-6 overflow-y-auto max-h-[calc(100vh-100px)]">
         <div className="py-4">
           <h3 className="text-lg font-semibold">Select Language</h3>
           <div className="grid gap-4 py-2">
@@ -119,6 +120,7 @@ export function FilterProject({
               Personal Project
             </Label>
           </div>
+        </div>
         </div>
       </SheetContent>
     </Sheet>
