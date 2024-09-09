@@ -57,9 +57,9 @@ export function FilterProject({
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Filter Projects</SheetTitle>
-          <SheetDescription>
+          {/* <SheetDescription>
             Select categories and types to filter projects.
-          </SheetDescription>
+          </SheetDescription> */}
         </SheetHeader>
 
         {/* Language Filter */}
