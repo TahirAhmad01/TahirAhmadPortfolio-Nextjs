@@ -1,5 +1,4 @@
 import avatar from "@/assets/images/logo.webp";
-import useWindowDimensions from "@/hook/getWindowDimensions";
 import menuList from "@/utils/menuList";
 import Image from "next/image";
 import Link from "next/link";
