@@ -10,8 +10,11 @@
   },
   {
     "id": 2,
-    "name": "Paul Starr",
+    "name": "Mashuke Alam Jim",
+    "profile_image" : "https://media.licdn.com/dms/image/v2/D5603AQHMeDLxteC1iw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724677238275?e=1731542400&v=beta&t=XXLo8XuHrjaEeeeWsnUXFA9xzpZ50l-__NznlQWWd5M",
+    "position": "software engineer",
+    "ref_comp" : "nascenia",
     "star": 5,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptatem alias ut provident sapiente repellendus"
+    "description": "I had the pleasure of working with Tahir Ahmed, and I can confidently say that he is an exceptional front-end developer. Tahir is highly skilled in React and Next.js, consistently delivering clean, efficient, and well-structured code. His expertise in these technologies is impressive, and he always ensures that his designs are user-friendly and visually appealing.What sets Tahir apart is not just his technical abilities, but also his work ethic and professionalism. He is incredibly polite, hardworking, and always follows through with instructions to the letter. His honesty and dedication to his craft make him a reliable team member who can be trusted to take ownership of tasks and deliver results on time.Tahir would be an asset to any team, and I highly recommend him for any front-end development roles. He has my full endorsement, and I’m confident he will excel in any opportunity he takes on."
   }
 ]

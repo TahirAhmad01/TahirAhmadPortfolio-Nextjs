@@ -1,4 +1,5 @@
 "use client";
+import { useState, useRef, useEffect } from "react"; // Import necessary hooks
 import { StarIcon } from "@heroicons/react/24/solid";
 import {
   Avatar,
@@ -42,12 +43,34 @@ export default function FeedBackCard({ feedback }) {
     }
   }
 
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showViewMore, setShowViewMore] = useState(false); 
+  const descRef = useRef(null);
+
+  const toggleExpand = () => setIsExpanded(!isExpanded);
+
+  useEffect(() => {
+    if (descRef.current) {
+      const element = descRef.current;
+      const lineHeight = parseInt(
+        window.getComputedStyle(element).lineHeight,
+        10
+      );
+      const maxHeight = lineHeight * 4;
+      if (element.scrollHeight > maxHeight) {
+        setShowViewMore(true);
+      } else {
+        setShowViewMore(false);
+      }
+    }
+  }, [description]);
+
   return (
     <div className="mx-1">
       <Card
         color="transparent"
         shadow={false}
-        className="w-full max-w-[50rem] mx-auto  px-5 py-1 shadow-md mb-4 dark:bg-gray-800 backdrop-blur-xl bg-white/90 dark:border-gray-700 dark:text-white"
+        className="w-full max-w-[50rem] mx-auto px-5 py-1 shadow-md mb-4 dark:bg-gray-800 backdrop-blur-xl bg-white/90 dark:border-gray-700 dark:text-white"
       >
         <CardHeader
           color="transparent"
@@ -71,7 +94,7 @@ export default function FeedBackCard({ feedback }) {
               <Typography
                 variant="h5"
                 color="blue-gray"
-                className="dark:text-gray-300"
+                className="dark:text-gray-300 font-semibold"
               >
                 {name}
               </Typography>
@@ -83,13 +106,29 @@ export default function FeedBackCard({ feedback }) {
                 {ref_comp ? ref_comp : "Google"}
               </Typography>
             </div>
-            <div className="5 flex items-center gap-0">{rating}</div>
+            <div className="flex items-center gap-0">{rating}</div>
           </div>
         </CardHeader>
         <CardBody className="mb-6 p-0">
-          <Typography className="text-center dark:text-gray-300">
+          <Typography
+            ref={descRef}
+            className={`text-center dark:text-gray-300 ${
+              isExpanded ? "" : "line-clamp-4"
+            }`}
+          >
             {description}
           </Typography>
+
+          {showViewMore && (
+            <div className="text-center mt-2">
+              <button
+                onClick={toggleExpand}
+                className="text-blue-500 hover:underline"
+              >
+                {isExpanded ? "View Less" : "View More"}
+              </button>
+            </div>
+          )}
         </CardBody>
       </Card>
     </div>
