@@ -24,21 +24,21 @@ export default function FeedBackCard({ feedback }) {
         <StarIcon
           className="h-4 w-4 md:h-5 md:w-5 text-yellow-700 dark:text-yellow-300"
           key={i}
-        />
+        />,
       );
     } else if (i === filledStars && hasHalfStar) {
       rating.push(
         <StarIcon
           className="h-4 w-4 md:h-5 md:w-5 text-gray-300 dark:text-gray-600"
           key={i}
-        />
+        />,
       );
     } else {
       rating.push(
         <StarIcon
           className="h-4 w-4 md:h-5 md:w-5 text-gray-300 dark:text-gray-600"
           key={i}
-        />
+        />,
       );
     }
   }
@@ -55,7 +55,7 @@ export default function FeedBackCard({ feedback }) {
         const element = descRef.current;
         const lineHeight = parseInt(
           window.getComputedStyle(element).lineHeight,
-          10
+          10,
         );
         const maxHeight = lineHeight * 4;
         if (element.scrollHeight > maxHeight) {

@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -46,8 +46,8 @@ export function AnimatedGridPattern({
               ...sq,
               pos: getPos(),
             }
-          : sq
-      )
+          : sq,
+      ),
     );
   };
 
@@ -86,7 +86,7 @@ export function AnimatedGridPattern({
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-600/50 dark:fill-gray-300 stroke-gray-800/30 dark:stroke-gray-600/25",
-        className
+        className,
       )}
       {...props}
     >

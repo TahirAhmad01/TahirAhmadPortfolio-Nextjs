@@ -40,14 +40,18 @@
   &:before {
     border-radius: 45%;
     background: #2d3436;
-    animation: animate 4s linear infinite, moveWave 2s ease forwards;
+    animation:
+      animate 4s linear infinite,
+      moveWave 2s ease forwards;
     z-index: 10;
   }
 
   &:after {
     border-radius: 40%;
     background: #636e7280;
-    animation: animate 6s linear infinite, moveWave 2s ease forwards;
+    animation:
+      animate 6s linear infinite,
+      moveWave 2s ease forwards;
     z-index: 10;
   }
 }

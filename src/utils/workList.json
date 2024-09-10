@@ -2,7 +2,7 @@
   {
     "id": 1,
     "workTitle": "Front End Web Developer",
-    "company_logo" : "/images/company_logo/front_end_logo.webp",
+    "company_logo": "/images/company_logo/front_end_logo.webp",
     "startDate": "12-06-2020",
     "endDate": "NOW",
     "position": "React developer",

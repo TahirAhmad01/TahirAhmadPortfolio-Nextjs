@@ -155,7 +155,7 @@ module.exports = withMT({
         ".lightBg": {
           backgroundImage:
             "linear-gradient(150deg,#BBC8EA 20%,#CEC0D1 60%,#B672BF)",
-        }
+        },
       });
     }),
   ],

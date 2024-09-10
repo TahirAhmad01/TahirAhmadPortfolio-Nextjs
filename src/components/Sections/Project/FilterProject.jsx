@@ -47,7 +47,7 @@ export function FilterProject({
         return [type];
       }
     });
-  }
+  };
 
   return (
     <Sheet>

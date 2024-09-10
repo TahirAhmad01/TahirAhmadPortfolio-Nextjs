@@ -46,9 +46,7 @@ export default function FeedbackSlider() {
           {feedbackList.map((feedback, idx) => {
             return (
               <div key={idx}>
-                <FeedbackCard
-                  feedback={feedback}
-                />
+                <FeedbackCard feedback={feedback} />
               </div>
             );
           })}
