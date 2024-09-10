@@ -39,7 +39,7 @@ export default function WorkExperience({ work }) {
   };
 
   const relatedProjects = projectList.filter(
-    ({ worked_company_id }) => id === worked_company_id
+    ({ worked_company_id }) => id === worked_company_id,
   );
 
   return (

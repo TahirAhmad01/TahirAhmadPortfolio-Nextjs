@@ -11,7 +11,7 @@ import Testimonial from "@/components/Sections/Testimonial";
 function loadStylesAndScripts() {
   return new Promise((resolve) => {
     const stylesPromise = new Promise((styleResolve) =>
-      setTimeout(styleResolve, 2500)
+      setTimeout(styleResolve, 2500),
     );
 
     Promise.all([stylesPromise]).then(() => {

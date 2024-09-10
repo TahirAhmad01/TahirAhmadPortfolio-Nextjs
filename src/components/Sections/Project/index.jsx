@@ -26,27 +26,27 @@ export default function Project() {
       filteredItems = filteredItems.filter(
         (project) =>
           project.name &&
-          project.name.toLowerCase().includes(searchTerm.toLowerCase())
+          project.name.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     }
 
     if (selectedCategories.length > 0) {
       filteredItems = filteredItems.filter((project) =>
         selectedCategories.every((category) =>
-          project.category.includes(category)
-        )
+          project.category.includes(category),
+        ),
       );
     }
 
     if (selectedTypes.includes("associated")) {
       filteredItems = filteredItems.filter(
-        (project) => project.worked_company_id
+        (project) => project.worked_company_id,
       );
     }
 
     if (selectedTypes.includes("personal")) {
       filteredItems = filteredItems.filter(
-        (project) => !project.worked_company_id
+        (project) => !project.worked_company_id,
       );
     }
 
