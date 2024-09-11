@@ -3,7 +3,6 @@ import avatar from "@/assets/images/avater.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import Link from "next/link";
-import { Fade } from "react-reveal";
 import { ReactTyped } from "react-typed";
 import Wave from "react-wavify";
 import SocialBtn from "../../SocialBtn";

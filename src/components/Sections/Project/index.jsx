@@ -9,6 +9,9 @@ import Title from "../Title";
 import Projects from "./Projects";
 import { Input } from "@/components/ui/input";
 import { FilterProject } from "./FilterProject";
+import { Button } from "@/components/ui/button";
+import { IoGrid } from "react-icons/io5";
+import { FaThList } from "react-icons/fa";
 
 export default function Project() {
   const [items, setItems] = useState([
@@ -17,6 +20,7 @@ export default function Project() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
+  const [isGridView, setIsGridView] = useState(true);
   const path = usePathname();
 
   useEffect(() => {
@@ -26,32 +30,36 @@ export default function Project() {
       filteredItems = filteredItems.filter(
         (project) =>
           project.name &&
-          project.name.toLowerCase().includes(searchTerm.toLowerCase()),
+          project.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
     if (selectedCategories.length > 0) {
       filteredItems = filteredItems.filter((project) =>
         selectedCategories.every((category) =>
-          project.category.includes(category),
-        ),
+          project.category.includes(category)
+        )
       );
     }
 
     if (selectedTypes.includes("associated")) {
       filteredItems = filteredItems.filter(
-        (project) => project.worked_company_id,
+        (project) => project.worked_company_id
       );
     }
 
     if (selectedTypes.includes("personal")) {
       filteredItems = filteredItems.filter(
-        (project) => !project.worked_company_id,
+        (project) => !project.worked_company_id
       );
     }
 
     setItems(filteredItems);
   }, [searchTerm, selectedCategories, selectedTypes]);
+
+  const toggleView = () => {
+    setIsGridView((prev) => !prev);
+  };
 
   return (
     <div className="containerCustom gap">
@@ -75,12 +83,21 @@ export default function Project() {
             selectedTypes={selectedTypes}
             setSelectedTypes={setSelectedTypes}
           />
+          <Button variant="outline" onClick={toggleView}>
+            {isGridView ? <FaThList /> : <IoGrid />} {}
+          </Button>
         </div>
       )}
 
       <AnimatePresence>
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 columns-1 gap-1 justify-items-center">
-          <Projects items={items} setItem={setItems} />{" "}
+        <div
+          className={`${
+            isGridView
+              ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
+              : "flex flex-col gap-3"
+          }`}
+        >
+          <Projects items={items} setItem={setItems} isGridView={isGridView} />
         </div>
       </AnimatePresence>
 
