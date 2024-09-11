@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";;
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import blur from "@/assets/images/blur.webp";
@@ -19,15 +19,20 @@ export default function Projects({ item, isGridView, key }) {
     <>
       <motion.div
         layout
-        initial={{ opacity: 1, transform: "scale(0)" }}
+        initial={{
+          opacity: 0,
+          transform: "scale(0.7)"
+        }}
         animate={{ opacity: 1, transform: "scale(1)" }}
-        exit={{ opacity: 0 ,transform: "scale(0)"}}
-    
+        exit={{
+          opacity: 0,
+          transform: "scale(0.7)"
+        }}
         transition={{ duration: 0.5 }}
         key={key}
       >
         <div
-          className={`relative projectBtn object-contain overflow-hidden hover:cursor-pointer w-full min-h-24  ${!isGridView && " flex items-center gap-3"}`}
+          className={`relative projectBtn object-contain overflow-hidden hover:cursor-pointer w-full min-h-24 ${!isGridView && " flex items-center gap-3"}`}
           onClick={() => handleOpen(id)}
         >
           <div
