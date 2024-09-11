@@ -9,6 +9,7 @@ import {
   SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { HiFilter } from "react-icons/hi";
 
 const categories = [
   "html",
@@ -52,7 +53,10 @@ export function FilterProject({
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Filter</Button>
+        <Button variant="outline">
+          <HiFilter />
+          <span className="pt-[2px] pl-1">Filter</span>
+        </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
