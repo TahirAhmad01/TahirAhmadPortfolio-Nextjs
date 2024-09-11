@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -14,9 +14,8 @@ import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
 
 export default function Project() {
-  const [items, setItems] = useState([
-    ...projectList.sort((b, a) => a.id - b.id),
-  ]);
+  const [items, setItems] = useState([]);
+  const [initialItems, setInitialItems] = useState([]); // For sliced items
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -24,7 +23,17 @@ export default function Project() {
   const path = usePathname();
 
   useEffect(() => {
-    let filteredItems = projectList;
+    const sortedList = [...projectList].sort((b, a) => a.id - b.id);
+
+    if (path === "/" && sortedList.length > 9) {
+      setInitialItems(sortedList.slice(0, 9)); // Slice only for root path
+    } else {
+      setInitialItems(sortedList); // Full list for other paths
+    }
+  }, [path]);
+
+  useEffect(() => {
+    let filteredItems = initialItems; // Start with sliced or full list based on path
 
     if (searchTerm !== "") {
       filteredItems = filteredItems.filter(
@@ -55,7 +64,7 @@ export default function Project() {
     }
 
     setItems(filteredItems);
-  }, [searchTerm, selectedCategories, selectedTypes]);
+  }, [searchTerm, selectedCategories, selectedTypes, initialItems]);
 
   const toggleView = () => {
     setIsGridView((prev) => !prev);
@@ -89,17 +98,20 @@ export default function Project() {
         </div>
       )}
 
-      <AnimatePresence>
-        <div
-          className={`${
-            isGridView
-              ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
-              : "flex flex-col gap-3"
-          }`}
-        >
-          <Projects items={items} setItem={setItems} isGridView={isGridView} />
-        </div>
-      </AnimatePresence>
+      <motion.div
+        layout
+        className={`${
+          isGridView
+            ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
+            : "flex flex-col gap-3"
+        }`}
+      >
+        <AnimatePresence>
+          {items?.map((item, idx) => {
+            return <Projects item={item} isGridView={isGridView} key={idx} />;
+          })}
+        </AnimatePresence>
+      </motion.div>
 
       {path === "/" && (
         <Fade up>
