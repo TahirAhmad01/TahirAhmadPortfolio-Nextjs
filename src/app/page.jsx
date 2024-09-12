@@ -2,6 +2,7 @@ import PageLayout from "@/components/PageLayout";
 import About from "@/components/Sections/About";
 import Blog from "@/components/Sections/Blog";
 import ContactMe from "@/components/Sections/ContactMe";
+import Faq from "@/components/Sections/Faq";
 import Home from "@/components/Sections/Home";
 import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Qualifications";
@@ -37,6 +38,7 @@ export default async function Index() {
         <Resume />
         <Blog />
         <Testimonial />
+        <Faq/>
         <ContactMe />
       </PageLayout>
     </main>

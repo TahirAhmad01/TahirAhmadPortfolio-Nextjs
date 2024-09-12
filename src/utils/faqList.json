@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "question": "What technologies do you specialize in?",
+    "answer": "I specialize in both front-end and back-end technologies. My front-end skills include HTML5, CSS3 (with animations), Bootstrap, JavaScript, jQuery, React.js, Redux, and Next.js. On the back-end, I work with Ruby on Rails and Ruby to build robust server-side applications and manage databases."
+  },
+  {
+    "id": 2,
+    "question": "How long have you been working as a web developer?",
+    "answer": "I have been working as a web developer since 2020. I began with front-end technologies and expanded my expertise into back-end development in 2023."
+  },
+  {
+    "id": 3,
+    "question": "What is your approach to coding and project development?",
+    "answer": "I am committed to clean coding practices, ensuring that my code is efficient, maintainable, and scalable. I focus on delivering optimal performance in every project I undertake."
+  },
+  {
+    "id": 4,
+    "question": "Do you participate in open-source projects?",
+    "answer": "Yes, I actively participate in open-source projects on GitHub. This involvement reflects my dedication to collaboration and innovation within the development community."
+  },
+  {
+    "id": 5,
+    "question": "How do you ensure the performance and scalability of your projects?",
+    "answer": "I prioritize clean coding practices, thorough testing, and efficient design patterns to ensure that my projects perform well and scale effectively. I continuously learn and apply best practices to maintain high standards in my work."
+  },
+  {
+    "id": 6,
+    "question": "What types of projects have you worked on?",
+    "answer": "I have worked on a variety of projects ranging from single-page applications and interactive websites to complex server-side applications and APIs. My projects often involve integrating front-end and back-end technologies to deliver seamless user experiences and efficient backend solutions."
+  }
+]
