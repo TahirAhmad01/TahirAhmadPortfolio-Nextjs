@@ -1,7 +1,7 @@
+import { ContactMeCard } from "@/components/ContactMeCard";
 import PageLayout from "@/components/PageLayout";
 import About from "@/components/Sections/About";
 import Blog from "@/components/Sections/Blog";
-import ContactMe from "@/components/Sections/ContactMe";
 import Faq from "@/components/Sections/Faq";
 import Home from "@/components/Sections/Home";
 import Project from "@/components/Sections/Project";
@@ -39,7 +39,8 @@ export default async function Index() {
         <Blog />
         <Testimonial />
         <Faq/>
-        <ContactMe />
+        {/* <ContactMe /> */}
+        <ContactMeCard/>
       </PageLayout>
     </main>
   );
