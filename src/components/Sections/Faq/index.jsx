@@ -18,7 +18,7 @@ export default function Faq() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 items-center">
         <div className="lg:col-span-3">
           <Accordion type="single" collapsible className="w-full">
-            <Fade up cascade duration={150}>
+            <Fade up cascade duration={150} triggerOnce>
               {faqList.map((faq, idx) => (
                 <AccordionItem
                   className="border-gray-300 dark:border-gray-700"
@@ -35,7 +35,7 @@ export default function Faq() {
           </Accordion>
         </div>
         <div className="lg:col-span-2 hidden md:block">
-          <Zoom>
+          <Zoom triggerOnce>
             <Image
               src={FaqImg}
               alt="Qubartech Faq image"
