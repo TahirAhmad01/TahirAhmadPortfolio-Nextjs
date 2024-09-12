@@ -59,6 +59,10 @@ export default function RootLayout({ children }) {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
         <meta name="author" content={`Qubartech ${process.env.name}`} />
+        <meta
+          name="google-site-verification"
+          content="KeGYsmT-gRaWpvGnbyqjjx0dyF5hMFJHj5Piue9WcYI"
+        />
         <title>Tahir Ahmad - Portfolio</title>
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -73,12 +77,32 @@ export default function RootLayout({ children }) {
           aria-hidden
           async
         ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-WM7R43S8');
+            `,
+          }}
+        />
       </head>
 
       <body>
         <AppThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <LayoutComponent>{children}</LayoutComponent>
         </AppThemeProvider>
+
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WM7R43S8"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
       </body>
     </html>
   );
