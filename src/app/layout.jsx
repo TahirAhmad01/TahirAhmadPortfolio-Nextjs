@@ -90,7 +90,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body>
+      <body className="relative">
         <AppThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <LayoutComponent>{children}</LayoutComponent>
         </AppThemeProvider>
