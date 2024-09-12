@@ -94,6 +94,11 @@ module.exports = withMT({
             "offset-distance": "100%",
           },
         },
+
+        shimmer: {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -101,6 +106,7 @@ module.exports = withMT({
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        shimmer: 'shimmer 1.5s infinite',
       },
       backgroundImage: {
         darkBgImg: "url('/images/bg_img/dark.jpg')",

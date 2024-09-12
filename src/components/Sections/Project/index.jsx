@@ -13,6 +13,8 @@ import { FilterProject } from "./FilterProject";
 import { Button } from "@/components/ui/button";
 import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
+import Loading from "@/app/loading";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Project() {
   const [items, setItems] = useState([]);
@@ -21,6 +23,7 @@ export default function Project() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [isGridView, setIsGridView] = useState(true);
+  const [loading, setLoading] = useState(true); // Add loading state
   const path = usePathname();
 
   useEffect(() => {
@@ -31,6 +34,7 @@ export default function Project() {
     } else {
       setInitialItems(sortedList);
     }
+    setLoading(false); // Once items are set, stop loading
   }, [path]);
 
   useEffect(() => {
@@ -97,39 +101,54 @@ export default function Project() {
             setSelectedTypes={setSelectedTypes}
           />
           <Button variant="outline" onClick={toggleView}>
-            {isGridView ? <FaThList /> : <IoGrid />} {}
+            {isGridView ? <FaThList /> : <IoGrid />}
           </Button>
         </div>
       )}
 
-      <div
-        className={`${
-          isGridView
-            ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
-            : "flex flex-col gap-3"
-        }`}
-      >
-        <AnimatePresence>
-          {items?.map((item, idx) => {
-            return <Projects item={item} isGridView={isGridView} key={idx} />;
-          })}
-        </AnimatePresence>
-      </div>
-
-      {path === "/" && (
-        <Fade up>
-          <div className="text-center mt-9 flex justify-center">
-            <Link href="/projects">
-              <button
-                type="button"
-                className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-gradient-to-bl font-medium rounded-3xl text-sm px-5 md:px-9 md:hover:px-16 py-3.5 text-center mr-2 mb-2 text-white transition-all flex items-center justify-center"
-              >
-                Show more
-                <i aria-hidden className="fa-solid fa-arrow-right pl-1"></i>
-              </button>
-            </Link>
+      {loading ? (
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center">
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+        </div>
+      ) : (
+        <>
+          <div
+            className={`${
+              isGridView
+                ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
+                : "flex flex-col gap-3"
+            }`}
+          >
+            <AnimatePresence>
+              {items.map((item, idx) => (
+                <Projects item={item} isGridView={isGridView} key={idx} />
+              ))}
+            </AnimatePresence>
           </div>
-        </Fade>
+
+          {path === "/" && (
+            <Fade up>
+              <div className="text-center mt-9 flex justify-center">
+                <Link href="/projects">
+                  <button
+                    type="button"
+                    className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-gradient-to-bl font-medium rounded-3xl text-sm px-5 md:px-9 md:hover:px-16 py-3.5 text-center mr-2 mb-2 text-white transition-all flex items-center justify-center"
+                  >
+                    Show more
+                    <i aria-hidden className="fa-solid fa-arrow-right pl-1"></i>
+                  </button>
+                </Link>
+              </div>
+            </Fade>
+          )}
+        </>
       )}
     </div>
   );
