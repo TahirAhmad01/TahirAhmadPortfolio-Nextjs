@@ -1,8 +1,9 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { DebounceInput } from "react-debounce-input";
 import { Fade } from "react-reveal";
 import projectList from "../../../utils/projectList";
 import Title from "../Title";
@@ -14,9 +15,8 @@ import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
 
 export default function Project() {
-  const [items, setItems] = useState([
-    ...projectList.sort((b, a) => a.id - b.id),
-  ]);
+  const [items, setItems] = useState([]);
+  const [initialItems, setInitialItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -24,7 +24,17 @@ export default function Project() {
   const path = usePathname();
 
   useEffect(() => {
-    let filteredItems = projectList;
+    const sortedList = [...projectList].sort((b, a) => a.id - b.id);
+
+    if (path === "/" && sortedList.length > 9) {
+      setInitialItems(sortedList.slice(0, 9));
+    } else {
+      setInitialItems(sortedList);
+    }
+  }, [path]);
+
+  useEffect(() => {
+    let filteredItems = initialItems;
 
     if (searchTerm !== "") {
       filteredItems = filteredItems.filter(
@@ -55,7 +65,7 @@ export default function Project() {
     }
 
     setItems(filteredItems);
-  }, [searchTerm, selectedCategories, selectedTypes]);
+  }, [searchTerm, selectedCategories, selectedTypes, initialItems]);
 
   const toggleView = () => {
     setIsGridView((prev) => !prev);
@@ -70,7 +80,10 @@ export default function Project() {
 
       {path !== "/" && (
         <div className="w-full flex items-end justify-end mb-2 gap-2">
-          <Input
+          <DebounceInput
+            minLength={1}
+            debounceTimeout={300}
+            element={Input}
             type="text"
             placeholder="Search Project"
             value={searchTerm}
@@ -89,17 +102,19 @@ export default function Project() {
         </div>
       )}
 
-      <AnimatePresence>
-        <div
-          className={`${
-            isGridView
-              ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
-              : "flex flex-col gap-3"
-          }`}
-        >
-          <Projects items={items} setItem={setItems} isGridView={isGridView} />
-        </div>
-      </AnimatePresence>
+      <div
+        className={`${
+          isGridView
+            ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
+            : "flex flex-col gap-3"
+        }`}
+      >
+        <AnimatePresence>
+          {items?.map((item, idx) => {
+            return <Projects item={item} isGridView={isGridView} key={idx} />;
+          })}
+        </AnimatePresence>
+      </div>
 
       {path === "/" && (
         <Fade up>
