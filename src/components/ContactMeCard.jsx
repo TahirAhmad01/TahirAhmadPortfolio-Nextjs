@@ -22,15 +22,15 @@ export function ContactMeCard() {
           className="cursor-pointer shadow-2xl w-full border-none py-5 md:py-7 px-3 md:px-4 break-words rounded-[14px]"
           gradientColor={theme === "dark" ? "#ecf0f122" : "#2c3e5025"}
         >
-          <div className=" flex flex-col gap-3 items-center">
-            <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col gap-3 items-center">
+            <div className="flex flex-col items-center">
               <BoxReveal boxColor={"#0b1327"} duration={0.5}>
-                <div className="font-semibold text-md md:text-xl">
+                <div className="font-semibold text-md md:text-xl text-center">
                   Do you want to know more or have any queries?
                 </div>
               </BoxReveal>
               <BoxReveal boxColor={"#0b1327"} duration={0.5}>
-                <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center">
                   Feel free to contact me. I would love to hear from you and
                   respond as soon as possible.
                 </div>
