@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -13,7 +13,6 @@ import { FilterProject } from "./FilterProject";
 import { Button } from "@/components/ui/button";
 import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
-import Loading from "@/app/loading";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Project() {
@@ -23,7 +22,7 @@ export default function Project() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [isGridView, setIsGridView] = useState(true);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
   const path = usePathname();
 
   useEffect(() => {
@@ -34,7 +33,7 @@ export default function Project() {
     } else {
       setInitialItems(sortedList);
     }
-    setLoading(false); // Once items are set, stop loading
+    setLoading(false);
   }, [path]);
 
   useEffect(() => {
