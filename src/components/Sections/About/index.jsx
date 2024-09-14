@@ -2,7 +2,7 @@
 import aboutInfo from "@/utils/about";
 import Image from "next/image";
 import { Fade, Zoom } from "react-reveal";
-import picture from "../../.../../../assets/images/myPic.jpg";
+import picture from "@/assets/images/jpg/myPic.jpg";
 import Title from "../Title";
 import Info from "./Info";
 

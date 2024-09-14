@@ -1,4 +1,4 @@
-import avatar from "@/assets/images/logo.webp";
+import avatar from "@/assets/images/webp/logo.webp";
 import menuList from "@/utils/menuList";
 import Image from "next/image";
 import Link from "next/link";

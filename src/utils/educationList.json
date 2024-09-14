@@ -8,5 +8,15 @@
     "position": "Computer Science",
     "location": "Rajshahi, Bangladesh",
     "description": ""
+  },
+  {
+    "id": 2,
+    "educationTitle": "Northern University",
+    "edu_logo": "/images/edu_logo/northern_logo.jpeg",
+    "startDate": "2024",
+    "endDate": "now",
+    "position": "Computer Science Engineering",
+    "location": "Ashiyan City Rd, Dhaka 1230",
+    "description": ""
   }
 ]

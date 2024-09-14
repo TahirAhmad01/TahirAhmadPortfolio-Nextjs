@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
-import FaqImg from "@/assets/images/faq.png";
+import FaqImg from "@/assets/images/png/faq.png";
 import faqList from "@/utils/faqList.json";
 import Title from "../Title";
 import { Zoom, Fade } from "react-awesome-reveal";

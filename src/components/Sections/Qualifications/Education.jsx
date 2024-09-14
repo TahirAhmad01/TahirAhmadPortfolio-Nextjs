@@ -1,4 +1,4 @@
-import icon from "@/assets/images/university.png";
+import icon from "@/assets/images/png/university.png";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import { Fade, Zoom } from "react-reveal";
@@ -28,7 +28,7 @@ export default function Education({ education }) {
                       <Image
                         src={edu_logo ? edu_logo : icon}
                         alt="work_ico"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 dark:bg-gray-500 p-1 object-cover"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-100 dark:bg-gray-500 p-1 object-cover"
                         width={250}
                         height={250}
                       />

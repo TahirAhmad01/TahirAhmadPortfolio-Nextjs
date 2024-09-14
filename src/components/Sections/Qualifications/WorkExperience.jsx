@@ -1,5 +1,5 @@
 "use client";
-import icon from "@/assets/images/work.webp";
+import icon from "@/assets/images/webp/work.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import CertificateModal from "./CertificateModal";
 import projectList from "@/utils/projectList";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import ProjectModal from "../Project/ProjectModal";
-import blur from "@/assets/images/blur.webp";
+import blur from "@/assets/images/webp/blur.webp";
 
 export default function WorkExperience({ work }) {
   const {
@@ -55,7 +55,7 @@ export default function WorkExperience({ work }) {
                       <Image
                         src={company_logo ? company_logo : icon}
                         alt="work_ico"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 dark:bg-gray-500 p-1 object-cover"
+                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-100 dark:bg-gray-500 p-1 object-cover"
                         width={250}
                         height={250}
                       />
