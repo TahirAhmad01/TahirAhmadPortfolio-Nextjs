@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { Fade } from "react-reveal";
 import swal from "sweetalert";
-import ThankYouImg from "../../../assets/images/thank-you-envelope.png";
+import ThankYouImg from "@/assets/images/png/thank-you-envelope.png";
 import Title from "../Title";
 import ContactInp from "./ContactInp";
 import SocialContact from "./SocialContact";
@@ -21,10 +21,10 @@ export default function ContactMe() {
 
     await emailjs
       .sendForm(
-        process.env.EMAIL_JS_SERVICE_ID, //SERVICE ID
-        process.env.EMAIL_JS_TEMPLATE_ID, //TEMPLATE ID
+        process.env.EMAIL_JS_SERVICE_ID,
+        process.env.EMAIL_JS_TEMPLATE_ID,
         form.current,
-        process.env.EMAIL_JS_PUBLIC_KEY, // PUBLIC KEY
+        process.env.EMAIL_JS_PUBLIC_KEY,
       )
       .then(
         (result) => {

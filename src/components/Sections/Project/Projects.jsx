@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import blur from "@/assets/images/blur.webp";
+import blur from "@/assets/images/webp/blur.webp";
 import ProjectModal from "./ProjectModal";
 
 export default function Projects({ item, isGridView, key }) {

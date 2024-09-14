@@ -1,5 +1,5 @@
 "use client";
-import avatar from "@/assets/images/avater.webp";
+import avatar from "@/assets/images/webp/avater.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import Link from "next/link";
