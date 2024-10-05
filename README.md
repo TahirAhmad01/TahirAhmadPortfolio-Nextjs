@@ -2,35 +2,46 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+### Project Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Clone the project:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  ```bash
+  git clone git@github.com:TahirAhmad01/TahirAhmadPortfolio-Nextjs.git
+  cd TahirAhmadPortfolio-Nextjs
+  cp .env.sample .env
+  ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Open .env file and fill up the required information. For running in localhost, you may fill up like this:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  ```bash
+  NEXT_PUBLIC_EMAIL_JS_SERVICE_ID=""
+  NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID=""
+  NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY=""
+  ```
 
-## Learn More
+  Setup the following environment variables and configure emails js configuration from https://emailjs.com/
 
-To learn more about Next.js, take a look at the following resources:
+- Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ```bash
+  npm installl
+  # or
+  yarn instal
+  # or
+  pnpm install
+  # or
+  bun install
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- First, run the development server:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  # or
+  pnpm dev
+  # or
+  bun dev
+  ```
