@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "alexander1420",
-    "profile_image": "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/d97e6c704cad52b8efe3b0af0dc21cda-1625138403028/db021335-cffe-4363-8fec-f70090c64412.jpeg",
+    "profile_image": "/images/testimonials_dp/db021335-cffe-4363-8fec-f70090c64412.webp",
     "position": "client",
     "ref_comp": "fiverr",
     "star": 5,
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "name": "Mashuke Alam Jim",
-    "profile_image": "https://media.licdn.com/dms/image/v2/D5603AQHMeDLxteC1iw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1724677238275?e=1731542400&v=beta&t=XXLo8XuHrjaEeeeWsnUXFA9xzpZ50l-__NznlQWWd5M",
+    "profile_image": "/images/testimonials_dp/1724677238275.jpeg",
     "position": "software engineer",
     "ref_comp": "nascenia",
     "star": 5,
