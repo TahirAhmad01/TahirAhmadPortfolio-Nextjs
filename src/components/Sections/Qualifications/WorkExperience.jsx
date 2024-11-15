@@ -167,7 +167,7 @@ export default function WorkExperience({ work }) {
                           key={idx}
                           onClick={() => handleOpenProject(id)}
                         >
-                          <div className="object-contain overflow-hidden hover:cursor-pointer h-20 md:h-24 w-28 md:w-32 rounded-md shadow-md">
+                          <div className="object-contain overflow-hidden hover:cursor-pointer h-16 md:h-24 min-w-20 md:min-w-32 rounded-md shadow-md">
                             <LazyLoadImage
                               src={imageSrc}
                               placeholderSrc={
@@ -178,13 +178,13 @@ export default function WorkExperience({ work }) {
                               effect="blur"
                               height="100%"
                               width="100%"
-                              className="object-cover min-h-full w-full block"
+                              className="object-cover h-full w-full block"
                               loading="lazy"
                             />
                           </div>
 
-                          <div className="w-[calc(100%-9rem)]">
-                            <div className="font-semibold text-lg">{name}</div>
+                          <div className="grow">
+                            <div className="font-semibold text-sm md:text-lg">{name}</div>
                             <div className="line-clamp-3 md:line-clamp-2 text-xs md:text-sm">
                               {projectDes}
                             </div>
