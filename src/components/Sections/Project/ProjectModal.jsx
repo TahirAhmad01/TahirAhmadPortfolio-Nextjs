@@ -3,6 +3,7 @@ import Image from "next/image";
 import projectList from "../../../utils/projectList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const style = {
   position: "absolute",
@@ -22,62 +23,51 @@ function ProjectModal({ setOpen, open, projectId }) {
     (project) => project?.id === projectId
   );
 
-  let content = null;
-
-  content = findProject.map((project, idx) => {
+  const content = findProject.map((project) => {
     const { name, imageSrc, category, link, source, description } =
       project || {};
     return (
-      <>
-        <div
-          className="min-h-[5vh] max-h-[42vh] overflow-hidden scrollbar-hide rounded-lg relative select-none"
-          key={idx}
-        >
-          {/* <Image
-            loader={() => src}
-            src={src}
-            alt={name}
-            width={0}
-            height={0}
-            className="w-full h-auto"
-          /> */}
-
-          {imageSrc.length > 1 ? (
-            <Swiper
-              // rewind={true}
-              navigation={true}
-              modules={[Navigation, Pagination, Autoplay]}
-              className="mySwiper w-full h-auto"
-              pagination={{
-                type: "progressbar",
-              }}
-            >
-              {imageSrc.map((img, idx) => {
-                return (
+      <div key={project.id}>
+        {/* Image Section */}
+        <div className="min-h-[5vh] max-h-[42vh] overflow-hidden scrollbar-hide rounded-lg relative select-none">
+          <PhotoProvider>
+            {imageSrc.length > 1 ? (
+              <Swiper
+                navigation={true}
+                modules={[Navigation, Pagination, Autoplay]}
+                className="mySwiper w-full h-auto"
+                pagination={{ type: "progressbar" }}
+              >
+                {imageSrc.map((img, idx) => (
                   <SwiperSlide key={idx}>
-                    <Image
-                      loader={() => img}
-                      src={img}
-                      alt={name}
-                      width={0}
-                      height={0}
-                      className="w-full h-auto"
-                    />
+                    <PhotoView src={img}>
+                      <Image
+                        loader={() => img}
+                        src={img}
+                        alt={name}
+                        width={0}
+                        height={0}
+                        className="w-full h-auto"
+                      />
+                    </PhotoView>
                   </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          ) : (
-            <Image
-              loader={() => imageSrc[0]}
-              src={imageSrc[0]}
-              alt={name}
-              width={0}
-              height={0}
-              className="w-full h-auto"
-            />
-          )}
+                ))}
+              </Swiper>
+            ) : (
+              <PhotoView src={imageSrc[0]}>
+                <Image
+                  loader={() => imageSrc[0]}
+                  src={imageSrc[0]}
+                  alt={name}
+                  width={0}
+                  height={0}
+                  className="w-full h-auto"
+                />
+              </PhotoView>
+            )}
+          </PhotoProvider>
         </div>
+
         <div className="py-3 px-3">
           <Typography
             id="modal-modal-title"
@@ -87,28 +77,26 @@ function ProjectModal({ setOpen, open, projectId }) {
           >
             {name}
           </Typography>
-
           <div className="text-xs md:text-sm text-gray-700 dark:text-gray-400 mt-2 mb-2">
             {description ||
               `Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Reprehenderit maiores quasi quod quidem blanditiis culpa, deserunt
-            atque tempore ullam ratione eos quaerat, odit perferendis illum
-            placeat facere recusandae dolore asperiores.`}
+              Reprehenderit maiores quasi quod quidem blanditiis culpa, deserunt
+              atque tempore ullam ratione eos quaerat, odit perferendis illum
+              placeat facere recusandae dolore asperiores.`}
           </div>
 
-          <div className=" mb-5">
+          <div className="mb-5">
             {category.map((cat, idx) => (
-              <>
-                <div
-                  className="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-0.5 rounded-2xl dark:bg-blue-200 dark:text-blue-800 capitalize inline-block"
-                  key={idx}
-                >
-                  {cat}
-                </div>
-              </>
+              <div
+                key={idx}
+                className="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-0.5 rounded-2xl dark:bg-blue-200 dark:text-blue-800 capitalize inline-block"
+              >
+                {cat}
+              </div>
             ))}
           </div>
 
+          {/* Links */}
           {(link || source) && (
             <div className="mt-3">
               {link && (
@@ -121,7 +109,7 @@ function ProjectModal({ setOpen, open, projectId }) {
                     <span>Live Preview</span>
                   </button>
                 </a>
-              )}{" "}
+              )}
               {source && (
                 <a href={source} target="_blank" rel="noreferrer">
                   <button className="bg-[#475569] hover:bg-[#334155] text-sm text-white font-medium py-2 px-3 rounded-lg inline-flex items-center">
@@ -129,36 +117,34 @@ function ProjectModal({ setOpen, open, projectId }) {
                     <span>Github</span>
                   </button>
                 </a>
-              )}{" "}
+              )}
             </div>
           )}
         </div>
-      </>
+      </div>
     );
   });
 
   return (
-    <>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box
+        sx={style}
+        className="w-[96%] md:w-[700px] outline-none rounded-xl overflow-x-auto scrollbar-hide dark:text-white bg-gray-50 dark:bg-[#1f2937]"
       >
-        <Box
-          sx={style}
-          className="w-[96%] md:w-[700px] outline-none rounded-xl overflow-x-auto  scrollbar-hide dark:text-white bg-gray-50 dark:bg-[#1f2937]"
+        <button
+          className="absolute top-3 right-3 h-8 w-8 dark:bg-[#464f56] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 rounded-full z-50"
+          onClick={handleClose}
         >
-          <button
-            className="absolute top-3 right-3 h-8 w-8 dark:bg-[#464f56] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 rounded-full"
-            onClick={handleClose}
-          >
-            <i aria-hidden className="fa-solid fa-xmark"></i>
-          </button>
-          {content}
-        </Box>
-      </Modal>
-    </>
+          <i aria-hidden className="fa-solid fa-xmark"></i>
+        </button>
+        {content}
+      </Box>
+    </Modal>
   );
 }
 

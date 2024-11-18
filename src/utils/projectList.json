@@ -275,7 +275,14 @@
     "name": "Uddogi",
     "category": ["html", "ruby", "rails", "bootstrap", "jquery", "javascript"],
     "placeholderSrc": "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
-    "imageSrc":[ "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92"],
+    "imageSrc": [
+      "https://img1.wsimg.com/isteam/ip/780e41a2-0b21-4462-92fc-62c521d68110/About%20section.jpg/:/cr=t:5.36%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true/qt=q:92",
+      "https://i.ibb.co.com/6ymNK9b/SCR-20241119-boly.png",
+      "https://i.ibb.co.com/jwZJqL5/SCR-20241119-bopb.png",
+      "https://i.ibb.co.com/84gsj7v/Screenshot-from-2024-08-06-15-21-58.png",
+      "https://i.ibb.co.com/Cz4Y9NL/Screenshot-from-2024-08-06-15-22-41.png",
+      "https://i.ibb.co.com/HT5hvFJ/Screenshot-from-2024-08-06-17-00-18.png"
+    ],
     "link": "https://uddogi.com/",
     "description": "As a proficient full-stack web developer, I proudly serve at Nascenia Ltd., where my expertise shines in maintaining and enhancing VAT management software. Within this dynamic role, I diligently craft and implement innovative features, swiftly troubleshoot bugs, and meticulously refine code for optimal performance. My focal point lies in the intricate realm of VAT calculation, where precision and efficiency converge to deliver seamless solutions for our esteemed clientele."
   }
