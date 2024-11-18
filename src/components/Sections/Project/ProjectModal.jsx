@@ -1,6 +1,8 @@
 import { Box, Modal, Typography } from "@mui/material";
 import Image from "next/image";
 import projectList from "../../../utils/projectList";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const style = {
   position: "absolute",
@@ -17,7 +19,7 @@ function ProjectModal({ setOpen, open, projectId }) {
   const handleClose = () => setOpen(false);
 
   const findProject = projectList.filter(
-    (project) => project?.id === projectId,
+    (project) => project?.id === projectId
   );
 
   let content = null;
@@ -25,21 +27,56 @@ function ProjectModal({ setOpen, open, projectId }) {
   content = findProject.map((project, idx) => {
     const { name, imageSrc, category, link, source, description } =
       project || {};
-    const src = imageSrc;
     return (
       <>
         <div
-          className="min-h-[5vh] max-h-[42vh] overflow-hidden scrollbar-hide rounded-lg"
+          className="min-h-[5vh] max-h-[42vh] overflow-hidden scrollbar-hide rounded-lg relative select-none"
           key={idx}
         >
-          <Image
+          {/* <Image
             loader={() => src}
             src={src}
             alt={name}
             width={0}
             height={0}
             className="w-full h-auto"
-          />
+          /> */}
+
+          {imageSrc.length > 1 ? (
+            <Swiper
+              // rewind={true}
+              navigation={true}
+              modules={[Navigation, Pagination, Autoplay]}
+              className="mySwiper w-full h-auto"
+              pagination={{
+                type: "progressbar",
+              }}
+            >
+              {imageSrc.map((img, idx) => {
+                return (
+                  <SwiperSlide key={idx}>
+                    <Image
+                      loader={() => img}
+                      src={img}
+                      alt={name}
+                      width={0}
+                      height={0}
+                      className="w-full h-auto"
+                    />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          ) : (
+            <Image
+              loader={() => imageSrc[0]}
+              src={imageSrc[0]}
+              alt={name}
+              width={0}
+              height={0}
+              className="w-full h-auto"
+            />
+          )}
         </div>
         <div className="py-3 px-3">
           <Typography
