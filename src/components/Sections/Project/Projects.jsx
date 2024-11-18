@@ -21,12 +21,12 @@ export default function Projects({ item, isGridView, key }) {
         layout
         initial={{
           opacity: 0,
-          transform: "scale(0.7)"
+          transform: "scale(0.7)",
         }}
         animate={{ opacity: 1, transform: "scale(1)" }}
         exit={{
           opacity: 0,
-          transform: "scale(0.7)"
+          transform: "scale(0.7)",
         }}
         transition={{ duration: 0.5 }}
         key={key}
@@ -39,7 +39,7 @@ export default function Projects({ item, isGridView, key }) {
             className={`${isGridView ? "w-full h-64 sm:h-52 lg:h-56 " : "w-60 h-24 md:h-32 rounded-md overflow-hidden"}`}
           >
             <LazyLoadImage
-              src={imageSrc}
+              src={imageSrc[0]}
               placeholderSrc={placeholderSrc ? placeholderSrc : blur}
               threshold="100"
               alt={name}

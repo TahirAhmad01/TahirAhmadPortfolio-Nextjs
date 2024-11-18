@@ -27,7 +27,6 @@ function ProjectModal({ setOpen, open, projectId }) {
   content = findProject.map((project, idx) => {
     const { name, imageSrc, category, link, source, description } =
       project || {};
-    const src = imageSrc;
     return (
       <>
         <div
@@ -43,56 +42,41 @@ function ProjectModal({ setOpen, open, projectId }) {
             className="w-full h-auto"
           /> */}
 
-          <Swiper
-            // rewind={true}
-            navigation={true}
-            modules={[Navigation, Pagination, Autoplay]}
-            className="mySwiper w-full h-auto"
-            pagination={{
-              type: "progressbar",
-            }}
-          >
-            <SwiperSlide>
-              <Image
-                loader={() => src}
-                src={src}
-                alt={name}
-                width={0}
-                height={0}
-                className="w-full h-auto"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image
-                loader={() => src}
-                src={src}
-                alt={name}
-                width={0}
-                height={0}
-                className="w-full h-auto"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image
-                loader={() => src}
-                src={src}
-                alt={name}
-                width={0}
-                height={0}
-                className="w-full h-auto"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image
-                loader={() => src}
-                src={src}
-                alt={name}
-                width={0}
-                height={0}
-                className="w-full h-auto"
-              />
-            </SwiperSlide>
-          </Swiper>
+          {imageSrc.length > 1 ? (
+            <Swiper
+              // rewind={true}
+              navigation={true}
+              modules={[Navigation, Pagination, Autoplay]}
+              className="mySwiper w-full h-auto"
+              pagination={{
+                type: "progressbar",
+              }}
+            >
+              {imageSrc.map((img, idx) => {
+                return (
+                  <SwiperSlide key={idx}>
+                    <Image
+                      loader={() => img}
+                      src={img}
+                      alt={name}
+                      width={0}
+                      height={0}
+                      className="w-full h-auto"
+                    />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          ) : (
+            <Image
+              loader={() => imageSrc[0]}
+              src={imageSrc[0]}
+              alt={name}
+              width={0}
+              height={0}
+              className="w-full h-auto"
+            />
+          )}
         </div>
         <div className="py-3 px-3">
           <Typography
