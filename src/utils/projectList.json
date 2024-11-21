@@ -235,7 +235,18 @@
     "name": "Dojoteq",
     "category": ["html", "next", "react", "tailwind"],
     "placeholderSrc": "https://i.ibb.co/Mkc6yz6/Dashboard.jpg",
-    "imageSrc": ["https://i.ibb.co/pzKnS2d/Dashboard.png"],
+    "imageSrc": [
+      "https://i.ibb.co/pzKnS2d/Dashboard.png",
+      "https://i.ibb.co.com/7VhsLRq/View-Class.png",
+      "https://i.ibb.co.com/mJqGgpM/Settings.png",
+      "https://i.ibb.co.com/FsfCw18/New-Class-2.png",
+      "https://i.ibb.co.com/kx00W4R/New-Class.png",
+      "https://i.ibb.co.com/Jp1RBbY/My-Classes-Upcoming.png",
+      "https://i.ibb.co.com/pwhjjjf/My-Classes-Past.png",
+      "https://i.ibb.co.com/CKnnkkC/Message.png",
+      "https://i.ibb.co.com/hWKWQWq/Live-Class.png",
+      "https://i.ibb.co.com/6DwF9MX/Calendar.png"
+    ],
     "link": "https://dojoteq-instructor.edalytics.com/login",
     "description": "Our online training platform features live video classes with One-to-One and One-to-Many call options. Students join classes via a mobile app, instructors use a dashboard for scheduling, and admins oversee everything through an admin dashboard. Video sharing is enabled for both in One-to-One, but only for instructors in One-to-Many. We use Stripe for secure payments."
   },
@@ -246,7 +257,11 @@
     "category": ["html", "rest-api", "react", "bootstrap"],
     "placeholderSrc": "https://i.ibb.co/X21sWh9/Screenshot-from-2024-08-27-10-57-22.jpg",
     "imageSrc": [
-      "https://i.ibb.co/X21sWh9/Screenshot-from-2024-08-27-10-57-22.jpg"
+      "https://i.ibb.co.com/0tvHGQH/Screenshot-from-2024-11-21-10-13-02.png",
+      "https://i.ibb.co.com/tLBqxtD/Screenshot-from-2024-11-21-10-12-19.png",
+      "https://i.ibb.co.com/tDR0KHp/Screenshot-from-2024-11-21-10-11-44.png",
+      "https://i.ibb.co.com/svPCy71/Screenshot-from-2024-11-21-10-14-04.png",
+      "https://i.ibb.co.com/JQN5BbY/Screenshot-from-2024-11-21-10-14-34.png"
     ],
     "link": "https://www.decofetch.com/",
     "description": "This E-commerce application specializes in furniture sales, offering various categories and customizable product options. Users can choose different variations and order custom sizes. Payments are processed via Stripe and PayPal. A unique 'Shop The Look' feature allows users to explore room designs and select products by clicking on white dots within the image. We also offer a trade program with discounted pricing for eligible users. An admin dashboard manages all features, allowing dynamic content updates across the site, similar to a CMS system.This E-commerce application specializes in furniture sales, offering various categories and customizable product options. Users can choose different variations and order custom sizes. Payments are processed via Stripe and PayPal. A unique 'Shop The Look' feature allows users to explore room designs and select products by clicking on white dots within the image. We also offer a trade program with discounted pricing for eligible users. An admin dashboard manages all features, allowing dynamic content updates across the site, similar to a CMS system."
