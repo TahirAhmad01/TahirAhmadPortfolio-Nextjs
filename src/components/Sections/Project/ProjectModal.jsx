@@ -37,6 +37,7 @@ function ProjectModal({ setOpen, open, projectId }) {
                 modules={[Navigation, Pagination, Autoplay]}
                 className="mySwiper w-full h-full"
                 pagination={{ type: "progressbar" }}
+                loop={true}
               >
                 {imageSrc.map((img, idx) => (
                   <SwiperSlide key={idx}>
@@ -78,8 +79,11 @@ function ProjectModal({ setOpen, open, projectId }) {
             {name}
           </Typography>
           <div className="text-xs md:text-sm text-gray-700 dark:text-gray-400 mt-2 mb-2">
-            {description ||
-              <div className="pb-2">No description available for this project.</div>}
+            {description || (
+              <div className="pb-2">
+                No description available for this project.
+              </div>
+            )}
           </div>
 
           <div className="mb-5">
