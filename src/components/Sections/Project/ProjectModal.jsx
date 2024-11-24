@@ -29,13 +29,13 @@ function ProjectModal({ setOpen, open, projectId }) {
     return (
       <div key={project.id}>
         {/* Image Section */}
-        <div className="min-h-[5vh] max-h-[42vh] overflow-hidden scrollbar-hide rounded-lg relative select-none">
+        <div className="min-h-[5vh] max-h-[52vh] overflow-hidden scrollbar-hide rounded-lg relative select-none">
           <PhotoProvider>
             {imageSrc.length > 1 ? (
               <Swiper
                 navigation={true}
                 modules={[Navigation, Pagination, Autoplay]}
-                className="mySwiper w-full h-auto"
+                className="mySwiper w-full h-full"
                 pagination={{ type: "progressbar" }}
               >
                 {imageSrc.map((img, idx) => (
@@ -47,7 +47,7 @@ function ProjectModal({ setOpen, open, projectId }) {
                         alt={name}
                         width={0}
                         height={0}
-                        className="w-full h-auto"
+                        className="w-full h-full"
                       />
                     </PhotoView>
                   </SwiperSlide>
@@ -61,7 +61,7 @@ function ProjectModal({ setOpen, open, projectId }) {
                   alt={name}
                   width={0}
                   height={0}
-                  className="w-full h-auto"
+                  className="w-full h-full"
                 />
               </PhotoView>
             )}
@@ -79,10 +79,7 @@ function ProjectModal({ setOpen, open, projectId }) {
           </Typography>
           <div className="text-xs md:text-sm text-gray-700 dark:text-gray-400 mt-2 mb-2">
             {description ||
-              `Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Reprehenderit maiores quasi quod quidem blanditiis culpa, deserunt
-              atque tempore ullam ratione eos quaerat, odit perferendis illum
-              placeat facere recusandae dolore asperiores.`}
+              <div className="pb-2">No description available for this project.</div>}
           </div>
 
           <div className="mb-5">
@@ -98,7 +95,7 @@ function ProjectModal({ setOpen, open, projectId }) {
 
           {/* Links */}
           {(link || source) && (
-            <div className="mt-3">
+            <div className="mt-3 flex gap-1">
               {link && (
                 <a href={link} target="_blank" rel="noreferrer">
                   <button className="bg-[#7c3aed] hover:bg-[#5b21b6] text-sm text-white font-medium py-2 px-3 rounded-lg inline-flex items-center">
@@ -134,7 +131,7 @@ function ProjectModal({ setOpen, open, projectId }) {
     >
       <Box
         sx={style}
-        className="w-[96%] md:w-[700px] outline-none rounded-xl overflow-x-auto scrollbar-hide dark:text-white bg-gray-50 dark:bg-[#1f2937]"
+        className="w-[96%] md:w-[800px] outline-none rounded-xl overflow-x-auto scrollbar-hide dark:text-white bg-gray-50 dark:bg-[#1f2937]"
       >
         <button
           className="absolute top-3 right-3 h-8 w-8 dark:bg-[#464f56] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 rounded-full z-50"
