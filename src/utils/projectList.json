@@ -268,6 +268,26 @@
   },
   {
     "id": 28,
+    "worked_company_id": 2,
+    "name": "Doodl Space",
+    "category": ["html", "rest-api", "react", "bootstrap", "tailwind"],
+    "placeholderSrc": "https://i.ibb.co.com/QmfmkJ7/Screenshot-from-2024-11-24-14-16-19.jpg",
+    "imageSrc": [
+      "https://i.ibb.co.com/sb7qfGr/Screenshot-from-2024-11-24-14-16-19.png",
+      "https://i.ibb.co.com/mtzJhfP/Screenshot-from-2024-11-24-14-16-26.png",
+      "https://i.ibb.co.com/0YYBYGD/Screenshot-from-2024-11-24-14-16-53.png",
+      "https://i.ibb.co.com/0tqfCzn/Screenshot-from-2024-11-24-14-16-57.png",
+      "https://i.ibb.co.com/xgSL18b/Screenshot-from-2024-11-24-14-17-21.png",
+      "https://i.ibb.co.com/QKJMhg1/Screenshot-from-2024-11-24-14-17-32.png",
+      "https://i.ibb.co.com/Kr1t8xs/Screenshot-from-2024-11-24-14-16-32.png",
+      "https://i.ibb.co.com/RBWvjLr/Screenshot-from-2024-11-24-14-16-49.png",
+      "https://i.ibb.co.com/pyMzJ3t/Screenshot-from-2024-11-24-14-16-39.png"
+    ],
+    "link": "https://doodlspace.com/",
+    "description": "Doodl Space understands the pain of spending time and money on scanning profiles, negotiating, onboarding, training and managing designers, when your core business is something else. \n Hence, we have brought to you an on-demand design service where you just need to plug us to your system and wohoo! We are your virtual design team, ready to take up your design challenges right from day 1.\n We have been trusted by more than 90+ brands and agencies till date including some renowned ones as Merchbay, Kraftshala, Teachmint, InBody, etc."
+  },
+  {
+    "id": 29,
     "worked_company_id": 3,
     "name": "Course Management Application",
     "category": [
@@ -280,12 +300,23 @@
       "javascript"
     ],
     "placeholderSrc": "https://i.ibb.co/sCTYyvL/course-management.jpg",
-    "imageSrc": ["https://i.ibb.co/yYmbmFZ/course-management.png"],
+    "imageSrc": [
+      "https://i.ibb.co/yYmbmFZ/course-management.png",
+      "https://i.ibb.co.com/KrGhthV/Screenshot-from-2024-11-24-13-51-29.png",
+      "https://i.ibb.co.com/VN5VNd1/Screenshot-from-2024-11-24-13-50-53.png",
+      "https://i.ibb.co.com/VgvjC82/Screenshot-from-2024-11-24-13-50-43.png",
+      "https://i.ibb.co.com/3YYdqZV/Screenshot-from-2024-11-24-13-50-29.png",
+      "https://i.ibb.co.com/RPFPnLN/Screenshot-from-2024-11-24-13-50-21.png",
+      "https://i.ibb.co.com/s6tzyP2/Screenshot-from-2024-11-24-13-50-15.png",
+      "https://i.ibb.co.com/THCMvC5/Screenshot-from-2024-11-24-13-49-19.png",
+      "https://i.ibb.co.com/12MZypg/Screenshot-from-2024-11-24-13-49-05.png",
+      "https://i.ibb.co.com/WVYDwPJ/Screenshot-from-2024-11-24-13-48-48.png"
+    ],
     "source": "https://github.com/TahirAhmad01/CourseManagementApplication-ROR",
     "description": "The university student course registration system is unable to cope with the high volume manual process of recording, retrieving and updating each record at registration time. During peak transaction times for each new semester, registration lines are getting longer as well as each student’s waiting and processing time. So an online student course registration system needs to be developed.In the case of a university course registration process, students will be able to register their courses online. The available courses will be chosen by the students under a user authentication process. Registered courses should be listed under a specific semester for each student.There should be search activity by Semester Name so that we can see the registered courses under that semester.Admin can create a semester and mark the semester as the current semester.Lastly Admin will update the each semester result and result will be published calculating the CGPA of each subject and result will be emailed to students.Each student will be able to see their own result through his registered email id."
   },
   {
-    "id": 29,
+    "id": 30,
     "worked_company_id": 3,
     "name": "Uddogi",
     "category": ["html", "ruby", "rails", "bootstrap", "jquery", "javascript"],
