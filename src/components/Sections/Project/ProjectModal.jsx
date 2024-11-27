@@ -44,11 +44,15 @@ function ProjectModal({ setOpen, open, projectId }) {
                     <PhotoView src={img}>
                       <Image
                         loader={() => img}
+                        loading="lazy"
                         src={img}
                         alt={name}
                         width={0}
                         height={0}
+                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 13vw, 10vw"
                         className="w-full h-full"
+                        placeholder="blur"
+                        blurDataURL={img}
                       />
                     </PhotoView>
                   </SwiperSlide>
@@ -58,11 +62,14 @@ function ProjectModal({ setOpen, open, projectId }) {
               <PhotoView src={imageSrc[0]}>
                 <Image
                   loader={() => imageSrc[0]}
+                  loading="lazy"
                   src={imageSrc[0]}
                   alt={name}
                   width={0}
                   height={0}
                   className="w-full h-full"
+                  placeholder="blur"
+                  blurDataURL={imageSrc[0]}
                 />
               </PhotoView>
             )}
