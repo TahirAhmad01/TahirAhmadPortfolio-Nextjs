@@ -12,35 +12,60 @@ const style = {
   transform: "translate(-50%, -50%)",
   maxHeight: "90vh",
   border: "none",
-  boxShadow: 90,
+  boxShadow: 24,
   p: 1,
 };
 
 function ProjectModal({ setOpen, open, projectId }) {
   const handleClose = () => setOpen(false);
 
-  const findProject = projectList.filter(
-    (project) => project?.id === projectId
-  );
+  const findProject = projectList.find((project) => project?.id === projectId);
 
-  const content = findProject.map((project) => {
-    const { name, imageSrc, category, link, source, description } =
-      project || {};
-    return (
-      <div key={project.id}>
+  if (!findProject) return null;
+
+  const {
+    name,
+    imageSrc = [],
+    category = [],
+    link,
+    source,
+    description,
+  } = findProject || {};
+
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box
+        sx={style}
+        className="w-[96%] md:w-[800px] outline-none rounded-xl overflow-hidden scrollbar-hide dark:text-white bg-gray-50 dark:bg-[#1f2937]"
+      >
+        <button
+          className="absolute top-3 right-3 h-8 w-8 dark:bg-[#464f56] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 rounded-full z-50"
+          onClick={handleClose}
+        >
+          <i aria-hidden className="fa-solid fa-xmark"></i>
+        </button>
         {/* Image Section */}
         <div className="min-h-[5vh] max-h-[52vh] overflow-hidden scrollbar-hide rounded-lg relative select-none">
           <PhotoProvider>
             {imageSrc.length > 1 ? (
               <Swiper
-                navigation={true}
+                navigation
                 modules={[Navigation, Pagination, Autoplay]}
                 className="mySwiper w-full h-full"
                 pagination={{ type: "progressbar" }}
-                loop={true}
+                lazy={true}
+                loop
               >
                 {imageSrc.map((img, idx) => (
-                  <SwiperSlide key={idx}>
+                  <SwiperSlide
+                    key={idx}
+                    className="!h-full relative min-h-[5vh] max-h-[52vh]"
+                  >
                     <PhotoView src={img}>
                       <Image
                         loader={() => img}
@@ -49,33 +74,37 @@ function ProjectModal({ setOpen, open, projectId }) {
                         alt={name}
                         width={0}
                         height={0}
-                        sizes="(max-width: 768px) 33vw, (max-width: 1200px) 13vw, 10vw"
-                        className="w-full h-full"
+                        sizes="(max-width: 768px) 13vw, (max-width: 1200px) 9vw, 5vw"
+                        className="!w-full !h-full object-cover"
                         placeholder="blur"
                         blurDataURL={img}
                       />
                     </PhotoView>
+                    <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             ) : (
-              <PhotoView src={imageSrc[0]}>
-                <Image
-                  loader={() => imageSrc[0]}
-                  loading="lazy"
-                  src={imageSrc[0]}
-                  alt={name}
-                  width={0}
-                  height={0}
-                  className="w-full h-full"
-                  placeholder="blur"
-                  blurDataURL={imageSrc[0]}
-                />
-              </PhotoView>
+              imageSrc[0] && (
+                <PhotoView src={imageSrc[0]}>
+                  <Image
+                    loader={() => imageSrc[0]}
+                    loading="lazy"
+                    src={imageSrc[0]}
+                    alt={name}
+                    width={0}
+                    height={0}
+                    className="w-full h-full object-cover"
+                    placeholder="blur"
+                    blurDataURL={imageSrc[0]}
+                  />
+                </PhotoView>
+              )
             )}
           </PhotoProvider>
         </div>
 
+        {/* Content Section */}
         <div className="py-3 px-3">
           <Typography
             id="modal-modal-title"
@@ -129,28 +158,6 @@ function ProjectModal({ setOpen, open, projectId }) {
             </div>
           )}
         </div>
-      </div>
-    );
-  });
-
-  return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box
-        sx={style}
-        className="w-[96%] md:w-[800px] outline-none rounded-xl overflow-x-auto scrollbar-hide dark:text-white bg-gray-50 dark:bg-[#1f2937]"
-      >
-        <button
-          className="absolute top-3 right-3 h-8 w-8 dark:bg-[#464f56] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 rounded-full z-50"
-          onClick={handleClose}
-        >
-          <i aria-hidden className="fa-solid fa-xmark"></i>
-        </button>
-        {content}
       </Box>
     </Modal>
   );
