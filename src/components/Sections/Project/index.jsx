@@ -134,7 +134,7 @@ export default function Project() {
               path === "/" || isGridView
                 ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
                 : "flex flex-col gap-3"
-            }`}
+            } relative`}
           >
             <AnimatePresence>
               {items.map((item, idx) => (
