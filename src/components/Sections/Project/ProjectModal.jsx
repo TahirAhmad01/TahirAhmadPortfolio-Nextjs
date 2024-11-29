@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
@@ -32,17 +32,16 @@ function ProjectModal({ setOpen, open, projectId }) {
   }
 
   return (
-    <>
+    <AnimatePresence>
       {open && (
         <motion.div
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
-          exit={{ x: "100%" }}
+          exit={{ x: "100%" }} // Change exit animation to slide out to the right
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="fixed top-0 right-0 h-full w-full bg-gray-50 dark:bg-[#111827] z-50 shadow-lg"
         >
           <PageLayout>
-            {" "}
             <div className="h-[calc(100vh-4.2rem)] w-full overflow-y-auto">
               <div className="containerCustom gap md:py-3">
                 {/* Close Button */}
@@ -162,7 +161,7 @@ function ProjectModal({ setOpen, open, projectId }) {
           </PageLayout>
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 }
 
