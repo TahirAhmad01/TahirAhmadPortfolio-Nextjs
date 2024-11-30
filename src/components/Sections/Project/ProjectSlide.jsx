@@ -37,9 +37,9 @@ function ProjectSlide({ setOpen, open, projectId }) {
         <motion.div
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
-          exit={{ x: "100%" }} // Change exit animation to slide out to the right
+          exit={{ x: "100%" }}t
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed top-0 right-0 h-full w-full bg-gray-50 dark:bg-[#111827] z-50 shadow-lg"
+          className="fixed top-0 right-0 h-full w-full bg-gray-50 dark:bg-[#111827] z-30 shadow-lg"
         >
           <PageLayout>
             <div className="h-[calc(100vh-4.2rem)] w-full overflow-y-auto">

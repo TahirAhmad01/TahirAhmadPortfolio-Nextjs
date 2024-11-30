@@ -40,9 +40,7 @@ export default function Projects({ item, isGridView, path }) {
           opacity: 0,
           scale: 0.7,
         }}
-        transition={{
-          duration: 0.5,
-        }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <div
           className={classnames(
@@ -95,25 +93,22 @@ export default function Projects({ item, isGridView, path }) {
               </div>
               <div className="text-sm">
                 {category.map((cat, idx) => (
-                  <span
-                    className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 capitalize md:inline-block hidden shadow-md"
-                    key={idx}
-                  >
-                    {cat}
-                  </span>
+                  <span key={idx}>{(idx ? ", " : "") + cat}</span>
                 ))}
               </div>
             </div>
           )}
         </div>
       </motion.div>
-
-      <ProjectSlide
-        open={open}
-        handleOpen={handleOpen}
-        setOpen={setOpen}
-        projectId={projectId}
-      />
+      {open && (
+        <ProjectSlide
+          projectId={projectId}
+          open={open}
+          setOpen={setOpen}
+          isGridView={isGridView}
+          path={path}
+        />
+      )}
     </>
   );
 }

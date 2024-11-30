@@ -23,9 +23,9 @@ export default function Project() {
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [isGridView, setIsGridView] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [filtering, setFiltering] = useState(false);
   const path = usePathname();
 
-  
   useEffect(() => {
     const savedView = localStorage.getItem("viewMode");
     setIsGridView(savedView ? savedView === "grid" : true);
@@ -43,6 +43,7 @@ export default function Project() {
   }, [path]);
 
   useEffect(() => {
+    setFiltering(true);
     let filteredItems = initialItems;
 
     if (searchTerm !== "") {
@@ -73,7 +74,10 @@ export default function Project() {
       );
     }
 
-    setItems(filteredItems);
+    setTimeout(() => {
+      setItems(filteredItems);
+      setFiltering(false);
+    }, 300);
   }, [searchTerm, selectedCategories, selectedTypes, initialItems]);
 
   const toggleView = () => {
@@ -93,7 +97,7 @@ export default function Project() {
         <div className="w-full flex items-end justify-end mb-2 gap-2">
           <DebounceInput
             minLength={1}
-            debounceTimeout={300}
+            debounceTimeout={600}
             element={Input}
             type="text"
             placeholder="Search Project"
@@ -109,11 +113,7 @@ export default function Project() {
           />
           <Button variant="outline" onClick={toggleView}>
             <div className={`${isGridView === null && "opacity-0"}`}>
-              { isGridView ? (
-                <FaThList />
-              ) : (
-                <IoGrid />
-              )}
+              {isGridView ? <FaThList /> : <IoGrid />}
             </div>
           </Button>
         </div>
@@ -137,14 +137,18 @@ export default function Project() {
             } relative`}
           >
             <AnimatePresence>
-              {items.map((item, idx) => (
-                <Projects
-                  item={item}
-                  isGridView={isGridView}
-                  path={path}
-                  key={idx}
-                />
-              ))}
+              {filtering ? (
+                <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+              ) : (
+                items.map((item, idx) => (
+                  <Projects
+                    item={item}
+                    isGridView={isGridView}
+                    path={path}
+                    key={idx}
+                  />
+                ))
+              )}
             </AnimatePresence>
           </div>
 
