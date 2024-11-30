@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import blur from "@/assets/images/webp/blur.webp";
-import ProjectModal from "./ProjectModal";
+import ProjectSlide from "./ProjectSlide";
 import classnames from "classnames";
 
 export default function Projects({ item, isGridView, path }) {
@@ -108,7 +108,7 @@ export default function Projects({ item, isGridView, path }) {
         </div>
       </motion.div>
 
-      <ProjectModal
+      <ProjectSlide
         open={open}
         handleOpen={handleOpen}
         setOpen={setOpen}

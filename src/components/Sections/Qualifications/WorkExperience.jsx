@@ -7,7 +7,7 @@ import { Fade, Zoom } from "react-reveal";
 import CertificateModal from "./CertificateModal";
 import projectList from "@/utils/projectList";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import ProjectModal from "../Project/ProjectModal";
+import ProjectModal from "../Project/ProjectSlide";
 import blur from "@/assets/images/webp/blur.webp";
 
 export default function WorkExperience({ work }) {
@@ -39,7 +39,7 @@ export default function WorkExperience({ work }) {
   };
 
   const relatedProjects = projectList.filter(
-    ({ worked_company_id }) => id === worked_company_id,
+    ({ worked_company_id }) => id === worked_company_id
   );
 
   return (
@@ -184,7 +184,9 @@ export default function WorkExperience({ work }) {
                           </div>
 
                           <div className="grow">
-                            <div className="font-semibold text-sm md:text-lg">{name}</div>
+                            <div className="font-semibold text-sm md:text-lg">
+                              {name}
+                            </div>
                             <div className="line-clamp-3 md:line-clamp-2 text-xs md:text-sm">
                               {projectDes}
                             </div>

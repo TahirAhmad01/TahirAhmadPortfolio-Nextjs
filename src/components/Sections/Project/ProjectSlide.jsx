@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import PageLayout from "@/components/PageLayout";
 import { IoIosArrowBack } from "react-icons/io";
 
-function ProjectModal({ setOpen, open, projectId }) {
+function ProjectSlide({ setOpen, open, projectId }) {
   const handleClose = () => {
     document.body.classList.remove("overflow-hidden");
     setOpen(false);
@@ -43,10 +43,10 @@ function ProjectModal({ setOpen, open, projectId }) {
         >
           <PageLayout>
             <div className="h-[calc(100vh-4.2rem)] w-full overflow-y-auto">
-              <div className="containerCustom gap md:py-3">
+              <div className="containerCustom max-w-screen-lg py-5">
                 {/* Close Button */}
                 <button
-                  className="mb-3 pl-2 pr-4 py-1 rounded-md dark:bg-[#464f56] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 z-50 flex items-center gap-1"
+                  className="mb-5 pl-2 pr-4 py-1 rounded-md dark:bg-[#2b3035] bg-gray-200 hover:bg-gray-300 dark:hover:bg-[#27282f] dark:text-white text-gray-700 z-50 flex items-center gap-1"
                   onClick={handleClose}
                 >
                   <IoIosArrowBack />
@@ -54,7 +54,7 @@ function ProjectModal({ setOpen, open, projectId }) {
                 </button>
 
                 {/* Image Section */}
-                <div className="overflow-hidden rounded-b-lg relative select-none">
+                <div className="overflow-hidden rounded-lg relative select-none">
                   <PhotoProvider>
                     {imageSrc.length > 1 ? (
                       <Swiper
@@ -106,7 +106,7 @@ function ProjectModal({ setOpen, open, projectId }) {
                 </div>
 
                 {/* Content Section */}
-                <div className="py-5 px-5">
+                <div className="py-5">
                   <h2 className="text-2xl font-medium capitalize dark:text-white">
                     {name}
                   </h2>
@@ -165,4 +165,4 @@ function ProjectModal({ setOpen, open, projectId }) {
   );
 }
 
-export default ProjectModal;
+export default ProjectSlide;
