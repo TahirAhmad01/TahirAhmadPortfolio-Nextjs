@@ -21,9 +21,15 @@ export default function Project() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
-  const [isGridView, setIsGridView] = useState(true);
+  const [isGridView, setIsGridView] = useState(null);
   const [loading, setLoading] = useState(true);
   const path = usePathname();
+
+  
+  useEffect(() => {
+    const savedView = localStorage.getItem("viewMode");
+    setIsGridView(savedView ? savedView === "grid" : true);
+  }, []);
 
   useEffect(() => {
     const sortedList = [...projectList].sort((b, a) => a.id - b.id);
@@ -71,7 +77,9 @@ export default function Project() {
   }, [searchTerm, selectedCategories, selectedTypes, initialItems]);
 
   const toggleView = () => {
-    setIsGridView((prev) => !prev);
+    const newView = !isGridView ? "grid" : "list";
+    setIsGridView(!isGridView);
+    localStorage.setItem("viewMode", newView);
   };
 
   return (
@@ -100,34 +108,42 @@ export default function Project() {
             setSelectedTypes={setSelectedTypes}
           />
           <Button variant="outline" onClick={toggleView}>
-            {isGridView ? <FaThList /> : <IoGrid />}
+            <div className={`${isGridView === null && "opacity-0"}`}>
+              { isGridView ? (
+                <FaThList />
+              ) : (
+                <IoGrid />
+              )}
+            </div>
           </Button>
         </div>
       )}
 
       {loading ? (
         <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center">
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-          <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
+          {Array(9)
+            .fill(0)
+            .map((_, idx) => (
+              <Skeleton className="w-full h-64 sm:h-52 lg:h-56" key={idx} />
+            ))}
         </div>
       ) : (
         <>
           <div
             className={`${
-              isGridView
+              path === "/" || isGridView
                 ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
                 : "flex flex-col gap-3"
-            }`}
+            } relative`}
           >
             <AnimatePresence>
               {items.map((item, idx) => (
-                <Projects item={item} isGridView={isGridView} key={idx} />
+                <Projects
+                  item={item}
+                  isGridView={isGridView}
+                  path={path}
+                  key={idx}
+                />
               ))}
             </AnimatePresence>
           </div>
