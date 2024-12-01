@@ -19,7 +19,7 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
   return (
     <React.Fragment>
       <div
-        className={`backdrop-blur-xl bg-[#f1f5f9]/20 dark:bg-[#0b1327]/20 w-full top-0 left-0 fixed z-[99] py-4 transition-all duration-200 my-collapsible my-collapsible shadow-sm`}
+        className={`backdrop-blur-xl bg-[#f1f5f9]/20 dark:bg-[#0b1327]/20 w-full top-0 left-0 fixed z-50 py-4 transition-all duration-200 my-collapsible my-collapsible shadow-sm`}
       >
         <div className="containerCustom flex items-center justify-between h-full">
           <div>
