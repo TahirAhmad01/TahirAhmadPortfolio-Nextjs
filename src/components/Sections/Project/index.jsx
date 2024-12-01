@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -39,6 +39,7 @@ export default function Project() {
     } else {
       setInitialItems(sortedList);
     }
+
     setLoading(false);
   }, [path]);
 
@@ -77,7 +78,7 @@ export default function Project() {
     setTimeout(() => {
       setItems(filteredItems);
       setFiltering(false);
-    }, 300);
+    }, 200);
   }, [searchTerm, selectedCategories, selectedTypes, initialItems]);
 
   const toggleView = () => {
@@ -119,17 +120,42 @@ export default function Project() {
         </div>
       )}
 
-      {loading ? (
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center">
+      {loading && isGridView != null ? (
+        <div
+          className={`grid gap-1 justify-items-center ${
+            isGridView ? "lg:grid-cols-3 sm:grid-cols-2" : "grid-cols-1"
+          }`}
+        >
           {Array(9)
             .fill(0)
-            .map((_, idx) => (
-              <Skeleton className="w-full h-64 sm:h-52 lg:h-56" key={idx} />
-            ))}
+            .map((_, idx) =>
+              isGridView ? (
+                <Skeleton
+                  className="w-full h-64 sm:h-52 lg:h-56 rounded-md"
+                  key={idx}
+                />
+              ) : (
+                <div
+                  className="flex items-center w-full space-x-4 p-2 rounded-md"
+                  key={idx}
+                >
+                  {/* Skeleton for image */}
+                  <Skeleton className="w-60 h-24 md:h-32 rounded-md" />
+
+                  {/* Skeleton for details */}
+                  <div className="flex flex-col flex-1 space-y-2">
+                    <Skeleton className="h-5 w-3/4 rounded-md" />
+                    <Skeleton className="h-4 w-1/2 rounded-md" />
+                    <Skeleton className="h-4 w-1/3 rounded-md" />
+                  </div>
+                </div>
+              )
+            )}
         </div>
       ) : (
         <>
-          <div
+          <motion.div
+            layout
             className={`${
               path === "/" || isGridView
                 ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
@@ -137,20 +163,22 @@ export default function Project() {
             } relative`}
           >
             <AnimatePresence>
-              {filtering ? (
-                <Skeleton className="w-full h-64 sm:h-52 lg:h-56" />
-              ) : (
-                items.map((item, idx) => (
-                  <Projects
-                    item={item}
-                    isGridView={isGridView}
-                    path={path}
-                    key={idx}
-                  />
-                ))
-              )}
+              {items.map((item) => (
+                <motion.div
+                  key={item.id}
+                  layoutId={`project-${item.id}`}
+                  initial={{ opacity: 0, x: -50, y: -50 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  exit={{ opacity: 0, x: 50, y: 50 }}
+                  transition={{
+                    duration: 0.5,
+                  }}
+                >
+                  <Projects item={item} isGridView={isGridView} path={path} />
+                </motion.div>
+              ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
 
           {path === "/" && (
             <Fade up>
