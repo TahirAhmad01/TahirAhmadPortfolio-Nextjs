@@ -61,6 +61,10 @@ module.exports = withMT({
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
         "accordion-down": {
           from: {
             height: "0",

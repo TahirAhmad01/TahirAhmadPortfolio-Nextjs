@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { IoGrid } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
 import { Skeleton } from "@/components/ui/skeleton";
+import { MdSearchOff } from "react-icons/md";
 
 export default function Project() {
   const [items, setItems] = useState([]);
@@ -39,8 +40,6 @@ export default function Project() {
     } else {
       setInitialItems(sortedList);
     }
-
-    setLoading(false);
   }, [path]);
 
   useEffect(() => {
@@ -75,10 +74,10 @@ export default function Project() {
       );
     }
 
+    setItems(filteredItems);
     setTimeout(() => {
-      setItems(filteredItems);
-      setFiltering(false);
-    }, 200);
+      setLoading(false);
+    }, 300);
   }, [searchTerm, selectedCategories, selectedTypes, initialItems]);
 
   const toggleView = () => {
@@ -110,7 +109,6 @@ export default function Project() {
   const handleSearch = (debouncedSearchTerm) => {
     setSearchTerm(debouncedSearchTerm);
   };
-
 
   return (
     <div className="containerCustom gap">
@@ -170,6 +168,12 @@ export default function Project() {
         </div>
       ) : (
         <>
+          {!loading && items.length === 0 && (
+            <div className="flex flex-col items-center text-center py-10 slide-in-from-top-11">
+              <MdSearchOff className="text-gray-500 text-6xl mb-2" />
+              <p className="text-gray-500">No Project Found</p>
+            </div>
+          )}
           <motion.div
             layout
             className={`${
@@ -183,11 +187,11 @@ export default function Project() {
                 <motion.div
                   key={item.id}
                   layoutId={`project-${item.id}`}
-                  initial={{ opacity: 0, x: -50, y: -50 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  exit={{ opacity: 0, x: 50, y: 50 }}
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 50 }}
                   transition={{
-                    duration: 0.5
+                    duration: 0.5,
                   }}
                 >
                   <Projects item={item} isGridView={isGridView} path={path} />
