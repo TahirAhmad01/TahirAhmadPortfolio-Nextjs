@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import blur from "@/assets/images/webp/blur.webp";

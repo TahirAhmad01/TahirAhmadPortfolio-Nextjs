@@ -10,11 +10,6 @@ import NextTopLoader from "nextjs-toploader";
 
 export default function Navbar({ theme, toggleDarkMode, loading }) {
   const path = usePathname();
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
 
   return (
     <React.Fragment>
@@ -64,16 +59,12 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
                 />
               )}
             </div>
-            <div
-              className="md:hidden flex flex-col items-start text-[1.9rem] ml-2"
-              onClick={toggleSidebar}
-            >
-              <i aria-hidden className="bx bx-menu-alt-left"></i>
+            <div className="md:hidden flex flex-col items-start text-[1.9rem] ml-2">
+              <MobileDrawer />
             </div>
           </div>
         </div>
 
-        <MobileDrawer setSidebar={setSidebarOpen} isOpen={isSidebarOpen} />
         <NextTopLoader
           color="#2299DD"
           initialPosition={0.08}

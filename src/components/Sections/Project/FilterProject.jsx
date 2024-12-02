@@ -59,8 +59,8 @@ export function FilterProject({
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Filter Projects</SheetTitle>
+        <SheetHeader className="py-6 border-b">
+          <SheetTitle className="text-left">Filter Projects</SheetTitle>
           {/* <SheetDescription>
             Select categories and types to filter projects.
           </SheetDescription> */}
