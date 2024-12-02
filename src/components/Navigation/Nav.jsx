@@ -18,12 +18,7 @@ export default function Navbar({ theme, toggleDarkMode, loading }) {
       >
         <div className="containerCustom flex items-center justify-between h-full">
           <div>
-            <Link
-              href="/"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
+            <Link href="/">
               <h4 className="flex items-center text-xl">
                 <div className="h-9 w-9 overflow-hidden rounded-full bg-transparent">
                   <Image src={avatar} alt="avatar" width={0} height={0} />

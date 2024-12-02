@@ -9,23 +9,18 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import menuList from "@/utils/menuList";
+import useWindowDimensions from "@/hook/getWindowDimensions";
 
 export default function MobileDrawer() {
   const path = usePathname();
+  const { width } = useWindowDimensions();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 720) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    if (width > 720) {
+      setIsOpen(false);
+    }
+  }, [width]);
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -45,7 +40,7 @@ export default function MobileDrawer() {
               href={menu.link}
               key={idx}
               className="capitalize font-medium text-gray-800 hover:text-mainColor dark:text-white"
-              onClick={() => setIsOpen(false)} // Close drawer on link click
+              onClick={() => setIsOpen(false)}
             >
               <ul className="w-full py-2 px-2 my-1">
                 <li

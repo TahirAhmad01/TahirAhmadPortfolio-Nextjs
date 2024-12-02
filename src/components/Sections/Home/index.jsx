@@ -17,7 +17,6 @@ import BoxReveal from "@/components/magicui/box-reveal";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
-  const { theme } = useTheme();
 
   return (
     <div
