@@ -156,7 +156,7 @@ export default function Project() {
                   className="flex items-center w-full space-x-4 p-2 rounded-md"
                   key={idx}
                 >
-                  <Skeleton className="w-60 h-24 md:h-32 rounded-md" />
+                  <Skeleton className="md:w-60 w-32 h-24 md:h-32 rounded-md" />
                   <div className="flex flex-col flex-1 space-y-2">
                     <Skeleton className="h-5 w-3/4 rounded-md" />
                     <Skeleton className="h-4 w-1/2 rounded-md" />
@@ -174,16 +174,15 @@ export default function Project() {
               <p className="text-gray-500">No Project Found</p>
             </div>
           )}
-          <motion.div
-            layout
+          <div
             className={`${
               path === "/" || isGridView
                 ? "grid lg:grid-cols-3 sm:grid-cols-2 gap-1 justify-items-center"
-                : "flex flex-col gap-3"
+                : "flex flex-col gap-3 w-full"
             } relative`}
           >
             <AnimatePresence>
-              {items.map((item, idx) => (
+              {items.map((item) => (
                 <motion.div
                   key={item.id}
                   layoutId={`project-${item.id}`}
@@ -193,12 +192,13 @@ export default function Project() {
                   transition={{
                     duration: 0.5,
                   }}
+                  className="w-full"
                 >
                   <Projects item={item} isGridView={isGridView} path={path} />
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
 
           {path === "/" && (
             <Fade up>

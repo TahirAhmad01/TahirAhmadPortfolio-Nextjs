@@ -12,12 +12,14 @@ import Testimonial from "@/components/Sections/Testimonial";
 function loadStylesAndScripts() {
   return new Promise((resolve) => {
     const stylesPromise = new Promise((styleResolve) =>
-      setTimeout(styleResolve, 2500),
+      setTimeout(styleResolve, 1200),
     );
 
     Promise.all([stylesPromise]).then(() => {
       resolve();
     });
+
+    return () => clearTimeout(timer); 
   });
 }
 

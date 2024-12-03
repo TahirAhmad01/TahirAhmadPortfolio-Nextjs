@@ -70,7 +70,7 @@ export default function Projects({ item, isGridView, path }) {
           </div>
         ) : (
           <div className="w-full">
-            <div className="font-semibold capitalize">{name}</div>
+            <div className="font-semibold capitalize line-clamp-1">{name}</div>
             <div className="text-xs line-clamp-3 mb-2 text-gray-700 dark:text-gray-400">
               {description}
             </div>
