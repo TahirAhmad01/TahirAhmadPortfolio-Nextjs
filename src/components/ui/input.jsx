@@ -42,8 +42,8 @@ const InputWithDebounce = React.forwardRef(
         <input
           type={type}
           className={cn(
-            "flex h-10 w-full rounded-md border border-input bg-background px-3 pl-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-[300px]",
-            isMac ? "pr-14" : "pr-20",
+            "flex h-10 w-full rounded-md border border-input bg-background px-3 pl-3 pr-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-[300px]",
+            isMac ? "md:pr-14" : "md:pr-20",
             className
           )}
           ref={ref}
@@ -54,7 +54,7 @@ const InputWithDebounce = React.forwardRef(
         />
         <div className="absolute right-3 top-[10.5px] text-xs text-muted-foreground hidden md:block">
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-            <span className="text-xs">{shortcut}</span>
+            <span className="text-[0.65rem]">{shortcut}</span>
           </kbd>
         </div>
       </div>
