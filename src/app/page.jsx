@@ -9,26 +9,26 @@ import Resume from "@/components/Sections/Qualifications";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
 
-function loadStylesAndScripts() {
-  return new Promise((resolve) => {
-    const stylesPromise = new Promise((styleResolve) =>
-      setTimeout(styleResolve, 1200),
-    );
+// function loadStylesAndScripts() {
+//   return new Promise((resolve) => {
+//     const stylesPromise = new Promise((styleResolve) =>
+//       setTimeout(styleResolve, 1200),
+//     );
 
-    Promise.all([stylesPromise]).then(() => {
-      resolve();
-    });
+//     Promise.all([stylesPromise]).then(() => {
+//       resolve();
+//     });
 
-    return () => clearTimeout(timer); 
-  });
-}
+//     return () => clearTimeout(timer); 
+//   });
+// }
 
 export const metadata = {
   title: `Home - ${process.env.name}`,
 };
 
 export default async function Index() {
-  await loadStylesAndScripts();
+  // await loadStylesAndScripts();
 
   return (
     <main>
