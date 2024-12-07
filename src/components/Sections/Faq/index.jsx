@@ -42,6 +42,7 @@ export default function Faq() {
               height="0"
               width="0"
               className="w-full"
+              priority
             />
           </Zoom>
         </div>
