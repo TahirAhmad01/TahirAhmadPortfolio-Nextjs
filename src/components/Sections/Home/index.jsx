@@ -29,7 +29,7 @@ export default function Home() {
               className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-20 md:pb-28 pb-32`}
             >
               <div className="relative h-28 w-28 md:h-36 md:w-36 overflow-hidden rounded-full bg-white mb-4">
-                <Image src={avatar} alt="avatar" fill={true} priority={true} />
+                <Image src={avatar} alt="Tahir's picture" fill={true} priority={true} />
               </div>
               <h2 className="text-3xl md:text-4xl font-medium pb-4 pt-2 ">
                 <GradualSpacing

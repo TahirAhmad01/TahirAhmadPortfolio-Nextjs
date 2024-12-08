@@ -159,7 +159,7 @@ export default function ContactMe() {
                 <div className="w-32 h-32 flex items-center justify-center bg-green-500 rounded-full bg-gradient-to-tr from-green-400 via-blue-500 to-purple-600">
                   <Image
                     src={ThankYouImg}
-                    alt="thank-you-envelope"
+                    alt="thank-you envelope"
                     border="0"
                     className="w-20"
                     width={0}
