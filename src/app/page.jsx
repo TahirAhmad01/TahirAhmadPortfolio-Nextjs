@@ -19,7 +19,7 @@ function loadStylesAndScripts() {
       resolve();
     });
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   });
 }
 
@@ -40,9 +40,9 @@ export default async function Index() {
         <Resume />
         <Blog />
         <Testimonial />
-        <Faq/>
+        <Faq />
         {/* <ContactMe /> */}
-        <ContactMeCard/>
+        <ContactMeCard />
       </PageLayout>
     </main>
   );
