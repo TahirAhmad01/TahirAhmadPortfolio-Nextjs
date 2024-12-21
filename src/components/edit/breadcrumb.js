@@ -1,10 +1,11 @@
+"use clint"
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 function Breadcrumb() {
   const location = useRouter();
   const path = location.pathname;
-  const pathArr = path.slice(1).split("/");
+  const pathArr = path
   return (
     <>
       <nav className="flex" aria-label="Breadcrumb">

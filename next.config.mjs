@@ -5,10 +5,16 @@ dotenv.config();
 
 const nextConfig = {
   reactStrictMode: false,
+  pageExtensions: ["mdx", "md", "jsx", "js", "tsx", "ts"],
   env: {
     name: "Tahir Ahmad",
     fullName: "Tahir Ahmad (Sani)",
   },
+
+  // api: {
+  //   bodyParser: false,
+  //   externalResolver: true,
+  // },
 
   images: {
     remotePatterns: [
