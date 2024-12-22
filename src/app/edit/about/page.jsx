@@ -44,11 +44,10 @@ function AboutEdit() {
                 {information?.map((item, idx) => {
                   const { name, details } = item || {};
                   return (
-                    <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700" key={idx}>
                       <th
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        key={idx}
                       >
                         {name}
                       </th>

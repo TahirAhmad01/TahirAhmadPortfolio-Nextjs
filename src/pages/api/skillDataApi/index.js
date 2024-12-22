@@ -10,7 +10,7 @@ export default function SkillData(req, res) {
     skillList.push(getSkillsList);
 
     fs.writeFile(
-      './utils/skillData.json',
+      skillList,
       JSON.stringify(getSkillsList),
       err => {
         if (err) throw err;

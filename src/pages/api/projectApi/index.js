@@ -11,7 +11,7 @@ export default function projectApi(req, res) {
     projects.push(getProjects);
 
     fs.writeFile(
-      './utils/projectList.json',
+      projects,
       JSON.stringify(getProjects),
       err => {
         if (err) throw err;
