@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
           async
         ></script>
         <script
-          src="https://kit.fontawesome.com/f70f4c2534.js"
+          src="https://kit.fontawesome.com/b4ed653758.js"
           aria-hidden
           async
         ></script>

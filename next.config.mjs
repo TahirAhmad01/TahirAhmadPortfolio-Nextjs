@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
-// require("dotenv").config();
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
 dotenv.config();
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
   reactStrictMode: false,
@@ -10,12 +14,10 @@ const nextConfig = {
     name: "Tahir Ahmad",
     fullName: "Tahir Ahmad (Sani)",
   },
-
-  // api: {
-  //   bodyParser: false,
-  //   externalResolver: true,
-  // },
-
+  sassOptions: {
+    includePaths: [path.join(__dirname, "src/assets/css")],
+    silenceDeprecations: ["legacy-js-api"],
+  },
   images: {
     remotePatterns: [
       {
