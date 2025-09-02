@@ -38,7 +38,7 @@ export default async function Index() {
         <Skill />
         <Project />
         <Resume />
-        <Blog />
+        {/* <Blog /> */}
         <Testimonial />
         <Faq />
         {/* <ContactMe /> */}
