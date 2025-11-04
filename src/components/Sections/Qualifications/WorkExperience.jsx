@@ -152,7 +152,7 @@ export default function WorkExperience({ work }) {
 
                 {relatedProjects.length > 0 && (
                   <div className="mt-3 text-gray-500 dark:text-gray-400">
-                    {relatedProjects.map((project, idx) => {
+                    {[...relatedProjects].reverse().map((project, idx) => {
                       const {
                         id,
                         imageSrc,

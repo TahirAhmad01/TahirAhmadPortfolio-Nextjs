@@ -29,7 +29,12 @@ export default function Home() {
               className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-20 md:pb-28 pb-32`}
             >
               <div className="relative h-28 w-28 md:h-36 md:w-36 overflow-hidden rounded-full bg-white mb-4">
-                <Image src={avatar} alt="Tahir's picture" fill={true} priority={true} />
+                <Image
+                  src={avatar}
+                  alt="Tahir's picture"
+                  fill={true}
+                  priority={true}
+                />
               </div>
               <h2 className="text-3xl md:text-4xl font-medium pb-4 pt-2 ">
                 <GradualSpacing
@@ -40,7 +45,8 @@ export default function Home() {
               <BoxReveal boxColor={"#0b1327"} duration={0.5}>
                 <ReactTyped
                   strings={[
-                    "Full-stack Web Developer",
+                    "Junior Software Engineer",
+                    "Full-Stack Web Developer",
                     "Javascript Developer",
                     "React Developer",
                     "Ruby Developer",
@@ -75,7 +81,7 @@ export default function Home() {
                     <Button name="Get in touch" />
                   </Link>
                   <a
-                    href="https://drive.google.com/uc?export=download&id=133oZZsA2HoTxaVnt_4ZwJPPYjTkjopKs"
+                    href="https://drive.google.com/uc?export=download&id=13twb3hZuyn4Dbrc_22BDf0HjK5xyL_uW"
                     download
                   >
                     <Button name="Download CV" />
@@ -123,7 +129,7 @@ export default function Home() {
         repeatDelay={1}
         className={`${cn(
           "md:[mask-image:radial-gradient(700px_circle_at_center,white,transparent)] lg:[mask-image:radial-gradient(1100px_circle_at_center,white,transparent)] [mask-image:radial-gradient(350px_circle_at_center,white,transparent)] ",
-          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
+          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
         )} opacity-90`}
       />
     </div>
