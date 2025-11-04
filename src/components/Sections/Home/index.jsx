@@ -46,7 +46,7 @@ export default function Home() {
                 <ReactTyped
                   strings={[
                     "Junior Software Engineer",
-                    "Full-stack Web Developer",
+                    "Full-Stack Web Developer",
                     "Javascript Developer",
                     "React Developer",
                     "Ruby Developer",
