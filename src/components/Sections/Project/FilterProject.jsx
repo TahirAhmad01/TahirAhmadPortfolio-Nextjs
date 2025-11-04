@@ -28,6 +28,7 @@ export function FilterProject({
   setSelectedCategories,
   selectedTypes,
   setSelectedTypes,
+  itemsLength
 }) {
   const handleCategoryChange = (category) => {
     const lowerCaseCategory = category.toLowerCase();
@@ -55,7 +56,7 @@ export function FilterProject({
       <SheetTrigger asChild>
         <Button variant="outline">
           <HiFilter />
-          <span className="pt-[2px] pl-1">Filter</span>
+          <span className="pt-[2px] pl-1">Filter ({itemsLength})</span>
         </Button>
       </SheetTrigger>
       <SheetContent>

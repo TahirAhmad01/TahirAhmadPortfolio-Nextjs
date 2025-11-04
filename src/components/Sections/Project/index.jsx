@@ -128,6 +128,7 @@ export default function Project() {
             setSelectedCategories={setSelectedCategories}
             selectedTypes={selectedTypes}
             setSelectedTypes={setSelectedTypes}
+            itemsLength={items.length}
           />
           <Button variant="outline" onClick={toggleView}>
             <div className={`${isGridView === null && "opacity-0"}`}>
