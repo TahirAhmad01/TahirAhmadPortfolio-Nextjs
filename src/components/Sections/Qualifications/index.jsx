@@ -4,6 +4,7 @@ import workList from "../../../utils/workList";
 import Title from "../Title";
 import Education from "./Education";
 import WorkExperience from "./WorkExperience";
+import CvDropdownButton from "@/components/CvDropdownButton";
 
 export default function Qualifications() {
   let experience;
@@ -32,7 +33,12 @@ export default function Qualifications() {
   return (
     <>
       <div className="containerCustom gap">
-        <Title title="qualifications" titleDes="Expertise and Credentials" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <Title title="qualifications" titleDes="Expertise and Credentials" />
+          <div className="self-start sm:self-auto pb-4 sm:pb-0">
+            <CvDropdownButton buttonText="Download / Preview CV" />
+          </div>
+        </div>
         <div className="grid grid-cols-1 bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700 overflow-hidden mb-7">
           <div className="px-5 py-4 border-gray-200 border-b-2 dark:border-gray-700 font-semibold text-xl">
             Work Experience

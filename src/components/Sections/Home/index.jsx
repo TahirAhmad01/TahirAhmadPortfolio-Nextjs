@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import BoxReveal from "@/components/magicui/box-reveal";
+import CvDropdownButton from "@/components/CvDropdownButton";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
@@ -75,19 +76,16 @@ export default function Home() {
                   })}
                 </div>
               </BoxReveal>
-              <BoxReveal boxColor={"#0b1327"} duration={0.5}>
-                <div className="flex mt-5">
+              <div className="flex flex-wrap items-center gap-3 mt-5">
+                <BoxReveal boxColor={"#0b1327"} duration={0.5}>
                   <Link href="/contact">
                     <Button name="Get in touch" />
                   </Link>
-                  <a
-                    href="https://drive.google.com/uc?export=download&id=13twb3hZuyn4Dbrc_22BDf0HjK5xyL_uW"
-                    download
-                  >
-                    <Button name="Download CV" />
-                  </a>
-                </div>
-              </BoxReveal>
+                </BoxReveal>
+                <BoxReveal boxColor={"#0b1327"} duration={0.5}>
+                  <CvDropdownButton buttonText="Download / Preview CV" />
+                </BoxReveal>
+              </div>
             </div>
             <Wave
               fill="#fff4"
