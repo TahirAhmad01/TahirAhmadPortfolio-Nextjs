@@ -8,6 +8,8 @@ import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Qualifications";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
+import GithubActivity from "@/components/Sections/GithubActivity";
+import ArchitecturePatterns from "@/components/Sections/ArchitecturePatterns";
 
 function loadStylesAndScripts() {
   return new Promise((resolve) => {
@@ -37,6 +39,8 @@ export default async function Index() {
         <About />
         <Skill />
         <Project />
+        <ArchitecturePatterns />
+        <GithubActivity />
         <Resume />
         {/* <Blog /> */}
         <Testimonial />
