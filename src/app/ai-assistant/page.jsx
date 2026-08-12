@@ -3,7 +3,8 @@ import AIChatWidget from "@/components/AIChatWidget";
 import Title from "@/components/Sections/Title";
 
 export const metadata = {
-  title: `AI Assistant - ${process.env.name}`,
+  title: "AI Portfolio Assistant | Tahir Ahmad",
+  description: "Chat with Tahir Ahmad's interactive AI Portfolio Assistant to inquire about skills, work history, availability, and project technical details.",
 };
 
 export default function AIAssistantPage() {

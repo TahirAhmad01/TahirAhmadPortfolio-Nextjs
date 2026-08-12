@@ -5,7 +5,8 @@ import Contact from "../contact/page";
 import { ContactMeCard } from "@/components/ContactMeCard";
 
 export const metadata = {
-  title: `About - ${process.env.name}`,
+  title: "About Me | Tahir Ahmad - Software Engineer",
+  description: "Learn more about Tahir Ahmad's journey as a Senior Full-Stack Engineer, expertise in Ruby on Rails & Next.js, and engineering philosophy.",
 };
 
 export default function About() {

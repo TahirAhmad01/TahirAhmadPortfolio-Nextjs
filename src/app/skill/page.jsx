@@ -4,7 +4,8 @@ import Faq from "@/components/Sections/Faq";
 import Skills from "@/components/Sections/Skill";
 
 export const metadata = {
-  title: `Skill - ${process.env.name}`,
+  title: "Technical Skills & Architecture | Tahir Ahmad",
+  description: "Explore Tahir Ahmad's engineering skill set spanning Next.js 14, React 18, Ruby on Rails, Node.js, AI Tools (Gemini, Claude), and Cloud Infrastructure.",
 };
 
 export default function Skill() {

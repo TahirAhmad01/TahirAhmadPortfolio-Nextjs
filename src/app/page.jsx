@@ -26,7 +26,8 @@ function loadStylesAndScripts() {
 }
 
 export const metadata = {
-  title: `Home - ${process.env.name}`,
+  title: "Tahir Ahmad | Senior Full-Stack Engineer & Next.js Specialist",
+  description: "Welcome to Tahir Ahmad's official portfolio. Explore production applications, system architecture patterns, GitHub open-source work, and AI system automation.",
 };
 
 export default async function Index() {

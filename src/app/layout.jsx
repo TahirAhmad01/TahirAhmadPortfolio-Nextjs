@@ -5,46 +5,101 @@ import AppThemeProvider from "@/context/ThemeProvider";
 import { cookies } from "next/headers";
 
 export const metadata = {
-  title: "Tahir Ahmad - Portfolio",
-  description: `Hello! I Am ${process.env.name}. I am a full stack web developer.As a seasoned full-stack web developer, I've embarked on a journey that began in 2020, initially focusing on front-end technologies. Over time, I honed my skills in HTML5, CSS3 (with animations), Bootstrap, JavaScript, jQuery, React.js, Redux, and Next.js. In 2023, driven by a desire to broaden my expertise, I ventured into back-end development, embracing Ruby on Rails and Ruby. This transition allowed me to build robust server-side applications, manage databases, and seamlessly integrate APIs. Throughout my journey, I've remained committed to clean coding practices, ensuring that every project I undertake delivers optimal performance and scalability. My active participation in open-source projects on GitHub reflects my dedication to collaboration and innovation within the development community. With a passion for both front-end creativity and back-end architecture, I strive to exceed expectations and drive progress in every project I undertake.`,
-  author: `Qubartech, ${process.env.name}, Tahir Ahmad`,
+  metadataBase: new URL("https://tahirahmad.qubartech.com"),
+  title: {
+    default: "Tahir Ahmad | Senior Full-Stack Engineer",
+    template: "%s | Tahir Ahmad",
+  },
+  description:
+    "Tahir Ahmad is a Senior Full-Stack Software Engineer with expertise in Next.js 14, React 18, Ruby on Rails, Node.js, and AI System Integration. Lead Code Reviewer & Architect at Nascenia Ltd. (Uddogi VAT Platform).",
+  author: "Tahir Ahmad",
   keywords: [
-    `Qubartech, tech, tech company, technology, Tahir Ahmad, ${process.env.name}, ${process.env.fullName} portfolio, portfolio`,
+    "Tahir Ahmad",
+    "Tahir Ahmad Portfolio",
+    "Software Engineer Bangladesh",
+    "Senior Full Stack Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Ruby on Rails Engineer",
+    "Uddogi VAT Software",
+    "Nascenia Engineer",
+    "QubarTech",
+    "AI System Integration",
+    "Frontend Developer Dhaka",
   ],
-  icons: {
-    icon: [
+  authors: [{ name: "Tahir Ahmad", url: "https://github.com/TahirAhmad01" }],
+  creator: "Tahir Ahmad",
+  publisher: "QubarTech",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://tahirahmad.dev",
+    siteName: "Tahir Ahmad - Developer Portfolio",
+    title: "Tahir Ahmad | Senior Full-Stack Engineer",
+    description:
+      "Full-stack software engineer specializing in Next.js, React, Ruby on Rails, and AI Automation Systems.",
+    images: [
       {
-        href: "/favicon.ico",
-        url: "/favicon.ico",
-      },
-      {
-        sizes: "16x16",
-        href: "/favicon.ico",
-        url: "/favicon.ico",
-      },
-      {
-        sizes: "32x32",
-        href: "/favicon.ico",
-        url: "/favicon.ico",
-      },
-      {
-        sizes: "192x192",
-        href: "/favicon.ico",
-        url: "/favicon.ico",
-      },
-      {
-        sizes: "512x512",
-        href: "/favicon.ico",
-        url: "/favicon.ico",
-      },
-      {
-        rel: "apple-touch-icon",
-        sizes: "apple-touch-icon",
-        href: "/favicon.ico",
-        url: "/favicon.ico",
+        url: "https://tahirahmad.dev/images/profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Tahir Ahmad - Senior Full-Stack Engineer",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tahir Ahmad | Senior Full-Stack Engineer",
+    description:
+      "Full-stack software engineer specializing in Next.js, React, Ruby on Rails, and AI Automation Systems.",
+    creator: "@tahir_ahmad01",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tahir Ahmad",
+  "jobTitle": "Senior Full-Stack Software Engineer",
+  "url": "https://tahirahmad.dev",
+  "sameAs": [
+    "https://github.com/TahirAhmad01",
+    "https://github.com/qubartech",
+    "https://www.linkedin.com/in/tahirahmad01/",
+    "https://twitter.com/tahir_ahmad01",
+    "https://wa.me/+8801610881871/"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Nascenia Ltd."
+  },
+  "knowsAbout": [
+    "JavaScript",
+    "TypeScript",
+    "Next.js",
+    "React",
+    "Ruby on Rails",
+    "Node.js",
+    "Tailwind CSS",
+    "AI Systems Integration",
+    "Redux Toolkit"
+  ],
+  "description": "Senior Full-Stack Software Engineer with expertise in Next.js, React, and Ruby on Rails. Lead Code Reviewer for Uddogi VAT platform."
 };
 
 export default function RootLayout({ children }) {
@@ -58,12 +113,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
-        <meta name="author" content={`Qubartech ${process.env.name}`} />
         <meta
           name="google-site-verification"
           content="KeGYsmT-gRaWpvGnbyqjjx0dyF5hMFJHj5Piue9WcYI"
         />
-        <title>Tahir Ahmad - Portfolio</title>
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
@@ -77,6 +130,10 @@ export default function RootLayout({ children }) {
           aria-hidden
           async
         ></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
