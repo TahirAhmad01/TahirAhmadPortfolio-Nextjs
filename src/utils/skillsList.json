@@ -5,23 +5,44 @@
       {
         "id": 1,
         "name": "Model Context Protocol (MCP)",
-        "icon": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-artificial-intelligence-artificial-intelligence-flatart-icons-outline-flatarticons-1.png",
+        "icon": "https://img.icons8.com/color/48/api.png",
         "position": "expert",
         "progress": 90
       },
       {
         "id": 2,
         "name": "LLM Integration (Gemini/OpenAI)",
-        "icon": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-brain-artificial-intelligence-flatart-icons-outline-flatarticons.png",
+        "icon": "https://img.icons8.com/color/48/brain.png",
         "position": "expert",
         "progress": 90
       },
       {
         "id": 3,
         "name": "AI Agents & Automation",
-        "icon": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-neural-artificial-intelligence-flatart-icons-outline-flatarticons.png",
+        "icon": "https://img.icons8.com/color/48/robot.png",
         "position": "expert",
         "progress": 85
+      },
+      {
+        "id": 4,
+        "name": "Google Gemini",
+        "icon": "https://img.icons8.com/color/48/sparkles.png",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 5,
+        "name": "Claude AI",
+        "icon": "https://img.icons8.com/color/48/bot.png",
+        "position": "expert",
+        "progress": 85
+      },
+      {
+        "id": 6,
+        "name": "ChatGPT",
+        "icon": "https://img.icons8.com/color/48/chatgpt.png",
+        "position": "expert",
+        "progress": 90
       }
     ]
   },
@@ -132,7 +153,7 @@
       {
         "id": 2,
         "name": "Bootstrap",
-        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
         "position": "expert",
         "progress": 90
       },
@@ -264,21 +285,21 @@
       {
         "id": 2,
         "name": "Adobe xd",
-        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-original.svg",
         "position": "junior",
         "progress": 55
       },
       {
         "id": 3,
         "name": "Adobe Photoshop",
-        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg",
         "position": "junior",
         "progress": 35
       },
       {
         "id": 4,
         "name": "Adobe Illustrator",
-        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-original.svg",
         "position": "junior",
         "progress": 25
       }
