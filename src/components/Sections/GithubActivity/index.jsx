@@ -1,7 +1,7 @@
 "use client";
 import Title from "../Title";
 import { motion } from "framer-motion";
-import { ExternalLink, FolderGit2, Star, ChevronRight } from "lucide-react";
+import { ExternalLink, FolderGit2, Star, ChevronRight, Building2 } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,7 +28,19 @@ const itemVariants = {
 
 const featuredRepos = [
   {
+    name: "Al-Quran_Web_Application",
+    owner: "QubarTech",
+    isOrg: true,
+    lang: "Next.js / React",
+    langColor: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20",
+    description: "Full-featured digital Al-Quran web application with audio recitations, translation, search, and push notifications.",
+    stars: 3,
+    link: "https://github.com/Qubartech/Al-Quran_Web_Application"
+  },
+  {
     name: "TahirAhmadPorfolio-Nextjs",
+    owner: "TahirAhmad01",
+    isOrg: false,
     lang: "JavaScript",
     langColor: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     description: "Modern developer portfolio & AI system assistant built with Next.js 14, React 18, and Tailwind CSS.",
@@ -37,7 +49,9 @@ const featuredRepos = [
   },
   {
     name: "CourseManagementApplication-ROR",
-    lang: "Ruby",
+    owner: "TahirAhmad01",
+    isOrg: false,
+    lang: "Ruby on Rails",
     langColor: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
     description: "Full-featured university course registration & CGPA system built with Ruby on Rails and RSpec.",
     stars: 4,
@@ -45,9 +59,11 @@ const featuredRepos = [
   },
   {
     name: "ChatApplicationWithRtkQuery",
-    lang: "React",
-    langColor: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20",
-    description: "Real-time chat application built using React, Redux Toolkit Query, and WebSockets.",
+    owner: "TahirAhmad01",
+    isOrg: false,
+    lang: "React / Redux",
+    langColor: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
+    description: "Real-time chat web application built using React, Redux Toolkit Query, and WebSockets.",
     stars: 4,
     link: "https://github.com/TahirAhmad01/ChatApplicationWithRtkQuery"
   }
@@ -56,7 +72,7 @@ const featuredRepos = [
 export default function GithubActivity() {
   return (
     <div className="containerCustom gap">
-      <Title title="github" titleDes="GitHub Open Source Activity" />
+      <Title title="github" titleDes="GitHub Open Source & QubarTech Projects" />
 
       <motion.div
         variants={containerVariants}
@@ -71,26 +87,38 @@ export default function GithubActivity() {
               <div className="flex items-center gap-2">
                 <i className="fa-brands fa-github text-xl text-gray-800 dark:text-gray-100"></i>
                 <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-100">
-                  Featured Repositories
+                  Featured Open Source Repositories
                 </h3>
               </div>
               <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-1">
-                Featured open-source web, Rails & Next.js repositories
+                Featured repositories from @TahirAhmad01 and @QubarTech organization
               </p>
             </div>
-            <a
-              href="https://github.com/TahirAhmad01"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-[#1e293b]/80 dark:hover:bg-[#1e293b] text-gray-800 dark:text-gray-200 rounded-xl text-xs md:text-sm font-semibold border border-gray-200/80 dark:border-gray-800 transition-all self-start sm:self-auto hover:scale-105"
-            >
-              <span>View GitHub Profile</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex flex-wrap items-center gap-2.5 self-start sm:self-auto">
+              <a
+                href="https://github.com/TahirAhmad01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gray-100 hover:bg-gray-200 dark:bg-[#1e293b]/80 dark:hover:bg-[#1e293b] text-gray-800 dark:text-gray-200 rounded-xl text-xs font-semibold border border-gray-200/80 dark:border-gray-800 transition-all hover:scale-105"
+              >
+                <span>GitHub @TahirAhmad01</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href="https://github.com/qubartech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 rounded-xl text-xs font-semibold border border-cyan-500/30 transition-all hover:scale-105"
+              >
+                <Building2 className="w-3.5 h-3.5" />
+                <span>Org @QubarTech</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
 
-          {/* Repo Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Repo Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {featuredRepos.map((repo, idx) => (
               <motion.a
                 key={idx}
@@ -104,7 +132,7 @@ export default function GithubActivity() {
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2 min-w-0 pr-1">
                       <FolderGit2 className="w-4 h-4 text-cyan-500 flex-shrink-0" />
-                      <span className="font-bold text-sm text-gray-800 dark:text-gray-100 truncate group-hover:text-cyan-500 transition-colors">
+                      <span className="font-bold text-sm md:text-base text-gray-800 dark:text-gray-100 truncate group-hover:text-cyan-500 transition-colors">
                         {repo.name}
                       </span>
                     </div>
@@ -119,13 +147,13 @@ export default function GithubActivity() {
 
                 <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-4 mt-3 border-t border-gray-100 dark:border-gray-800/80">
                   <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 font-medium">
                       <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                       {repo.stars}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                      Public
+                    <span className="flex items-center gap-1 font-medium text-gray-400">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                      {repo.owner}
                     </span>
                   </div>
                   <ChevronRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
