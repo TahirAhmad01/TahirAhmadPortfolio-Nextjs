@@ -49,13 +49,13 @@ const patternsData = [
   },
   {
     icon: <Cpu className="w-5 h-5 text-blue-400" />,
-    tag: "Gemini API & MCP Tooling",
-    title: "AI Agents & Automation Systems",
+    tag: "PostgreSQL, Redis & Scalability",
+    title: "Database Architecture & Performance Tuning",
     bullets: [
-      "MCP Orchestration: Model Context Protocol (MCP) servers enabling LLMs to safely query databases and execute tools.",
-      "Gemini AI Integration: System prompt design, context injection, and real-time streaming AI chat handlers."
+      "Database Optimization: Relational schema design, indexed PostgreSQL queries, database migrations, and ACID compliance.",
+      "Caching & Performance: In-memory Redis caching layers, background job processors (Sidekiq/BullMQ), and API response optimization."
     ],
-    productionApps: ["Tahir AI Assistant", "VAT Automation"]
+    productionApps: ["Uddogi (VAT)", "Decofetch", "Dojoteq"]
   }
 ];
 

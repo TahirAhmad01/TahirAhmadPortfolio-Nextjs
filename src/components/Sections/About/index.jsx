@@ -57,7 +57,7 @@ export default function About() {
                         Tahir Ahmad
                       </div>
                       <div className="text-[10px] font-medium text-cyan-600 dark:text-cyan-400">
-                        Senior Full-Stack Engineer
+                        Senior Software Engineer
                       </div>
                     </div>
                     <span className="px-2 py-1 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold border border-cyan-500/20">
