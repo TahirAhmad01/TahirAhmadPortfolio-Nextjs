@@ -126,17 +126,17 @@ export default function GithubActivity() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                className="p-5 bg-white dark:bg-[#111c35]/40 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.08)] hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="p-5 bg-white/70 dark:bg-[#111c35]/40 backdrop-blur-md border border-gray-200/80 dark:border-[#1d2d55]/50 rounded-3xl shadow-sm hover:shadow-[0_0_25px_rgba(6,182,212,0.1)] hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2 min-w-0 pr-1">
-                      <FolderGit2 className="w-4 h-4 text-cyan-500 flex-shrink-0" />
+                      <FolderGit2 className="w-4.5 h-4.5 text-cyan-500 flex-shrink-0" />
                       <span className="font-bold text-sm md:text-base text-gray-800 dark:text-gray-100 truncate group-hover:text-cyan-500 transition-colors">
                         {repo.name}
                       </span>
                     </div>
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${repo.langColor}`}>
+                    <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${repo.langColor}`}>
                       {repo.lang}
                     </span>
                   </div>
@@ -147,11 +147,11 @@ export default function GithubActivity() {
 
                 <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-4 mt-3 border-t border-gray-100 dark:border-gray-800/80">
                   <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1 font-medium">
+                    <span className="flex items-center gap-1 font-semibold">
                       <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                       {repo.stars}
                     </span>
-                    <span className="flex items-center gap-1 font-medium text-gray-400">
+                    <span className="flex items-center gap-1.5 font-semibold text-gray-400">
                       <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                       {repo.owner}
                     </span>

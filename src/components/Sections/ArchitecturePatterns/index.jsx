@@ -74,15 +74,15 @@ export default function ArchitecturePatterns() {
           <motion.div
             key={idx}
             variants={itemVariants}
-            className="p-6 bg-white dark:bg-[#111c35]/40 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.08)] hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between group"
+            className="p-6 bg-white/70 dark:bg-[#111c35]/40 backdrop-blur-md border border-gray-200/80 dark:border-[#1d2d55]/50 rounded-3xl shadow-sm hover:shadow-[0_0_25px_rgba(6,182,212,0.1)] hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               {/* Header Badge & Icon */}
               <div className="flex items-center justify-between gap-2">
-                <div className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#1e293b]/70 border border-gray-200 dark:border-gray-800 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-cyan-500/10 dark:bg-cyan-500/15 border border-cyan-500/20 flex items-center justify-center">
                   {item.icon}
                 </div>
-                <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                <span className="text-[11px] font-extrabold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
                   {item.tag}
                 </span>
               </div>
@@ -105,14 +105,14 @@ export default function ArchitecturePatterns() {
 
             {/* Production Apps */}
             <div className="pt-4 border-t border-gray-100 dark:border-gray-800/80 mt-2">
-              <span className="text-[10px] font-bold tracking-wider text-gray-400 uppercase block mb-2">
+              <span className="text-[10px] font-extrabold tracking-wider text-gray-400 uppercase block mb-2">
                 Applied In Production:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {item.productionApps.map((app, aIdx) => (
                   <span
                     key={aIdx}
-                    className="text-xs px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-[#1e293b]/80 text-gray-700 dark:text-gray-300 border border-gray-200/50 dark:border-gray-800 font-medium"
+                    className="text-xs px-2.5 py-1 rounded-xl bg-gray-100 dark:bg-[#1e293b]/80 text-gray-700 dark:text-gray-300 border border-gray-200/50 dark:border-gray-800 font-semibold"
                   >
                     {app}
                   </span>
