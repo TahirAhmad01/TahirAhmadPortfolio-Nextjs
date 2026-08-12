@@ -330,6 +330,18 @@
       "https://i.ibb.co.com/HT5hvFJ/Screenshot-from-2024-08-06-17-00-18.png"
     ],
     "link": "https://uddogi.com/",
-    "description": "As a proficient full-stack web developer, I proudly serve at Nascenia Ltd., where my expertise shines in maintaining and enhancing VAT management software. Within this dynamic role, I diligently craft and implement innovative features, swiftly troubleshoot bugs, and meticulously refine code for optimal performance. My focal point lies in the intricate realm of VAT calculation, where precision and efficiency converge to deliver seamless solutions for our esteemed clientele."
+    "description": "As a Software Engineer and Technical Lead at Nascenia Ltd., I lead code reviews and drive major architectural decisions for Uddogi—an enterprise VAT management platform. I oversee core VAT calculation engine optimization, enforce strict code review guidelines, architect complex feature workflows, and optimize backend query performance for enterprise clients."
+  },
+  {
+    "id": 31,
+    "name": "AI-Powered Automation & MCP Orchestration",
+    "category": ["ai", "mcp", "nodejs", "javascript", "ruby"],
+    "placeholderSrc": "https://i.ibb.co/6gtN50k/project5.jpg",
+    "imageSrc": [
+      "https://i.ibb.co/6gtN50k/project5.jpg"
+    ],
+    "link": "https://github.com/TahirAhmad01",
+    "source": "https://github.com/TahirAhmad01",
+    "description": "Built custom MCP (Model Context Protocol) servers to orchestrate real-time data flow and AI-driven task automation, boosting internal team productivity. Engineered tools enabling LLMs to safely interact with local files, database schemas, and external API endpoints dynamically."
   }
 ]

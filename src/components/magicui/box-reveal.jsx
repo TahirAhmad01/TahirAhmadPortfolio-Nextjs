@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 export const BoxReveal = ({
@@ -13,11 +13,14 @@ export const BoxReveal = ({
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
     if (isInView) {
       slideControls.start("visible");
-      mainControls.start("visible");
+      mainControls.start("visible").then(() => {
+        setIsDone(true);
+      });
     } else {
       slideControls.start("hidden");
       mainControls.start("hidden");
@@ -25,7 +28,7 @@ export const BoxReveal = ({
   }, [isInView, mainControls, slideControls]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+    <div ref={ref} style={{ position: "relative", width, overflow: isDone ? "visible" : "hidden" }}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -55,6 +58,7 @@ export const BoxReveal = ({
           background: boxColor ? boxColor : "#5046e6",
           opacity: "20%",
           borderRadius: "15px",
+          display: isDone ? "none" : "block",
         }}
       />
     </div>

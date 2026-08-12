@@ -8,6 +8,8 @@ import Project from "@/components/Sections/Project";
 import Resume from "@/components/Sections/Qualifications";
 import Skill from "@/components/Sections/Skill";
 import Testimonial from "@/components/Sections/Testimonial";
+import GithubActivity from "@/components/Sections/GithubActivity";
+import ArchitecturePatterns from "@/components/Sections/ArchitecturePatterns";
 
 function loadStylesAndScripts() {
   return new Promise((resolve) => {
@@ -24,7 +26,8 @@ function loadStylesAndScripts() {
 }
 
 export const metadata = {
-  title: `Home - ${process.env.name}`,
+  title: "Tahir Ahmad | Senior Full-Stack Engineer & Next.js Specialist",
+  description: "Welcome to Tahir Ahmad's official portfolio. Explore production applications, system architecture patterns, GitHub open-source work, and AI system automation.",
 };
 
 export default async function Index() {
@@ -37,6 +40,8 @@ export default async function Index() {
         <About />
         <Skill />
         <Project />
+        <ArchitecturePatterns />
+        <GithubActivity />
         <Resume />
         {/* <Blog /> */}
         <Testimonial />

@@ -16,7 +16,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "src/assets/css")],
-    silenceDeprecations: ["legacy-js-api"],
+    silenceDeprecations: ["legacy-js-api", "import"],
   },
   images: {
     remotePatterns: [
@@ -33,6 +33,10 @@ const nextConfig = {
       },
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  output: "standalone",
 };
 
 export default nextConfig;

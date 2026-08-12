@@ -44,84 +44,57 @@ export default function WorkExperience({ work }) {
 
   return (
     <>
-      <div className="p-6 flex items-start">
+      <div className="py-6 flex items-start">
         <div className="w-full">
           <div className="flex items-center">
             <div className="overflow-hidden w-full">
-              <div className="flex flex-col md:flex-row justify-between md:items-center w-full">
-                <div className="flex items-start md:items-center justify-start gap-2 md:gap-4 w-full">
-                  <div className="min-w-16 md:min-w-20">
+              <div className="flex flex-col md:flex-row justify-between md:items-center w-full gap-4">
+                <div className="flex items-center justify-start gap-3 md:gap-4 w-full">
+                  <div className="flex-shrink-0">
                     <Zoom>
                       <Image
                         src={company_logo ? company_logo : icon}
-                        alt="work_ico"
-                        className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-100 dark:bg-gray-500 p-1 object-cover"
+                        alt="company_logo"
+                        className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gray-100 dark:bg-[#1e293b] p-1.5 object-cover border border-gray-200 dark:border-gray-800 shadow-sm"
                         width={250}
                         height={250}
                       />
                     </Zoom>
                   </div>
                   <div>
-                    <h2 className="text-sm md:text-xl font-bold sm:line-clamp-1">
+                    <h2 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100">
                       <Fade left>{workTitle}</Fade>
                     </h2>
-                    <div className="text-gray-500 dark:text-gray-400 text-sm uppercase">
+                    <div className="mt-1 flex flex-wrap items-center gap-2">
                       <Fade left delay={150}>
-                        <div className="flex items-start md:items-center flex-col md:flex-row md:gap-2">
-                          <span className="inline-flex items-center capitalize gap-1 line-clamp-1 md:line-clamp-none">
-                            <i
-                              aria-hidden
-                              className="bx bxs-briefcase-alt-2"
-                            ></i>{" "}
-                            {position}
-                          </span>
-                          <span className="md:inline-flex items-center capitalize gap-1 line-clamp-1 md:line-clamp-none">
-                            <i
-                              aria-hidden
-                              className="fa-solid fa-location-dot text-xs"
-                            ></i>{" "}
-                            {location}
-                          </span>
-
-                          <span className="inline-flex items-center capitalize gap-1 md:hidden text-xs">
-                            <div className="mr-1">
-                              <i
-                                aria-hidden
-                                className="fa-regular fa-calendar-days"
-                              ></i>
-                            </div>
-                            <div className="uppercase">
-                              {startDate} - {endDate}
-                            </div>
-                          </span>
-                        </div>
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 text-xs font-semibold capitalize">
+                          <i aria-hidden className="bx bxs-briefcase-alt-2"></i>
+                          {position}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 capitalize">
+                          <i aria-hidden className="fa-solid fa-location-dot text-xs text-rose-500"></i>
+                          {location}
+                        </span>
                       </Fade>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-gray-500 dark:text-gray-400 mt-1 pl-2 text-xs hidden md:block flex-grow text-nowrap">
+                <div className="flex-shrink-0">
                   <Fade left={width < 768} right={width > 768} duration={1300}>
-                    <div className="flex items-center">
-                      <div className="mr-1">
-                        <i
-                          aria-hidden
-                          className="fa-regular fa-calendar-days"
-                        ></i>
-                      </div>
-                      <div className="uppercase">
-                        {startDate} - {endDate}
-                      </div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-[#1e293b]/90 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 text-xs font-bold">
+                      <i aria-hidden className="fa-regular fa-calendar-days text-cyan-500"></i>
+                      <span className="uppercase">{startDate} - {endDate}</span>
                     </div>
                   </Fade>
                 </div>
               </div>
             </div>
           </div>
-          <div className="md:ml-20 md:pl-4">
+          <div className="mt-4 md:ml-20">
             <Fade up>
               <>
-                <p className="mt-3 md:mt-0 text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                   {description}
                 </p>
                 {certificates &&
@@ -131,19 +104,18 @@ export default function WorkExperience({ work }) {
                     return (
                       <div
                         key={idx}
-                        className="rounded-xl cursor-pointer flex items-center mt-3"
+                        className="rounded-2xl cursor-pointer flex items-center mt-4 p-2 bg-gray-50 dark:bg-[#16223b]/50 border border-gray-200/60 dark:border-[#1e2d4a]/60 hover:border-cyan-500/40 transition-all"
                         onClick={handleOpen}
                       >
                         <Image
-                          loader={() => src}
+                          unoptimized
                           src={src}
                           alt={title}
-                          className="h-20 md:h-24 w-28 md:w-32 rounded-md overflow-hidden shadow-md"
+                          className="h-16 md:h-20 w-24 md:w-28 rounded-xl object-cover shadow-sm"
                           height={300}
                           width={300}
                         />
-                        <div className="ml-2 text-gray-500 dark:text-gray-400">
-                          {" "}
+                        <div className="ml-3 font-semibold text-xs md:text-sm text-gray-800 dark:text-gray-200">
                           {title}
                         </div>
                       </div>
@@ -151,7 +123,10 @@ export default function WorkExperience({ work }) {
                   })}
 
                 {relatedProjects.length > 0 && (
-                  <div className="mt-3 text-gray-500 dark:text-gray-400">
+                  <div className="mt-4 space-y-3">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-2">
+                      Key Production Deliverables:
+                    </span>
                     {[...relatedProjects].reverse().map((project, idx) => {
                       const {
                         id,
@@ -163,11 +138,11 @@ export default function WorkExperience({ work }) {
                       } = project || {};
                       return (
                         <div
-                          className="flex justify-start items-start gap-2 w-full mb-4 hover:cursor-pointer"
+                          className="flex justify-start items-center gap-3 p-3.5 rounded-2xl bg-gray-50/90 dark:bg-[#16223b]/50 border border-gray-200/60 dark:border-[#1e2d4a]/60 hover:border-cyan-500/40 hover:shadow-[0_0_15px_rgba(6,182,212,0.08)] transition-all duration-300 cursor-pointer group"
                           key={idx}
                           onClick={() => handleOpenProject(id)}
                         >
-                          <div className="object-contain overflow-hidden hover:cursor-pointer h-16 md:h-24 min-w-20 md:min-w-32 rounded-md shadow-md">
+                          <div className="h-16 md:h-20 w-24 md:w-28 flex-shrink-0 rounded-xl overflow-hidden shadow-sm">
                             <LazyLoadImage
                               src={imageSrc}
                               placeholderSrc={
@@ -178,29 +153,29 @@ export default function WorkExperience({ work }) {
                               effect="blur"
                               height="100%"
                               width="100%"
-                              className="object-cover h-full w-full block"
+                              className="object-cover h-full w-full block group-hover:scale-105 transition-transform duration-300"
                               loading="lazy"
                             />
                           </div>
 
-                          <div className="grow">
-                            <div className="font-semibold text-sm md:text-lg">
+                          <div className="grow min-w-0">
+                            <div className="font-bold text-sm md:text-base text-gray-800 dark:text-gray-100 group-hover:text-cyan-500 transition-colors">
                               {name}
                             </div>
-                            <div className="line-clamp-3 md:line-clamp-2 text-xs md:text-sm">
+                            <div className="line-clamp-2 text-xs text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
                               {projectDes}
                             </div>
 
-                            {category.map((cat, idx) => (
-                              <>
-                                <div
-                                  className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300 capitalize md:inline-block hidden shadow-md"
-                                  key={idx}
+                            <div className="flex flex-wrap gap-1.5 mt-2">
+                              {category.map((cat, catIdx) => (
+                                <span
+                                  className="bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-cyan-500/20 capitalize"
+                                  key={catIdx}
                                 >
                                   {cat}
-                                </div>
-                              </>
-                            ))}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       );

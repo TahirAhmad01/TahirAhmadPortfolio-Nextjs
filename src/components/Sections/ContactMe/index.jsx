@@ -1,14 +1,11 @@
 "use client";
-import tellMeOn from "@/utils/tellMeOn";
-import emailjs from "@emailjs/browser";
-import Image from "next/image";
+import tellMeOn from "@/utils/tellMeOn.json";
+import axios from "axios";
 import { useRef, useState } from "react";
 import { Fade } from "react-reveal";
 import swal from "sweetalert";
-import ThankYouImg from "@/assets/images/png/thank-you-envelope.png";
 import Title from "../Title";
 import ContactInp from "./ContactInp";
-import SocialContact from "./SocialContact";
 
 export default function ContactMe() {
   const [loading, setLoading] = useState(false);
@@ -19,35 +16,35 @@ export default function ContactMe() {
     e.preventDefault();
     setLoading(true);
 
-    await emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          swal({
-            title: "E-mail sent successful",
-            icon: "success",
-            button: "Close",
-            dangerMode: true,
-          }).then(setShowContactForm(false));
-        },
-        (err) => {
-          swal({
-            title: "Something went wrong!",
-            icon: "error",
-            button: "Close",
-            dangerMode: true,
-          });
+    const formData = new FormData(form.current);
+    const data = {
+      from_name: formData.get("from_name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
-          console.log(err);
-        }
-      );
-
-    setLoading(false);
+    try {
+      await axios.post("/api/contact", data);
+      swal({
+        title: "Message Sent!",
+        text: "Thank you for reaching out. A confirmation email has been sent to your inbox and I will get back to you shortly.",
+        icon: "success",
+        button: "Close",
+      }).then(() => setShowContactForm(false));
+    } catch (err) {
+      console.error("Failed to send contact message:", err);
+      swal({
+        title: "Something went wrong!",
+        text: err.response?.data?.error || "Failed to send email. Please try again.",
+        icon: "error",
+        button: "Close",
+        dangerMode: true,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (loading) {
@@ -61,129 +58,189 @@ export default function ContactMe() {
   }
 
   return (
-    <>
-      <div className="containerCustom gap">
-        <Title
-          title="CONTACT"
-          titleDes="Do you want to know more or have any queries?"
-        />
-        <div className="md:grid grid-cols-12 gap-4">
-          <div className="md:col-span-5 lg:col-span-4">
-            <div className="w-full p-4 bg-white border rounded-lg shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700">
-              <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-                Tell me on
-              </h5>
-              <ul className="my-4 space-y-3">
-                {tellMeOn.map((tellMe, idx) => {
-                  const { icon, name, link, delay } = tellMe || {};
-                  return (
-                    <SocialContact
-                      key={idx}
-                      icon={icon}
-                      name={name}
-                      link={link}
-                      delay={delay}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-          <div className="inline-flex justify-center items-center w-full md:hidden mt-4">
-            <hr className="my-8 w-[70%] h-px bg-gray-200 border-0 dark:bg-gray-700" />
-            <span className="absolute left-1/2 px-3 font-medium text-gray-900 bg-gray-50 -translate-x-1/2 dark:text-white dark:bg-gray-900">
-              or
-            </span>
-          </div>
-          {showContactForm ? (
-            <form
-              ref={form}
-              onSubmit={sendEmail}
-              className="md:col-span-7 lg:col-span-8 w-full h-full flex flex-col justify-between"
-            >
-              <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 w-full mt-4 md:mt-0">
-                <ContactInp
-                  placeholder="Your Name"
-                  type="text"
-                  name="from_name"
-                  required
-                />
-                <ContactInp
-                  placeholder="Your Email"
-                  type="email"
-                  delay={150}
-                  name="email"
-                  required
-                />
-                <ContactInp
-                  placeholder="Your phone number (optional)"
-                  type="text"
-                  delay={200}
-                  name="phone"
-                />
-                <ContactInp
-                  placeholder="Subject"
-                  type="text"
-                  delay={230}
-                  name="subject"
-                  required
-                />
-              </div>
-              <div className="w-full  my-4 flex-1">
-                <Fade up delay={240}>
-                  <textarea
-                    className="w-full  rounded-md shadow-md pr-5 border-1 border-gray-200 focus:border-transparent focus:outline-transparent focus:ring-0 min-h-[200px] md:min-h-full lg:min-h-full text-black dark:bg-[#263249] dark:text-white dark:border-gray-600"
-                    placeholder="Your Message"
-                    name="message"
-                    required
-                  />
-                </Fade>
+    <div className="containerCustom gap">
+      <Title
+        title="CONTACT"
+        titleDes="Have a project in mind or want to connect? Send me a message."
+      />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mt-8">
+        
+        {/* Left Column: Contact Details & Social Icons (Equal Height Card) */}
+        <div className="lg:col-span-5 h-full">
+          <div className="h-full p-6 md:p-8 bg-white dark:bg-[#111c35]/50 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm flex flex-col justify-between">
+            <div>
+              {/* Header */}
+              <div className="border-l-4 border-cyan-500 pl-3 mb-6">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                  Contact Details
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Reach out directly via call, WhatsApp, or email.
+                </p>
               </div>
 
-              <Fade up delay={450}>
-                <div className="text-center mt-1">
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-gradient-to-bl font-medium rounded-3xl text-sm px-7 md:hover:px-12 py-3.5 text-center text-white transition-all disabled:opacity-75 disabled:cursor-progress"
-                    name="message"
-                    disabled={loading}
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </Fade>
-            </form>
-          ) : (
-            <div className="md:col-span-7 lg:col-span-8 w-full h-full flex items-center justify-center">
-              <div className="flex flex-col items-center space-y-3">
-                <div className="w-32 h-32 flex items-center justify-center bg-green-500 rounded-full bg-gradient-to-tr from-green-400 via-blue-500 to-purple-600">
-                  <Image
-                    src={ThankYouImg}
-                    alt="thank-you envelope"
-                    border="0"
-                    className="w-20"
-                    width={0}
-                    height={0}
-                  />
-                </div>
-                <h1 className="text-4xl font-bold">Thank You !</h1>
-                <p className="text-center">
-                  for contacting with me, I will reply promptly once your
-                  message is received.
-                </p>
-                <button
-                  type="submit"
-                  className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:bg-gradient-to-bl font-medium rounded-3xl text-sm px-7 md:hover:px-12 py-3.5 text-center text-white transition-all"
-                  name="message"
-                  onClick={() => setShowContactForm(true)}
+              {/* Direct Info Items */}
+              <div className="space-y-4">
+                <a
+                  href="tel:+8801610881871"
+                  className="flex items-center gap-4 p-3.5 rounded-xl bg-gray-50 dark:bg-[#16223b]/60 border border-gray-200/60 dark:border-[#1e2d4a]/60 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all group"
                 >
-                  Send Another
-                </button>
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-500 text-base group-hover:scale-110 transition-transform">
+                    <i className="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 font-medium">Direct Call / Phone</p>
+                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">+8801610881871</p>
+                  </div>
+                </a>
+
+                <a
+                  href="https://wa.me/+8801610881871/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-4 p-3.5 rounded-xl bg-gray-50 dark:bg-[#16223b]/60 border border-gray-200/60 dark:border-[#1e2d4a]/60 hover:border-emerald-500/40 hover:bg-emerald-500/10 transition-all group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 text-lg group-hover:scale-110 transition-transform">
+                    <i className="fa-brands fa-whatsapp"></i>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 font-medium">WhatsApp</p>
+                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">+8801610881871</p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:tahirahmadsani@gmail.com"
+                  className="flex items-center gap-4 p-3.5 rounded-xl bg-gray-50 dark:bg-[#16223b]/60 border border-gray-200/60 dark:border-[#1e2d4a]/60 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all group overflow-hidden"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 text-base group-hover:scale-110 transition-transform flex-shrink-0">
+                    <i className="fa-solid fa-envelope"></i>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-gray-400 font-medium">Email Address</p>
+                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 truncate">tahirahmadsani@gmail.com</p>
+                  </div>
+                </a>
               </div>
+            </div>
+
+            {/* Social Profiles - ICON ONLY Horizontal Buttons */}
+            <div className="border-t border-gray-200 dark:border-[#1d2d55]/60 pt-6 mt-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3.5">
+                Social Profiles
+              </p>
+              <div className="flex items-center gap-3 flex-wrap">
+                {tellMeOn.map((tellMe, idx) => (
+                  <a
+                    key={tellMe.id || idx}
+                    href={tellMe.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={tellMe.name}
+                    className="w-11 h-11 rounded-xl bg-gray-50 dark:bg-[#16223b]/80 border border-gray-200/60 dark:border-[#1e2d4a]/60 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all hover:scale-110 shadow-sm"
+                  >
+                    <i className={`${tellMe.icon} text-lg`}></i>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Contact Message Form (Equal Height Card) */}
+        <div className="lg:col-span-7 h-full">
+          {showContactForm ? (
+            <div className="h-full p-6 md:p-8 bg-white dark:bg-[#111c35]/50 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="border-l-4 border-cyan-500 pl-3 mb-6">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                    Send Me A Message
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    Fill out the details below and I will reply to your message promptly.
+                  </p>
+                </div>
+
+                <form ref={form} onSubmit={sendEmail} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <ContactInp
+                      placeholder="Your Full Name *"
+                      type="text"
+                      name="from_name"
+                      required
+                    />
+                    <ContactInp
+                      placeholder="Your Email Address *"
+                      type="email"
+                      delay={150}
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <ContactInp
+                      placeholder="Your Phone (Optional)"
+                      type="text"
+                      delay={200}
+                      name="phone"
+                    />
+                    <ContactInp
+                      placeholder="Subject *"
+                      type="text"
+                      delay={230}
+                      name="subject"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Fade up delay={240}>
+                      <textarea
+                        className="w-full rounded-xl bg-gray-50 dark:bg-[#16223b]/80 border border-gray-200/80 dark:border-[#1e2d4a] p-4 text-sm text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 min-h-[150px] transition-all shadow-sm resize-none"
+                        placeholder="Your Message *"
+                        name="message"
+                        required
+                      />
+                    </Fade>
+                  </div>
+
+                  <Fade up delay={450}>
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold text-sm shadow-md hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
+                      >
+                        <i className="fa-solid fa-paper-plane text-xs"></i>
+                        <span>{loading ? "Sending Message..." : "Send Message"}</span>
+                      </button>
+                    </div>
+                  </Fade>
+                </form>
+              </div>
+            </div>
+          ) : (
+            <div className="h-full p-8 md:p-12 bg-white dark:bg-[#111c35]/50 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm flex flex-col items-center justify-center text-center space-y-4">
+              <div className="w-20 h-20 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-500 text-3xl">
+                <i className="fa-solid fa-check"></i>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                Message Sent Successfully!
+              </h2>
+              <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md leading-relaxed">
+                Thank you for getting in touch. I have received your inquiry and will review it and reply to your email shortly.
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowContactForm(true)}
+                className="px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-[#1e293b] hover:bg-gray-200 dark:hover:bg-[#283854] text-gray-800 dark:text-gray-200 text-xs font-semibold border border-gray-200 dark:border-gray-800 transition-all hover:scale-105"
+              >
+                Send Another Message
+              </button>
             </div>
           )}
         </div>
+
       </div>
-    </>
+    </div>
   );
 }
