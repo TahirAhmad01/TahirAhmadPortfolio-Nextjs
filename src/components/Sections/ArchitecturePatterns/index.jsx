@@ -29,13 +29,13 @@ const itemVariants = {
 const patternsData = [
   {
     icon: <Layers className="w-5 h-5 text-cyan-400" />,
-    tag: "Next.js & Ruby on Rails",
-    title: "Full-Stack Web Architecture (Clean & Modular)",
+    tag: "Microservices & Load Balancers",
+    title: "Microservices Architecture & Traffic Balancing",
     bullets: [
-      "Front-End: Next.js App Router with Server-Side Rendering (SSR), Framer Motion animations, and Tailwind CSS.",
-      "Back-End: Ruby on Rails MVC pattern with RESTful APIs, PostgreSQL schema design, and Redis caching."
+      "Microservices Design: Decoupled service architecture built with Ruby on Rails, Node.js services, and API gateway routing.",
+      "Load Balancing & High Availability: NGINX / HAProxy load balancing, SSL termination, rate limiting, and zero-downtime deployments."
     ],
-    productionApps: ["Uddogi", "Dojoteq", "Decofetch"]
+    productionApps: ["Uddogi (VAT)", "Dojoteq", "Decofetch"]
   },
   {
     icon: <Server className="w-5 h-5 text-purple-400" />,

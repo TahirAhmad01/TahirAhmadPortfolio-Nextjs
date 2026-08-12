@@ -82,6 +82,7 @@ export default function Home() {
                     strings={[
                       "Full Stack Engineer",
                       "Software Engineer @ Nascenia",
+                      "Microservices & Load Balancer Specialist",
                       "Next.js & React Specialist",
                       "Ruby on Rails Engineer",
                       "Lead Code Reviewer @ Nascenia",
