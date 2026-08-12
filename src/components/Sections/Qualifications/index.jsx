@@ -33,18 +33,29 @@ export default function Qualifications() {
     <>
       <div className="containerCustom gap">
         <Title title="qualifications" titleDes="Expertise and Credentials" />
-        <div className="grid grid-cols-1 bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700 overflow-hidden mb-7">
-          <div className="px-5 py-4 border-gray-200 border-b-2 dark:border-gray-700 font-semibold text-xl">
-            Work Experience
+
+        {/* Work Experience Section */}
+        <div className="p-6 md:p-8 bg-white dark:bg-[#111c35]/40 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.05)] transition-all duration-300 mb-8">
+          <div className="border-l-4 border-cyan-500 dark:border-cyan-400 pl-3 mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-100">
+              Work Experience
+            </h2>
           </div>
-          {experience}
+          <div className="divide-y divide-gray-100 dark:divide-gray-800/60 space-y-6">
+            {experience}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
-          <div className="px-5 py-4 border-gray-200 border-b-2 dark:border-gray-700 font-semibold text-xl">
-            Education
+        {/* Education Section */}
+        <div className="p-6 md:p-8 bg-white dark:bg-[#111c35]/40 border border-gray-200/60 dark:border-[#1d2d55]/40 rounded-2xl shadow-sm hover:shadow-[0_0_20px_rgba(6,182,212,0.05)] transition-all duration-300">
+          <div className="border-l-4 border-cyan-500 dark:border-cyan-400 pl-3 mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-100">
+              Education & Degrees
+            </h2>
           </div>
-          {university}
+          <div className="divide-y divide-gray-100 dark:divide-gray-800/60 space-y-6">
+            {university}
+          </div>
         </div>
       </div>
     </>
