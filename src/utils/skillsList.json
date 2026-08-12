@@ -1,45 +1,72 @@
 [
   {
-    "name": "AI & Automation",
+    "name": "Architecture & Infrastructure",
     "list": [
       {
         "id": 1,
-        "name": "Model Context Protocol (MCP)",
-        "icon": "https://img.icons8.com/color/48/api.png",
+        "name": "Microservices Architecture",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
         "position": "expert",
         "progress": 90
       },
       {
         "id": 2,
+        "name": "Load Balancers (NGINX)",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 3,
+        "name": "Distributed Systems",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+        "position": "expert",
+        "progress": 85
+      },
+      {
+        "id": 4,
+        "name": "PostgreSQL & Redis",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 5,
+        "name": "REST APIs & WebSockets",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+        "position": "expert",
+        "progress": 90
+      }
+    ]
+  },
+
+  {
+    "name": "AI & Smart Tools",
+    "list": [
+      {
+        "id": 1,
         "name": "LLM Integration (Gemini/OpenAI)",
         "icon": "https://img.icons8.com/color/48/brain.png",
         "position": "expert",
         "progress": 90
       },
       {
-        "id": 3,
-        "name": "AI Agents & Automation",
+        "id": 2,
+        "name": "AI Workflows & Automation",
         "icon": "https://img.icons8.com/color/48/robot.png",
         "position": "expert",
         "progress": 85
       },
       {
-        "id": 4,
+        "id": 3,
         "name": "Google Gemini",
         "icon": "https://img.icons8.com/color/48/sparkles.png",
         "position": "expert",
         "progress": 90
       },
       {
-        "id": 5,
-        "name": "Claude AI",
-        "icon": "https://img.icons8.com/color/48/bot.png",
-        "position": "expert",
-        "progress": 85
-      },
-      {
-        "id": 6,
-        "name": "ChatGPT",
+        "id": 4,
+        "name": "ChatGPT / Claude AI",
         "icon": "https://img.icons8.com/color/48/chatgpt.png",
         "position": "expert",
         "progress": 90
@@ -79,6 +106,20 @@
       },
       {
         "id": 5,
+        "name": "C++",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "position": "expert",
+        "progress": 80
+      },
+      {
+        "id": 6,
+        "name": ".NET",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg",
+        "position": "expert",
+        "progress": 80
+      },
+      {
+        "id": 7,
         "name": "php",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
         "position": "junior",
@@ -207,18 +248,39 @@
     ]
   },
   {
-    "name": "Platform",
+    "name": "Platform & Database",
     "list": [
       {
         "id": 1,
+        "name": "PostgreSQL",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 2,
+        "name": "MySQL",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 3,
+        "name": "Redis",
+        "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
+        "position": "expert",
+        "progress": 85
+      },
+      {
+        "id": 4,
         "name": "Firebase",
         "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
         "position": "expert",
         "progress": 90
       },
       {
-        "id": 2,
-        "name": "supabase",
+        "id": 5,
+        "name": "Supabase",
         "icon": "https://i.ibb.co/6vqNfZ5/supabase-logo-DCC676-FFE2-seeklogo-com-1.png",
         "position": "expert",
         "progress": 75

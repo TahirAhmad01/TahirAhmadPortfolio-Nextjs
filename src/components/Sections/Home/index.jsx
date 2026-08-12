@@ -22,7 +22,7 @@ export default function Home() {
   const stats = [
     { value: "4+ Years", label: "Full-Stack Exp." },
     { value: "15+", label: "Production Apps" },
-    { value: "Lead Reviewer", label: "@ Nascenia Ltd." },
+    { value: "Nascenia", label: "Software Engineer" },
     { value: "100%", label: "Client Satisfaction" },
   ];
 
@@ -40,7 +40,7 @@ export default function Home() {
         <div className="h-auto md:h-full pt-16 pb-8 md:py-12 containerCustom relative z-10">
           <div className="backdrop-blur-md bg-white/40 dark:bg-[#0b1327]/60 border border-gray-200/80 dark:border-[#192544] rounded-3xl h-full w-full relative overflow-hidden shadow-2xl">
             <div
-              className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-8 md:pt-12 pb-16 md:pb-20 px-4`}
+              className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-8 md:pt-12 pb-24 md:pb-28 px-4`}
             >
               {/* Status Badge */}
               <BoxReveal boxColor={"#0b1327"} duration={0.4}>
@@ -49,7 +49,7 @@ export default function Home() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span>Available for Senior Engineering & Architect Roles</span>
+                  <span>Available for Senior Software Engineer Roles</span>
                 </div>
               </BoxReveal>
 
@@ -80,11 +80,12 @@ export default function Home() {
                 <div className="font-medium">
                   <ReactTyped
                     strings={[
-                      "Senior Full-Stack Software Engineer",
-                      "Next.js 14 & React Specialist",
-                      "Ruby on Rails Architect",
+                      "Full Stack Engineer",
+                      "Software Engineer @ Nascenia",
+                      "Microservices & Load Balancer Specialist",
+                      "Next.js & React Specialist",
+                      "Ruby on Rails Engineer",
                       "Lead Code Reviewer @ Nascenia",
-                      "AI System Integration Architect",
                     ]}
                     typeSpeed={70}
                     backSpeed={60}
@@ -126,17 +127,17 @@ export default function Home() {
               </div>
 
               {/* Quick Stats Horizontal Glass Bar */}
-              <div className="mt-6 max-w-2xl w-full px-2">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-0 p-3.5 sm:p-4 rounded-3xl bg-white/60 dark:bg-[#111c35]/50 border border-gray-200/80 dark:border-[#1d2d55]/60 backdrop-blur-md shadow-xl">
+              <div className="mt-6 max-w-2xl w-full px-2 relative z-30">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-0 p-3.5 sm:p-4 rounded-3xl bg-white/70 dark:bg-[#111c35]/80 border border-gray-200/80 dark:border-[#1d2d55]/80 backdrop-blur-lg shadow-2xl">
                   {stats.map((item, index) => (
                     <div
                       key={index}
-                      className="text-center px-2 py-1.5 sm:py-0 sm:border-r border-gray-200/60 dark:border-gray-800/80 last:border-r-0 flex flex-col justify-center items-center"
+                      className="text-center px-2 py-2 sm:py-0 sm:border-r border-gray-200/60 dark:border-gray-700/60 last:border-r-0 flex flex-col justify-center items-center"
                     >
-                      <div className="text-sm sm:text-base md:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 whitespace-nowrap">
+                      <div className="text-base md:text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 tracking-tight">
                         {item.value}
                       </div>
-                      <div className="text-[10px] md:text-xs font-semibold text-gray-600 dark:text-gray-400 mt-0.5 whitespace-nowrap">
+                      <div className="text-[11px] md:text-xs font-bold text-gray-600 dark:text-gray-300 mt-0.5">
                         {item.label}
                       </div>
                     </div>
