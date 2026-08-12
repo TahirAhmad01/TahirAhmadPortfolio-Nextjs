@@ -26,7 +26,7 @@ function CertificateModal({ setOpen, open, contents }) {
     return (
       <div className="overflow-auto scrollbar-hide rounded-lg" key={idx}>
         <Image
-          loader={() => src}
+          unoptimized
           src={src}
           alt={title}
           key={idx}

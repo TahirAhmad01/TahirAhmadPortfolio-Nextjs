@@ -135,7 +135,7 @@ export default function WorkExperience({ work }) {
                         onClick={handleOpen}
                       >
                         <Image
-                          loader={() => src}
+                          unoptimized
                           src={src}
                           alt={title}
                           className="h-20 md:h-24 w-28 md:w-32 rounded-md overflow-hidden shadow-md"

@@ -21,6 +21,8 @@ const categories = [
   "react",
   "next",
   "tailwind",
+  "ai",
+  "mcp",
 ];
 
 export function FilterProject({

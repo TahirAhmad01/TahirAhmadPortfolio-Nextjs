@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import { usePathname } from "next/navigation";
 import Navbar from "./Navigation/Nav";
 import { setCookie } from "cookies-next";
+import AIChatWidget from "./AIChatWidget";
 
 export default function Layout({ children }) {
   const { theme, setTheme } = useTheme();
@@ -69,10 +70,14 @@ export default function Layout({ children }) {
           />
         )}
 
+        {path !== "/ai-assistant" && path !== "/ai-assistant/" && mounted && (
+          <AIChatWidget />
+        )}
+
         <button
           x-data="topBtn"
           id="topButton"
-          className={`fixed z-10 p-2 sm:p-3 bg-gray-100 text-black rounded-full shadow-md bottom-[7.4rem] right-[13px]  sm:bottom-[3.4rem] sm:right-24  animate-bounce ${scrollY > 250 ? "block" : "hidden"}`}
+          className={`fixed z-10 p-2 sm:p-3 bg-gray-100 text-black rounded-full shadow-md bottom-[144px] right-[18px] sm:bottom-[164px] sm:right-[28px] animate-bounce ${scrollY > 250 ? "block" : "hidden"}`}
           onClick={backToTop}
         >
           <svg

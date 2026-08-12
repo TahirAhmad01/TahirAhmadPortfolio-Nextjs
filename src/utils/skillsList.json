@@ -1,5 +1,31 @@
 [
   {
+    "name": "AI & Automation",
+    "list": [
+      {
+        "id": 1,
+        "name": "Model Context Protocol (MCP)",
+        "icon": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-artificial-intelligence-artificial-intelligence-flatart-icons-outline-flatarticons-1.png",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 2,
+        "name": "LLM Integration (Gemini/OpenAI)",
+        "icon": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-brain-artificial-intelligence-flatart-icons-outline-flatarticons.png",
+        "position": "expert",
+        "progress": 90
+      },
+      {
+        "id": 3,
+        "name": "AI Agents & Automation",
+        "icon": "https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-neural-artificial-intelligence-flatart-icons-outline-flatarticons.png",
+        "position": "expert",
+        "progress": 85
+      }
+    ]
+  },
+  {
     "name": "Languages",
     "list": [
       {

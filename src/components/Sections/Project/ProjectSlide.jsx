@@ -69,7 +69,7 @@ function ProjectSlide({ setOpen, open, projectId }) {
                           <SwiperSlide key={idx} className="!h-full relative">
                             <PhotoView src={img}>
                               <Image
-                                loader={() => img}
+                                unoptimized
                                 loading="lazy"
                                 src={img}
                                 alt={name}
@@ -89,7 +89,7 @@ function ProjectSlide({ setOpen, open, projectId }) {
                       imageSrc[0] && (
                         <PhotoView src={imageSrc[0]}>
                           <Image
-                            loader={() => imageSrc[0]}
+                            unoptimized
                             loading="lazy"
                             src={imageSrc[0]}
                             alt={name}
