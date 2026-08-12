@@ -1,6 +1,6 @@
 "use client";
 import tellMeOn from "@/utils/tellMeOn";
-import emailjs from "@emailjs/browser";
+import axios from "axios";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { Fade } from "react-reveal";
@@ -19,35 +19,35 @@ export default function ContactMe() {
     e.preventDefault();
     setLoading(true);
 
-    await emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID,
-        form.current,
-        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          swal({
-            title: "E-mail sent successful",
-            icon: "success",
-            button: "Close",
-            dangerMode: true,
-          }).then(setShowContactForm(false));
-        },
-        (err) => {
-          swal({
-            title: "Something went wrong!",
-            icon: "error",
-            button: "Close",
-            dangerMode: true,
-          });
+    const formData = new FormData(form.current);
+    const data = {
+      from_name: formData.get("from_name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
-          console.log(err);
-        }
-      );
-
-    setLoading(false);
+    try {
+      await axios.post("/api/contact", data);
+      swal({
+        title: "E-mail sent successfully!",
+        text: "Thank you for reaching out. I will get back to you shortly.",
+        icon: "success",
+        button: "Close",
+      }).then(() => setShowContactForm(false));
+    } catch (err) {
+      console.error("Failed to send contact message:", err);
+      swal({
+        title: "Something went wrong!",
+        text: err.response?.data?.error || "Failed to send email. Please try again.",
+        icon: "error",
+        button: "Close",
+        dangerMode: true,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (loading) {
