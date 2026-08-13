@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import {
   Sparkles,
@@ -31,6 +32,10 @@ const CAT_WISDOM = [
 ];
 
 export default function CatShowcase() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = mounted && resolvedTheme === "dark";
+
   const [petCount, setPetCount] = useState(0);
   const [treatCount, setTreatCount] = useState(0);
   const [streak, setStreak] = useState(0);
@@ -61,6 +66,7 @@ export default function CatShowcase() {
       setPetCount(savedPets);
       setTreatCount(savedTreats);
       setHighScore(savedScore);
+      setMounted(true);
     }
   }, []);
 
@@ -90,8 +96,11 @@ export default function CatShowcase() {
     }
 
     if (soundEnabled) {
-      if (Math.random() > 0.35) playMeow();
-      else playPurr();
+      if (Math.random() > 0.5) {
+        playMeow(Math.random() > 0.5 ? "standard" : "expressive");
+      } else {
+        playPurr();
+      }
     }
 
     setIsPurring(true);
@@ -123,7 +132,10 @@ export default function CatShowcase() {
       localStorage.setItem("cat_treat_count", newCount.toString());
     }
 
-    if (soundEnabled) playPurr();
+    if (soundEnabled) {
+      playMeow("chirp");
+      setTimeout(() => playPurr(), 300);
+    }
 
     setIsPurring(true);
     setTimeout(() => setIsPurring(false), 1400);
@@ -201,7 +213,7 @@ export default function CatShowcase() {
                   
                   {/* Purring Overlay & Combo Flash */}
                   {isPurring && (
-                    <div className="absolute inset-0 bg-indigo-950/50 backdrop-blur-[2px] flex flex-col items-center justify-center animate-pulse z-10">
+                    <div className="absolute inset-0 bg-[#0f172a]/65 backdrop-blur-[2px] flex flex-col items-center justify-center animate-pulse z-10">
                       <span className="text-white font-black text-sm px-3.5 py-1.5 rounded-full bg-slate-950/90 border border-purple-400/60 shadow-xl flex items-center gap-1.5">
                         <Heart size={15} className="text-pink-500 fill-pink-500 animate-ping" />
                         Purrrr-fect! 🐾
@@ -295,14 +307,20 @@ export default function CatShowcase() {
 
               {/* Speech Wisdom Popover */}
               {showSpeech && (
-                <div className="mb-4 p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-200 dark:border-indigo-500/40 text-indigo-900 dark:text-indigo-200 text-xs font-medium flex items-center justify-between shadow-md animate-fade-in">
+                <div className={`mb-4 p-3 rounded-2xl border text-xs font-medium flex items-center justify-between shadow-md animate-fade-in ${
+                  isDark
+                    ? "bg-[#0f172a]/95 border-purple-500/40 text-slate-100"
+                    : "bg-indigo-50 border-indigo-200 text-indigo-900"
+                }`}>
                   <div className="flex items-center gap-2">
-                    <MessageSquare size={14} className="text-indigo-600 dark:text-cyan-400 flex-shrink-0" />
+                    <MessageSquare size={14} className={isDark ? "text-cyan-400 flex-shrink-0" : "text-indigo-600 flex-shrink-0"} />
                     <span>{CAT_WISDOM[quoteIndex]}</span>
                   </div>
                   <button
                     onClick={() => setShowSpeech(false)}
-                    className="text-slate-400 hover:text-slate-600 dark:hover:text-white text-xs px-1.5"
+                    className={`text-xs px-1.5 ${
+                      isDark ? "text-slate-400 hover:text-white" : "text-slate-500 hover:text-slate-900"
+                    }`}
                   >
                     ✕
                   </button>

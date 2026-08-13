@@ -98,8 +98,8 @@ export default function CatCompanion() {
     }
 
     if (soundEnabled) {
-      if (Math.random() > 0.4) playMeow();
-      else playPurr();
+      if (Math.random() > 0.45) playMeow("expressive");
+      else playMeow("standard");
     }
 
     setCatMood("purring");
@@ -137,7 +137,7 @@ export default function CatCompanion() {
       localStorage.setItem("cat_treat_count", newTreats.toString());
     }
 
-    if (soundEnabled) playMeow();
+    if (soundEnabled) playMeow("chirp");
 
     setCatMood("eating");
     setTimeout(() => setCatMood("happy"), 1800);
@@ -477,7 +477,7 @@ export default function CatCompanion() {
                 <div className="flex items-center justify-between gap-1.5">
                   <button
                     onClick={() => {
-                      if (soundEnabled) playMeow();
+                      if (soundEnabled) playMeow("standard");
                       const nextJoke = (jokeIndex + 1) % CAT_JOKES.length;
                       setJokeIndex(nextJoke);
                       setQuoteIndex(0);

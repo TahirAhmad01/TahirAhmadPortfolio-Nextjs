@@ -104,12 +104,12 @@ export default function CatGameModal({ isOpen, onClose }) {
     setBugs([]);
     setSplatters([]);
     setGameState("playing");
-    playMeow();
+    playMeow("chirp");
   };
 
   const handleSquashBug = (bugId, bugPoints, x, y, e) => {
     e.stopPropagation();
-    playMeow();
+    playMeow("squeak");
 
     const newCombo = combo + 1;
     setCombo(newCombo);
@@ -172,7 +172,7 @@ export default function CatGameModal({ isOpen, onClose }) {
         {/* Game Arena Container */}
         <div
           ref={arenaRef}
-          className="relative h-80 w-full bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-950/50 overflow-hidden"
+          className="relative h-80 w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900/50 overflow-hidden"
         >
           {/* Start Overlay */}
           {gameState === "idle" && (
