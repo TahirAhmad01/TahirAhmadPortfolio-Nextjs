@@ -72,13 +72,13 @@ export default function Home() {
                   </div>
                 )}
 
-                <div className="relative h-28 w-28 md:h-36 md:w-36 overflow-hidden rounded-full border-2 border-white dark:border-[#192544] bg-white shadow-xl transform transition-transform duration-300 group-hover:scale-105">
+                <div className="relative h-28 w-28 md:h-36 md:w-36 overflow-hidden rounded-full border-2 border-white dark:border-[#192544] bg-white shadow-xl transform transition-transform duration-700 ease-out transform-gpu will-change-transform group-hover:scale-105">
                   <Image
                     src={avatar}
                     alt="Tahir's picture"
                     fill={true}
                     priority={true}
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 ease-out transform-gpu will-change-transform group-hover:scale-105"
                   />
 
                   {/* Whiskers & Nose Overlay */}

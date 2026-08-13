@@ -54,8 +54,16 @@ function ProjectSlide({ setOpen, open, projectId }) {
                 </button>
 
                 {/* Image Section */}
-                <div className="overflow-hidden rounded-lg relative select-none">
-                  <PhotoProvider>
+                <div className="overflow-hidden rounded-lg relative select-none group">
+                  <PhotoProvider
+                    speed={() => 400}
+                    maskOpacity={0.9}
+                    easing={(type) =>
+                      type === 2
+                        ? "cubic-bezier(0.25, 1, 0.5, 1)"
+                        : "cubic-bezier(0.25, 1, 0.5, 1)"
+                    }
+                  >
                     {imageSrc.length > 1 ? (
                       <Swiper
                         navigation
@@ -66,7 +74,7 @@ function ProjectSlide({ setOpen, open, projectId }) {
                         loop
                       >
                         {imageSrc.map((img, idx) => (
-                          <SwiperSlide key={idx} className="!h-full relative">
+                          <SwiperSlide key={idx} className="!h-full relative overflow-hidden">
                             <PhotoView src={img}>
                               <Image
                                 unoptimized
@@ -76,7 +84,7 @@ function ProjectSlide({ setOpen, open, projectId }) {
                                 width={0}
                                 height={0}
                                 sizes="(max-width: 768px) 13vw, (max-width: 1200px) 9vw, 5vw"
-                                className="!w-full !h-full object-cover"
+                                className="!w-full !h-full object-cover cursor-zoom-in transition-transform duration-700 ease-out transform-gpu will-change-transform hover:scale-105"
                                 placeholder="blur"
                                 blurDataURL={img}
                               />
@@ -95,7 +103,7 @@ function ProjectSlide({ setOpen, open, projectId }) {
                             alt={name}
                             width={0}
                             height={0}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover cursor-zoom-in transition-transform duration-700 ease-out transform-gpu will-change-transform hover:scale-105"
                             placeholder="blur"
                             blurDataURL={imageSrc[0]}
                           />
