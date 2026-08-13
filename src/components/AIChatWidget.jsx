@@ -175,7 +175,6 @@ export default function AIChatWidget({ isFullPage = false }) {
             </div>
             <div>
               <h3 className="font-bold text-lg text-gray-800 dark:text-white">AI Portfolio Assistant</h3>
-              <p className="text-xs text-cyan-600 dark:text-cyan-400 font-medium">Powered by Gemma 4 31B IT</p>
             </div>
           </div>
         </div>
@@ -283,7 +282,6 @@ export default function AIChatWidget({ isFullPage = false }) {
                   </div>
                   <div>
                     <h3 className="font-bold text-sm text-gray-800 dark:text-white">Tahir's AI Assistant</h3>
-                    <p className="text-[10px] text-cyan-600 dark:text-cyan-400 font-medium">Gemma 4 31B IT Active</p>
                   </div>
                 </div>
                 <button

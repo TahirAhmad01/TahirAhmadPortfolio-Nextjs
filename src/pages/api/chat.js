@@ -68,7 +68,7 @@ Guidelines:
 2. If asked about contact info, provide email (tahirahmadsani@gmail.com) and phone (+8801610881871).
 3. If a question is entirely unrelated to Tahir, software engineering, or his projects, politely decline to answer and guide the conversation back to his portfolio.
 4. Do not invent any skills, jobs, or projects. Stick strictly to the provided information.
-5. If someone asks about how this chatbot works, tell them it's powered by Next.js and the Gemma 4 31B IT model, reading the portfolio configurations dynamically.
+5. If someone asks about how this chatbot works, tell them it's powered by Next.js and the Gemini 3.5 Flash Lite model, reading the portfolio configurations dynamically.
 `;
 
     const apiKey = process.env.GEMMA_API_KEY || process.env.GEMINI_API_KEY || process.env.GOOGLE_GENAI_API_KEY;
@@ -79,22 +79,22 @@ Guidelines:
       let mockReply = "";
 
       if (lastUserMsg.includes("project") || lastUserMsg.includes("uddogi") || lastUserMsg.includes("mcp")) {
-        mockReply = `**Tahir's Projects:**\n\n1. **AI-Powered Automation & MCP Orchestration**: Built custom Model Context Protocol (MCP) servers to automate tasks and orchestrate workflows.\n2. **Uddogi (VAT Management)**: A Rails-based VAT reporting platform built at Nascenia Ltd.\n3. **Course Management System**: An online student enrollment system built using Ruby on Rails.\n\n*Note: Powered by Gemma 4 31B IT (Demo Mode).*`;
+        mockReply = `**Tahir's Projects:**\n\n1. **AI-Powered Automation & MCP Orchestration**: Built custom Model Context Protocol (MCP) servers to automate tasks and orchestrate workflows.\n2. **Uddogi (VAT Management)**: A Rails-based VAT reporting platform built at Nascenia Ltd.\n3. **Course Management System**: An online student enrollment system built using Ruby on Rails.\n\n*Note: Powered by Gemini 3.5 Flash Lite (Demo Mode).*`;
       } else if (lastUserMsg.includes("skill") || lastUserMsg.includes("tech") || lastUserMsg.includes("language")) {
-        mockReply = `**Tahir's Technical Skills:**\n\n* **AI & Automation**: Model Context Protocol (MCP), LLM Integration (Gemma 4 31B IT), Agentic Workflows.\n* **Backend**: Ruby on Rails, Node.js, Ruby, JavaScript.\n* **Frontend**: React.js, Next.js, Redux, Tailwind CSS, Bootstrap.\n* **Tools & Databases**: Git/GitHub, PostgreSQL, Redis, Docker.\n\n*Note: Powered by Gemma 4 31B IT (Demo Mode).*`;
+        mockReply = `**Tahir's Technical Skills:**\n\n* **AI & Automation**: Model Context Protocol (MCP), LLM Integration (Gemini 3.5 Flash Lite), Agentic Workflows.\n* **Backend**: Ruby on Rails, Node.js, Ruby, JavaScript.\n* **Frontend**: React.js, Next.js, Redux, Tailwind CSS, Bootstrap.\n* **Tools & Databases**: Git/GitHub, PostgreSQL, Redis, Docker.\n\n*Note: Powered by Gemini 3.5 Flash Lite (Demo Mode).*`;
       } else if (lastUserMsg.includes("contact") || lastUserMsg.includes("hire") || lastUserMsg.includes("email")) {
-        mockReply = `You can easily reach out to Tahir Ahmad:\n\n* **Email**: tahirahmadsani@gmail.com\n* **Phone**: +8801610881871\n* **Address**: Mirpur-1, Dhaka, Bangladesh\n\nYou can also click the **"Get in touch"** button on the home page.\n\n*Note: Powered by Gemma 4 31B IT (Demo Mode).*`;
+        mockReply = `You can easily reach out to Tahir Ahmad:\n\n* **Email**: tahirahmadsani@gmail.com\n* **Phone**: +8801610881871\n* **Address**: Mirpur-1, Dhaka, Bangladesh\n\nYou can also click the **"Get in touch"** button on the home page.\n\n*Note: Powered by Gemini 3.5 Flash Lite (Demo Mode).*`;
       } else {
-        mockReply = `Hello! I am Tahir's AI Portfolio Assistant (powered by Gemma 4 31B IT).\n\nI can tell you all about his projects (like **Uddogi** or his **custom MCP servers**), his technical expertise, or how to contact him. What would you like to know?`;
+        mockReply = `Hello! I am Tahir's AI Portfolio Assistant (powered by Gemini 3.5 Flash Lite).\n\nI can tell you all about his projects (like **Uddogi** or his **custom MCP servers**), his technical expertise, or how to contact him. What would you like to know?`;
       }
 
       return res.status(200).json({ text: mockReply, demo: true });
     }
 
-    // Live LLM Mode using Google Generative AI SDK with Gemma 4 31B IT
+    // Live LLM Mode using Google Generative AI SDK with Gemini 3.5 Flash Lite
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemma-4-31b-it",
+      model: "gemini-3.5-flash-lite",
       systemInstruction: systemInstruction,
     });
     
