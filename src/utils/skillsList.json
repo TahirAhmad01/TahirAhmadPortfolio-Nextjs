@@ -45,7 +45,7 @@
     "list": [
       {
         "id": 1,
-        "name": "LLM Integration (Gemini/OpenAI)",
+        "name": "LLM Integration (Gemma 4 31B IT / OpenAI)",
         "icon": "https://img.icons8.com/color/48/brain.png",
         "position": "expert",
         "progress": 90
@@ -59,7 +59,7 @@
       },
       {
         "id": 3,
-        "name": "Google Gemini",
+        "name": "Google Gemma 4 31B IT",
         "icon": "https://img.icons8.com/color/48/sparkles.png",
         "position": "expert",
         "progress": 90

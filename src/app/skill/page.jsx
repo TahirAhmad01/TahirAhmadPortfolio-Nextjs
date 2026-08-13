@@ -5,7 +5,7 @@ import Skills from "@/components/Sections/Skill";
 
 export const metadata = {
   title: "Technical Skills & Architecture | Tahir Ahmad",
-  description: "Explore Tahir Ahmad's engineering skill set spanning Next.js 14, React 18, Ruby on Rails, Node.js, AI Tools (Gemini, Claude), and Cloud Infrastructure.",
+  description: "Explore Tahir Ahmad's engineering skill set spanning Next.js 14, React 18, Ruby on Rails, Node.js, AI Tools (Gemma 4 31B IT, Claude), and Cloud Infrastructure.",
 };
 
 export default function Skill() {
