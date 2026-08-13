@@ -28,5 +28,10 @@
     "id": 6,
     "question": "What types of projects have you worked on?",
     "answer": "I have worked on a variety of projects ranging from single-page applications and interactive websites to complex server-side applications and APIs. My projects often involve integrating front-end and back-end technologies to deliver seamless user experiences and efficient backend solutions."
+  },
+  {
+    "id": 7,
+    "question": "Does Pixel the Cat actually inspect your pull requests?",
+    "answer": "kernel-level review! Pixel (Chief Meow Officer 🐾) performs code reviews by sitting on the keyboard. If Pixel purrs, the PR is approved and merged immediately!"
   }
 ]

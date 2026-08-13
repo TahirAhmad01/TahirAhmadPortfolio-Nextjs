@@ -5,6 +5,7 @@ import { Fade, Zoom } from "react-reveal";
 import picture from "@/assets/images/jpg/myPic.jpg";
 import Title from "../Title";
 import Info from "./Info";
+import CatShowcase from "./CatShowcase";
 
 export default function About() {
   const { heading, description, information } = aboutInfo || {};
@@ -69,6 +70,10 @@ export default function About() {
             </Zoom>
           </div>
         </div>
+
+        <Fade up>
+          <CatShowcase />
+        </Fade>
       </div>
     </div>
   );

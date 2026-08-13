@@ -12,12 +12,15 @@ import { useTheme } from "next-themes";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
+import { useState } from "react";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import BoxReveal from "@/components/magicui/box-reveal";
 import CvDropdownButton from "@/components/CvDropdownButton";
+import { playMeow } from "@/utils/catAudio";
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
+  const [isCatified, setIsCatified] = useState(false);
 
   const stats = [
     { value: "4+ Years", label: "Full-Stack Exp." },
@@ -53,9 +56,22 @@ export default function Home() {
                 </div>
               </BoxReveal>
 
-              {/* Avatar with Glow Ring */}
+              {/* Avatar with Glow Ring & Catify Easter Egg */}
               <div className="relative group mb-4">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 opacity-70 group-hover:opacity-100 blur transition-all duration-500 animate-tilt"></div>
+
+                {/* Cat Ears Overlay when Catified */}
+                {isCatified && (
+                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-32 md:w-40 z-30 pointer-events-none animate-bounce">
+                    <svg viewBox="0 0 100 40" className="w-full h-full drop-shadow-md">
+                      <polygon points="15,40 5,0 35,22" fill="#fb923c" />
+                      <polygon points="18,36 10,7 32,22" fill="#fed7aa" />
+                      <polygon points="85,40 95,0 65,22" fill="#fb923c" />
+                      <polygon points="82,36 90,7 68,22" fill="#fed7aa" />
+                    </svg>
+                  </div>
+                )}
+
                 <div className="relative h-28 w-28 md:h-36 md:w-36 overflow-hidden rounded-full border-2 border-white dark:border-[#192544] bg-white shadow-xl transform transition-transform duration-300 group-hover:scale-105">
                   <Image
                     src={avatar}
@@ -64,7 +80,37 @@ export default function Home() {
                     priority={true}
                     className="object-cover"
                   />
+
+                  {/* Whiskers & Nose Overlay */}
+                  {isCatified && (
+                    <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center">
+                      <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <polygon points="47,58 53,58 50,62" fill="#f43f5e" />
+                        <line x1="15" y1="55" x2="35" y2="58" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                        <line x1="12" y1="62" x2="35" y2="62" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                        <line x1="85" y1="55" x2="65" y2="58" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                        <line x1="88" y1="62" x2="65" y2="62" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
+
+                {/* Catify Toggle Badge */}
+                <button
+                  onClick={() => {
+                    playMeow();
+                    setIsCatified(!isCatified);
+                  }}
+                  className={`absolute -bottom-2 -right-2 z-30 px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-md border transition-all duration-300 transform hover:scale-110 flex items-center gap-1 ${
+                    isCatified
+                      ? "bg-amber-400 text-slate-950 border-amber-300"
+                      : "bg-slate-900/80 text-purple-300 border-purple-500/40 hover:bg-purple-600 hover:text-white"
+                  }`}
+                  title="Toggle Cat Filter 🐱"
+                >
+                  <span>🐱</span>
+                  <span>{isCatified ? "Catified!" : "Catify"}</span>
+                </button>
               </div>
 
               {/* Name */}
@@ -82,9 +128,11 @@ export default function Home() {
                     strings={[
                       "Full Stack Engineer",
                       "Software Engineer @ Nascenia",
+                      "Cat Lover & Code Whiskerer 🐾",
                       "Microservices & Load Balancer Specialist",
                       "Next.js & React Specialist",
                       "Ruby on Rails Engineer",
+                      "Purr-fect Web Developer 🐱",
                       "Lead Code Reviewer @ Nascenia",
                     ]}
                     typeSpeed={70}

@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "./Navigation/Nav";
 import { setCookie } from "cookies-next";
 import AIChatWidget from "./AIChatWidget";
+import CatCompanion from "./CatCompanion";
 
 export default function Layout({ children }) {
   const { theme, setTheme } = useTheme();
@@ -46,6 +47,7 @@ export default function Layout({ children }) {
         />
         {children}
         <Footer />
+        <CatCompanion />
         {path === "/" ? (
           scrollY > 90 && (
             <>
