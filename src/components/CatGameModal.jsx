@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { useTheme } from "next-themes";
 import { playMeow, playPurr } from "@/utils/catAudio";
 import { Trophy, RefreshCw, X, Sparkles, Award, Zap, Gauge } from "lucide-react";
 
@@ -11,6 +13,8 @@ const BUG_TYPES = [
 ];
 
 export default function CatGameModal({ isOpen, onClose }) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [gameState, setGameState] = useState("idle"); // 'idle' | 'playing' | 'ended'
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -24,11 +28,14 @@ export default function CatGameModal({ isOpen, onClose }) {
 
   // Load high score
   useEffect(() => {
+    setMounted(true);
     if (typeof window !== "undefined") {
       const saved = parseInt(localStorage.getItem("cat_bug_highscore") || "0", 10);
       setHighScore(saved);
     }
   }, []);
+
+  const isDark = !mounted || resolvedTheme === "dark";
 
   // Timer loop
   useEffect(() => {
@@ -142,28 +149,48 @@ export default function CatGameModal({ isOpen, onClose }) {
     return () => clearTimeout(timer);
   }, [splatters]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[100000] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in select-none">
-      <div className="relative w-full max-w-lg bg-slate-900 !text-white border border-purple-500/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col font-sans">
+      <div className={`relative w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col font-sans border transition-all duration-300 ${
+        isDark
+          ? "bg-slate-900 text-white border-purple-500/40"
+          : "bg-white/85 text-slate-900 border-purple-300/60 backdrop-blur-md"
+      }`}>
         {/* Header */}
-        <div className="flex justify-between items-center px-6 py-4 bg-slate-800/80 border-b border-purple-500/20">
+        <div className={`flex justify-between items-center px-6 py-4 border-b transition-colors duration-300 ${
+          isDark ? "bg-slate-800/80 border-purple-500/20" : "bg-slate-50/90 border-purple-200/50"
+        }`}>
           <div className="flex items-center gap-2">
             <span className="text-2xl animate-bounce">🐱</span>
             <div>
-              <h3 className="text-lg font-bold !text-white flex items-center gap-2">
-                <span className="!text-white">Pixel&apos;s Bug Hunter</span>
-                <span className="text-[10px] bg-purple-500/20 !text-purple-300 border border-purple-400/30 px-2 py-0.5 rounded-full">
+              <h3 className={`text-lg font-bold flex items-center gap-2 transition-colors duration-300 ${
+                isDark ? "text-white" : "text-slate-900"
+              }`}>
+                <span>Pixel&apos;s Bug Hunter</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full border ${
+                  isDark
+                    ? "bg-purple-500/20 text-purple-300 border-purple-400/30"
+                    : "bg-purple-100 text-purple-700 border-purple-200"
+                }`}>
                   Arcade
                 </span>
               </h3>
-              <p className="text-xs !text-purple-300/80">Swat bugs with relaxed cat reflexes!</p>
+              <p className={`text-xs transition-colors duration-300 ${
+                isDark ? "text-purple-300/80" : "text-purple-600"
+              }`}>
+                Swat bugs with relaxed cat reflexes!
+              </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 !text-gray-400 hover:!text-white hover:bg-slate-700/60 rounded-full transition-colors"
+            className={`p-2 rounded-full transition-colors ${
+              isDark
+                ? "text-gray-400 hover:text-white hover:bg-slate-700/60"
+                : "text-gray-500 hover:text-slate-900 hover:bg-slate-200/60"
+            }`}
           >
             <X size={20} />
           </button>
@@ -172,29 +199,47 @@ export default function CatGameModal({ isOpen, onClose }) {
         {/* Game Arena Container */}
         <div
           ref={arenaRef}
-          className="relative h-80 w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900/50 overflow-hidden"
+          className={`relative h-80 w-full overflow-hidden transition-all duration-300 ${
+            isDark
+              ? "bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900/50"
+              : "bg-gradient-to-b from-slate-100 via-slate-50 to-slate-50/50 border-y border-slate-200/60"
+          }`}
         >
           {/* Start Overlay */}
           {gameState === "idle" && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-slate-950/90 z-20">
+            <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-20 transition-all duration-300 ${
+              isDark ? "bg-slate-950/90 text-white" : "bg-white/90 text-slate-900"
+            }`}>
               <div className="text-5xl mb-3 animate-pulse">🐾🐞</div>
-              <h4 className="text-xl font-bold !text-white mb-1">Ready to Catch Bugs?</h4>
-              <p className="text-xs !text-gray-300 max-w-xs mb-4">
+              <h4 className={`text-xl font-bold mb-1 transition-colors duration-300 ${
+                isDark ? "text-white" : "text-slate-900"
+              }`}>Ready to Catch Bugs?</h4>
+              <p className={`text-xs max-w-xs mb-4 transition-colors duration-300 ${
+                isDark ? "text-gray-300" : "text-slate-600"
+              }`}>
                 Tap or click as many crawling bugs as you can in 30 seconds!
               </p>
 
               {/* Speed Mode Controls */}
-              <div className="mb-6 flex items-center gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800">
-                <span className="text-xs !text-slate-400 font-semibold px-2 flex items-center gap-1">
-                  <Gauge size={13} className="!text-purple-400" />
+              <div className={`mb-6 flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl border transition-all duration-300 ${
+                isDark
+                  ? "bg-slate-900/90 border-slate-800"
+                  : "bg-slate-100/90 border-slate-200/80 shadow-inner"
+              }`}>
+                <span className={`text-xs font-semibold px-2 flex items-center gap-1 transition-colors duration-300 ${
+                  isDark ? "text-slate-400" : "text-slate-600"
+                }`}>
+                  <Gauge size={13} className={isDark ? "text-purple-400" : "text-purple-600"} />
                   Speed:
                 </span>
                 <button
                   onClick={() => setSpeedMultiplier(0.6)}
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                     speedMultiplier === 0.6
-                      ? "bg-emerald-500 !text-slate-950 shadow-md"
-                      : "!text-slate-400 hover:!text-white"
+                      ? "bg-emerald-500 text-slate-950 shadow-md"
+                      : isDark
+                      ? "text-slate-400 hover:text-white"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   Chill 🐢
@@ -203,8 +248,10 @@ export default function CatGameModal({ isOpen, onClose }) {
                   onClick={() => setSpeedMultiplier(1.0)}
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                     speedMultiplier === 1.0
-                      ? "bg-purple-500 !text-white shadow-md"
-                      : "!text-slate-400 hover:!text-white"
+                      ? "bg-purple-500 text-white shadow-md"
+                      : isDark
+                      ? "text-slate-400 hover:text-white"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   Normal 🐾
@@ -213,8 +260,10 @@ export default function CatGameModal({ isOpen, onClose }) {
                   onClick={() => setSpeedMultiplier(1.5)}
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
                     speedMultiplier === 1.5
-                      ? "bg-amber-500 !text-slate-950 shadow-md"
-                      : "!text-slate-400 hover:!text-white"
+                      ? "bg-amber-500 text-slate-950 shadow-md"
+                      : isDark
+                      ? "text-slate-400 hover:text-white"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   Fast ⚡
@@ -223,7 +272,7 @@ export default function CatGameModal({ isOpen, onClose }) {
 
               <button
                 onClick={startGame}
-                className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 !text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
+                className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
               >
                 <Zap size={18} />
                 <span>Start Bug Hunt!</span>
@@ -233,10 +282,16 @@ export default function CatGameModal({ isOpen, onClose }) {
 
           {/* Game Over Overlay */}
           {gameState === "ended" && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-slate-950/95 z-20 animate-fade-in">
+            <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-6 z-20 animate-fade-in transition-colors duration-300 ${
+              isDark ? "bg-slate-950/95 text-white" : "bg-white/95 text-slate-900"
+            }`}>
               <div className="text-5xl mb-2">🎉🐱</div>
-              <h4 className="text-2xl font-black !text-white mb-1">Time&apos;s Up!</h4>
-              <p className="text-xs !text-purple-300 mb-4">
+              <h4 className={`text-2xl font-black mb-1 transition-colors duration-300 ${
+                isDark ? "text-white" : "text-slate-900"
+              }`}>Time&apos;s Up!</h4>
+              <p className={`text-xs mb-4 transition-colors duration-300 ${
+                isDark ? "text-purple-300" : "text-purple-700 font-medium"
+              }`}>
                 {score >= highScore && score > 0
                   ? "🏆 NEW HIGH SCORE! Outstanding cat reflexes!"
                   : "Great hunting! Pixel is proud of your bug swatting skills."}
@@ -244,27 +299,39 @@ export default function CatGameModal({ isOpen, onClose }) {
 
               {/* Score Card */}
               <div className="flex gap-4 mb-6">
-                <div className="bg-slate-800/80 border border-purple-500/30 p-3 rounded-2xl text-center min-w-[100px]">
-                  <p className="text-[10px] !text-gray-400 font-semibold uppercase">Final Score</p>
-                  <p className="text-2xl font-black !text-amber-400">{score}</p>
+                <div className={`p-3 rounded-2xl text-center min-w-[100px] border transition-colors duration-300 ${
+                  isDark
+                    ? "bg-slate-800/80 border-purple-500/30 text-white"
+                    : "bg-slate-50/90 border-purple-200 text-slate-900 shadow-sm"
+                }`}>
+                  <p className={`text-[10px] font-semibold uppercase ${isDark ? "text-gray-400" : "text-slate-500"}`}>Final Score</p>
+                  <p className={`text-2xl font-black ${isDark ? "text-amber-400" : "text-amber-600"}`}>{score}</p>
                 </div>
-                <div className="bg-slate-800/80 border border-purple-500/30 p-3 rounded-2xl text-center min-w-[100px]">
-                  <p className="text-[10px] !text-gray-400 font-semibold uppercase">High Score</p>
-                  <p className="text-2xl font-black !text-purple-400">{highScore}</p>
+                <div className={`p-3 rounded-2xl text-center min-w-[100px] border transition-colors duration-300 ${
+                  isDark
+                    ? "bg-slate-800/80 border-purple-500/30 text-white"
+                    : "bg-slate-50/90 border-purple-200 text-slate-900 shadow-sm"
+                }`}>
+                  <p className={`text-[10px] font-semibold uppercase ${isDark ? "text-gray-400" : "text-slate-500"}`}>High Score</p>
+                  <p className={`text-2xl font-black ${isDark ? "text-purple-400" : "text-purple-600"}`}>{highScore}</p>
                 </div>
               </div>
 
               <div className="flex gap-3">
                 <button
                   onClick={startGame}
-                  className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 !text-white font-bold px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-2 text-sm"
+                  className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-2 text-sm"
                 >
                   <RefreshCw size={16} />
                   <span>Play Again</span>
                 </button>
                 <button
                   onClick={onClose}
-                  className="bg-slate-800 hover:bg-slate-700 !text-gray-200 font-semibold px-5 py-2.5 rounded-xl text-sm border border-slate-700"
+                  className={`font-semibold px-5 py-2.5 rounded-xl text-sm border transition-colors duration-300 ${
+                    isDark
+                      ? "bg-slate-800 hover:bg-slate-700 text-gray-200 border-slate-700"
+                      : "bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300"
+                  }`}
                 >
                   Close
                 </button>
@@ -275,17 +342,29 @@ export default function CatGameModal({ isOpen, onClose }) {
           {/* Gameplay HUD */}
           {gameState === "playing" && (
             <>
-              <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-10 text-xs font-bold">
-                <div className="bg-slate-800/80 !text-[#fbbf24] px-3 py-1.5 rounded-xl border border-amber-400/20 flex items-center gap-1.5 shadow-md">
-                  <Sparkles size={14} className="!text-[#fbbf24]" />
-                  <span className="!text-[#fbbf24]">Score: {score}</span>
+              <div className="absolute top-3 left-2 right-2 sm:left-3 sm:right-3 flex justify-between items-center z-10 text-[10px] sm:text-xs font-bold">
+                <div className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border flex items-center gap-1 sm:gap-1.5 shadow-md transition-all duration-300 ${
+                  isDark
+                    ? "bg-slate-800/80 text-[#fbbf24] border-amber-400/20"
+                    : "bg-white/95 text-amber-700 border-amber-300/40"
+                }`}>
+                  <Sparkles size={12} className={isDark ? "text-[#fbbf24] sm:w-3.5 sm:h-3.5" : "text-amber-600 sm:w-3.5 sm:h-3.5"} />
+                  <span>Score: {score}</span>
                 </div>
-                <div className="bg-slate-800/80 !text-[#22d3ee] px-3 py-1.5 rounded-xl border border-cyan-400/20 shadow-md">
+                <div className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border shadow-md transition-all duration-300 ${
+                  isDark
+                    ? "bg-slate-800/80 text-[#22d3ee] border-cyan-400/20"
+                    : "bg-white/95 text-cyan-700 border-cyan-300/40"
+                }`}>
                   ⏱️ {timeLeft}s
                 </div>
-                <div className="bg-slate-800/80 !text-[#c084fc] px-3 py-1.5 rounded-xl border border-purple-400/20 flex items-center gap-1 shadow-md">
-                  <Trophy size={14} className="!text-[#c084fc]" />
-                  <span className="!text-[#c084fc]">Best: {highScore}</span>
+                <div className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border flex items-center gap-1 shadow-md transition-all duration-300 ${
+                  isDark
+                    ? "bg-slate-800/80 text-[#c084fc] border-purple-400/20"
+                    : "bg-white/95 text-purple-700 border-purple-300/40"
+                }`}>
+                  <Trophy size={12} className={isDark ? "text-[#c084fc] sm:w-3.5 sm:h-3.5" : "text-purple-600 sm:w-3.5 sm:h-3.5"} />
+                  <span>Best: {highScore}</span>
                 </div>
               </div>
 
@@ -319,7 +398,8 @@ export default function CatGameModal({ isOpen, onClose }) {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

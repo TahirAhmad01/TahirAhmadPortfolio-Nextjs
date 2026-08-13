@@ -173,7 +173,7 @@ export default function CatShowcase() {
       <div className="mt-14 relative group rounded-3xl p-[1.5px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 shadow-xl dark:shadow-[0_0_50px_rgba(99,102,241,0.2)] transition-all duration-500">
         
         {/* Responsive Backdrop Card (Light mode glass + Dark mode obsidian) */}
-        <div className="relative rounded-[22px] bg-white/95 dark:bg-[#070a13] p-6 md:p-9 overflow-hidden transition-colors duration-300">
+        <div className="relative rounded-[22px] bg-white/95 dark:bg-[#070a13] p-4 sm:p-6 md:p-9 overflow-hidden transition-colors duration-300">
           
           {/* Accent Ambient Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 dark:bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
@@ -274,7 +274,7 @@ export default function CatShowcase() {
                   onClick={() => setSoundEnabled(!soundEnabled)}
                   className={`p-1.5 rounded-xl border text-xs transition-all active:scale-95 ${
                     soundEnabled
-                      ? "bg-cyan-100 dark:bg-cyan-500/15 border-cyan-300 dark:border-cyan-500/40 text-cyan-700 dark:text-cyan-300 hover:bg-cyan-200"
+                      ? "bg-cyan-100 dark:bg-cyan-500/15 border-cyan-300 dark:border-cyan-500/40 text-cyan-800 dark:text-cyan-300 hover:bg-cyan-200"
                       : "bg-slate-200 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400"
                   }`}
                   title={soundEnabled ? "Mute Meow Sound FX" : "Enable Meow Sound FX"}
@@ -336,22 +336,24 @@ export default function CatShowcase() {
               <div className="mb-6 rounded-2xl bg-[#090d18] border border-slate-700/80 shadow-xl overflow-hidden">
                 
                 {/* Console Bar */}
-                <div className="bg-[#111728] px-4 py-2.5 border-b border-slate-700/80 flex items-center justify-between">
+                <div className="bg-[#111728] px-4 py-2.5 border-b border-slate-700/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/90" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/90" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/90" />
-                    <span className="ml-2 text-xs font-mono !text-slate-300 flex items-center gap-1.5">
-                      <Terminal size={13} className="!text-cyan-400" />
+                    <div className="flex gap-1.5 flex-shrink-0">
+                      <div className="w-3 h-3 rounded-full bg-red-500/90" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/90" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/90" />
+                    </div>
+                    <span className="ml-2 text-xs font-mono flex items-center gap-1.5 flex-shrink-0" style={{ color: "#cbd5e1" }}>
+                      <Terminal size={13} className="flex-shrink-0" style={{ color: "#22d3ee" }} />
                       pixel-pr-inspector.sh
                     </span>
                   </div>
 
                   {/* Tab Selector Buttons */}
-                  <div className="flex items-center gap-1 text-[11px] font-medium">
+                  <div className="flex items-center gap-1 text-[11px] font-medium overflow-x-auto scrollbar-hide w-full sm:w-auto pb-1 sm:pb-0">
                     <button
                       onClick={() => setActiveTab("inspection")}
-                      className={`px-2.5 py-0.5 rounded-md transition-all ${
+                      className={`px-2.5 py-0.5 rounded-md transition-all flex-shrink-0 ${
                         activeTab === "inspection"
                           ? "bg-purple-500/30 border border-purple-400/50 font-bold"
                           : "hover:!text-white"
@@ -362,18 +364,18 @@ export default function CatShowcase() {
                     </button>
                     <button
                       onClick={() => setActiveTab("cli")}
-                      className={`px-2.5 py-0.5 rounded-md transition-all ${
+                      className={`px-2.5 py-0.5 rounded-md transition-all flex-shrink-0 ${
                         activeTab === "cli"
                           ? "bg-cyan-500/30 border border-cyan-400/50 font-bold"
                           : "hover:!text-white"
                       }`}
-                      style={{ color: activeTab === "cli" ? "#c7d2fe" : "#94a3b8" }}
+                      style={{ color: activeTab === "cli" ? "#a5f3fc" : "#94a3b8" }}
                     >
                       Interactive Shell
                     </button>
                     <button
                       onClick={() => setActiveTab("game")}
-                      className={`px-2.5 py-0.5 rounded-md transition-all ${
+                      className={`px-2.5 py-0.5 rounded-md transition-all flex-shrink-0 ${
                         activeTab === "game"
                           ? "bg-emerald-500/30 border border-emerald-400/50 font-bold"
                           : "hover:!text-white"
@@ -409,9 +411,9 @@ export default function CatShowcase() {
                         <CheckCircle2 size={13} className="!text-[#34d399] flex-shrink-0" />
                         <span className="!text-[#34d399] font-medium">[PASS] PostgreSQL & Redis ⚡ : Query indexing & caching optimized.</span>
                       </div>
-                      <div className="pt-2 flex items-center justify-between border-t border-slate-800 font-bold">
+                      <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between border-t border-slate-800 font-bold gap-2">
                         <span className="!text-amber-300">STATUS: 🐾 100% PURR-APPROVED FOR PRODUCTION</span>
-                        <span className="text-[10px] !text-slate-400">Latency: 0ms</span>
+                        <span className="text-[10px] !text-slate-400 self-start sm:self-auto">Latency: 0ms</span>
                       </div>
                     </div>
                   )}
@@ -488,15 +490,15 @@ export default function CatShowcase() {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4">
-                        <div className="bg-[#121829] border border-purple-400/40 px-3 py-1.5 rounded-xl">
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+                        <div className="bg-[#121829] border border-purple-400/40 px-4 py-2 rounded-xl text-center sm:text-left">
                           <span className="text-[10px] block font-sans" style={{ color: "#94a3b8" }}>HIGH SCORE</span>
                           <span className="text-lg font-black" style={{ color: "#fbbf24" }}>{highScore} pts</span>
                         </div>
 
                         <button
                           onClick={() => setIsGameOpen(true)}
-                          className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 !text-white font-sans font-bold text-xs flex items-center gap-2 shadow-lg transition-all transform hover:scale-105 active:scale-95"
+                          className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 !text-white font-sans font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition-all transform hover:scale-105 active:scale-95 w-full sm:w-auto"
                         >
                           <Play size={14} />
                           <span>Launch Arcade Game 🎮</span>
@@ -508,7 +510,7 @@ export default function CatShowcase() {
               </div>
 
               {/* Feature Badges Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div
                   onClick={handlePet}
                   className="bg-slate-50 dark:bg-[#090e1a] border border-purple-200 dark:border-purple-500/30 p-3.5 rounded-2xl flex items-center gap-3 shadow-sm hover:shadow-md hover:border-purple-400 dark:hover:bg-[#0e1628] transition-all cursor-pointer group/badge"
@@ -526,12 +528,12 @@ export default function CatShowcase() {
                   onClick={handlePet}
                   className="bg-slate-50 dark:bg-[#090e1a] border border-cyan-200 dark:border-cyan-500/30 p-3.5 rounded-2xl flex items-center gap-3 shadow-sm hover:shadow-md hover:border-cyan-400 dark:hover:bg-[#0e1628] transition-all cursor-pointer group/badge"
                 >
-                  <div className="p-2.5 rounded-xl bg-cyan-100 dark:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/30 group-hover/badge:scale-110 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-cyan-100 dark:bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/30 group-hover/badge:scale-110 transition-transform">
                     <Zap className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
                   </div>
                   <div className="text-left">
                     <p className="font-bold text-slate-900 dark:text-white text-xs">Fast Reflexes</p>
-                    <p className="text-[11px] text-cyan-700 dark:text-cyan-200/80 font-medium">Sub-10ms Hydration</p>
+                    <p className="text-[11px] text-cyan-800 dark:text-cyan-200/80 font-medium">Sub-10ms Hydration</p>
                   </div>
                 </div>
 
