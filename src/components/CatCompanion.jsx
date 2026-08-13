@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 import { playMeow, playPurr } from "@/utils/catAudio";
 import { Sparkles, Heart, Volume2, VolumeX, Zap, Gamepad2, Smile } from "lucide-react";
 import CatGameModal from "./CatGameModal";
@@ -25,13 +26,16 @@ const CAT_JOKES = [
 ];
 
 export default function CatCompanion() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+  const [mounted, setMounted] = useState(false);
   const [petCount, setPetCount] = useState(0);
   const [treatCount, setTreatCount] = useState(0);
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [jokeIndex, setJokeIndex] = useState(0);
   const [showSpeech, setShowSpeech] = useState(false);
   const [isPurring, setIsPurring] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(true);
   const [laserMode, setLaserMode] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [isGameOpen, setIsGameOpen] = useState(false);
@@ -42,8 +46,9 @@ export default function CatCompanion() {
 
   const catRef = useRef(null);
 
-  // Load pet counter from localStorage
+  // Load pet counter and set mounted client state
   useEffect(() => {
+    setMounted(true);
     if (typeof window !== "undefined") {
       const savedPets = parseInt(localStorage.getItem("cat_pet_count") || "0", 10);
       const savedTreats = parseInt(localStorage.getItem("cat_treat_count") || "0", 10);
@@ -162,6 +167,8 @@ export default function CatCompanion() {
     return () => clearTimeout(timer);
   }, [particles]);
 
+  if (!mounted) return null;
+
   return (
     <>
       {/* Laser Pointer Red Dot */}
@@ -210,11 +217,15 @@ export default function CatCompanion() {
         {isMinimized ? (
           <button
             onClick={() => setIsMinimized(false)}
-            className="flex items-center gap-2 bg-slate-900/95 text-white px-3.5 py-2 rounded-full shadow-2xl border border-purple-500/40 hover:border-purple-400 hover:scale-105 transition-all group backdrop-blur-xl"
+            className={`flex items-center gap-2 px-3.5 py-2 rounded-full shadow-2xl border transition-all hover:scale-105 group backdrop-blur-xl ${
+              isDark
+                ? "bg-[#0f172a]/95 text-white border-purple-500/40"
+                : "bg-white/95 text-slate-800 border-purple-300"
+            }`}
             title="Expand Cat Companion 🐾"
           >
             <span className="text-xl animate-bounce">🐱</span>
-            <span className="text-xs font-bold text-purple-300">
+            <span className={`text-xs font-bold ${isDark ? "text-purple-300" : "text-purple-700"}`}>
               Pet Me! ({petCount})
             </span>
           </button>
@@ -222,31 +233,51 @@ export default function CatCompanion() {
           <div className="relative group">
             {/* Speech Bubble */}
             {showSpeech && (
-              <div className="absolute -top-16 left-0 min-w-[210px] max-w-[270px] bg-slate-900/95 text-slate-100 text-xs p-3.5 rounded-2xl shadow-2xl border border-purple-400/50 z-20 animate-fade-in backdrop-blur-xl">
-                <div className="flex justify-between items-center mb-1.5 border-b border-slate-800 pb-1">
-                  <span className="font-bold text-purple-400 flex items-center gap-1">
+              <div className={`absolute -top-16 left-0 min-w-[210px] max-w-[270px] text-xs p-3.5 rounded-2xl shadow-2xl border z-20 animate-fade-in backdrop-blur-xl ${
+                isDark
+                  ? "bg-[#0f172a]/95 text-slate-100 border-purple-400/50"
+                  : "bg-white/95 text-slate-900 border-purple-300"
+              }`}>
+                <div className={`flex justify-between items-center mb-1.5 border-b pb-1 ${
+                  isDark ? "border-slate-800" : "border-slate-200"
+                }`}>
+                  <span className={`font-bold flex items-center gap-1 ${
+                    isDark ? "text-purple-400" : "text-purple-700"
+                  }`}>
                     🐾 Developer Cat
                   </span>
                   <button
                     onClick={() => setShowSpeech(false)}
-                    className="text-slate-400 hover:text-white text-xs px-1"
+                    className={`text-xs px-1 ${
+                      isDark ? "text-slate-400 hover:text-white" : "text-slate-500 hover:text-slate-900"
+                    }`}
                   >
                     ✕
                   </button>
                 </div>
-                <p className="text-slate-200 font-medium leading-snug">{CAT_QUOTES[quoteIndex]}</p>
+                <p className={`font-medium leading-snug ${isDark ? "text-slate-200" : "text-slate-700"}`}>{CAT_QUOTES[quoteIndex]}</p>
                 {/* Speech Bubble Arrow */}
-                <div className="absolute -bottom-2 left-6 w-3 h-3 bg-slate-900 border-r border-b border-purple-400/50 transform rotate-45"></div>
+                <div className={`absolute -bottom-2 left-6 w-3 h-3 border-r border-b transform rotate-45 ${
+                  isDark ? "bg-[#0f172a] border-purple-400/50" : "bg-white border-purple-300"
+                }`}></div>
               </div>
             )}
 
-            {/* Main Interactive Dark-Glass Card */}
-            <div className="bg-slate-900/95 text-white border border-purple-500/30 backdrop-blur-xl p-4 rounded-3xl shadow-2xl flex flex-col items-center gap-2.5 max-w-[230px] transition-all hover:border-purple-500/60">
+            {/* Main Interactive Card (Light glass + Dark glass) */}
+            <div className={`backdrop-blur-xl p-4 rounded-3xl shadow-2xl flex flex-col items-center gap-2.5 max-w-[230px] border transition-all ${
+              isDark
+                ? "bg-[#0f172a]/95 text-white border-purple-500/40"
+                : "bg-white/95 text-slate-900 border-purple-300 hover:border-purple-400"
+            }`}>
               {/* Top Controls Bar */}
-              <div className="w-full flex justify-between items-center text-[10px] text-slate-400 font-medium">
+              <div className={`w-full flex justify-between items-center text-[10px] font-medium ${
+                isDark ? "text-slate-400" : "text-slate-500"
+              }`}>
                 <div className="flex items-center gap-1.5">
-                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span className="text-emerald-400 font-bold">ONLINE</span>
+                  <span className={`inline-block w-2 h-2 rounded-full animate-ping ${
+                    isDark ? "bg-emerald-400" : "bg-emerald-500"
+                  }`}></span>
+                  <span className={`font-bold ${isDark ? "text-emerald-400" : "text-emerald-600"}`}>ONLINE</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <button
@@ -254,7 +285,9 @@ export default function CatCompanion() {
                     className={`p-1 rounded-md transition-colors ${
                       laserMode
                         ? "bg-red-500 text-white"
-                        : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                        : isDark
+                        ? "text-slate-400 hover:bg-slate-800 hover:text-white"
+                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
                     }`}
                     title={laserMode ? "Turn Off Laser Pointer" : "Turn On Laser Pointer 🔴"}
                   >
@@ -262,14 +295,22 @@ export default function CatCompanion() {
                   </button>
                   <button
                     onClick={() => setSoundEnabled(!soundEnabled)}
-                    className="p-1 text-slate-400 hover:bg-slate-800 hover:text-white rounded-md transition-colors"
+                    className={`p-1 rounded-md transition-colors ${
+                      isDark
+                        ? "text-slate-400 hover:bg-slate-800 hover:text-white"
+                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                    }`}
                     title={soundEnabled ? "Mute Meow Sounds" : "Enable Meow Sounds"}
                   >
                     {soundEnabled ? <Volume2 size={13} /> : <VolumeX size={13} />}
                   </button>
                   <button
                     onClick={() => setIsMinimized(true)}
-                    className="p-1 text-slate-400 hover:bg-slate-800 hover:text-white rounded-md text-sm font-bold"
+                    className={`p-1 rounded-md text-sm font-bold transition-colors ${
+                      isDark
+                        ? "text-slate-400 hover:bg-slate-800 hover:text-white"
+                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                    }`}
                     title="Minimize Cat Widget"
                   >
                     −
@@ -385,13 +426,21 @@ export default function CatCompanion() {
 
               {/* Status / Name */}
               <div className="text-center">
-                <p className="text-xs font-bold text-white flex items-center justify-center gap-1.5">
+                <p className={`text-xs font-bold flex items-center justify-center gap-1.5 ${
+                  isDark ? "text-white" : "text-slate-900"
+                }`}>
                   <span>Pixel</span>
-                  <span className="text-[10px] text-purple-300 bg-purple-950/80 px-1.5 py-0.5 rounded-md border border-purple-500/40 font-semibold">
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-md border font-semibold ${
+                    isDark
+                      ? "text-purple-300 bg-purple-950/80 border-purple-500/40"
+                      : "text-purple-700 bg-purple-100 border-purple-300"
+                  }`}>
                     Dev Cat
                   </span>
                 </p>
-                <p className="text-[11px] text-slate-300 mt-0.5 font-medium">
+                <p className={`text-[11px] mt-0.5 font-medium ${
+                  isDark ? "text-slate-300" : "text-slate-600"
+                }`}>
                   {catMood === "purring" && "Purrrrrr~ 💖"}
                   {catMood === "eating" && "Nom nom 🐟"}
                   {catMood === "happy" && "Ready to debug! 🐾"}
@@ -399,11 +448,14 @@ export default function CatCompanion() {
               </div>
 
               {/* Action Buttons & Counters */}
-              <div className="w-full flex flex-col gap-1.5 pt-2 border-t border-slate-800 text-xs">
+              <div className={`w-full flex flex-col gap-1.5 pt-2 border-t text-xs ${
+                isDark ? "border-slate-800" : "border-slate-200"
+              }`}>
                 <div className="flex items-center justify-between gap-1.5">
                   <button
                     onClick={handlePetCat}
                     className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-1.5 px-2 rounded-xl text-center flex items-center justify-center gap-1 shadow-md transition-all text-[11px]"
+                    style={{ background: "linear-gradient(to right, #7c3aed, #4f46e5)", color: "#ffffff" }}
                   >
                     <Heart size={12} className="fill-current text-pink-300" />
                     <span>Pets ({petCount})</span>
@@ -411,7 +463,11 @@ export default function CatCompanion() {
 
                   <button
                     onClick={handleFeedTreat}
-                    className="bg-amber-950/80 hover:bg-amber-900 text-amber-300 font-bold py-1.5 px-2 rounded-xl text-[11px] border border-amber-500/40 flex items-center gap-1 transition-all"
+                    className={`font-bold py-1.5 px-2 rounded-xl text-[11px] border flex items-center gap-1 transition-all ${
+                      isDark
+                        ? "bg-amber-950/80 hover:bg-amber-900 text-amber-300 border-amber-500/40"
+                        : "bg-amber-100 hover:bg-amber-200 text-amber-800 border-amber-300"
+                    }`}
                     title="Feed Treat 🐟"
                   >
                     <span>🐟 ({treatCount})</span>
@@ -427,20 +483,25 @@ export default function CatCompanion() {
                       setQuoteIndex(0);
                       setShowSpeech(true);
                     }}
-                    className="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-1.5 px-2 rounded-xl text-[10px] flex items-center justify-center gap-1 border border-slate-700 transition-colors"
+                    className={`flex-1 font-bold py-1.5 px-2 rounded-xl text-[10px] flex items-center justify-center gap-1 border transition-colors ${
+                      isDark
+                        ? "bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700"
+                        : "bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300"
+                    }`}
                     title="Tell Cat Joke 😹"
                   >
-                    <Smile size={11} className="text-amber-400" />
-                    <span>Joke 😹</span>
+                    <Smile size={11} className={isDark ? "text-amber-400" : "text-amber-500"} />
+                    <span>Joke</span>
                   </button>
 
                   <button
                     onClick={() => setIsGameOpen(true)}
                     className="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-1.5 px-2 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-md transition-all"
+                    style={{ background: "linear-gradient(to right, #059669, #0d9488)", color: "#ffffff" }}
                     title="Play Bug Hunter Arcade Game 🎮"
                   >
                     <Gamepad2 size={11} />
-                    <span>Play Game 🎮</span>
+                    <span>Game</span>
                   </button>
                 </div>
               </div>

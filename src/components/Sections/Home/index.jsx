@@ -57,12 +57,12 @@ export default function Home() {
               </BoxReveal>
 
               {/* Avatar with Glow Ring & Catify Easter Egg */}
-              <div className="relative group mb-4">
+              <div className="relative group mb-4 w-28 md:w-36 mx-auto">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 opacity-70 group-hover:opacity-100 blur transition-all duration-500 animate-tilt"></div>
 
                 {/* Cat Ears Overlay when Catified */}
                 {isCatified && (
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-32 md:w-40 z-30 pointer-events-none animate-bounce">
+                  <div className="absolute -top-9 -left-6 -translate-x-1/2 w-32 md:w-48 z-30 pointer-events-none animate-bounce">
                     <svg viewBox="0 0 100 40" className="w-full h-full drop-shadow-md">
                       <polygon points="15,40 5,0 35,22" fill="#fb923c" />
                       <polygon points="18,36 10,7 32,22" fill="#fed7aa" />
