@@ -142,7 +142,7 @@ export default function WorkExperience({ work }) {
                           key={idx}
                           onClick={() => handleOpenProject(id)}
                         >
-                          <div className="h-16 md:h-20 w-24 md:w-28 flex-shrink-0 rounded-xl overflow-hidden shadow-sm">
+                          <div className="h-16 md:h-20 w-24 md:w-28 flex-shrink-0 rounded-xl overflow-hidden shadow-sm transform-gpu [isolation:isolate]">
                             <LazyLoadImage
                               src={imageSrc}
                               placeholderSrc={
@@ -153,7 +153,8 @@ export default function WorkExperience({ work }) {
                               effect="blur"
                               height="100%"
                               width="100%"
-                              className="object-cover h-full w-full block group-hover:scale-105 transition-transform duration-300"
+                              wrapperClassName="!w-full !h-full !block overflow-hidden"
+                              className="object-cover h-full w-full block group-hover:scale-110 transition-transform duration-700 ease-out transform-gpu will-change-transform"
                               loading="lazy"
                             />
                           </div>

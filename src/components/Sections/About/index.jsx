@@ -49,7 +49,7 @@ export default function About() {
                     priority
                     src={picture}
                     alt="Tahir's image"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out transform-gpu will-change-transform group-hover:scale-105"
                   />
                   {/* Floating Badge */}
                   <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/80 dark:bg-[#0b1327]/80 backdrop-blur-md border border-white/20 dark:border-[#192544] shadow-lg flex items-center justify-between">

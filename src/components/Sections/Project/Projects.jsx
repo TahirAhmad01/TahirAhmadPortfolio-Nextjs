@@ -27,7 +27,7 @@ export default function Projects({ item, isGridView, path }) {
     <>
       <div
         className={classnames(
-          "relative projectBtn overflow-hidden hover:cursor-pointer w-full rounded-2xl border border-gray-200/70 dark:border-[#1d2d55]/50 bg-white/70 dark:bg-[#111c35]/40 backdrop-blur-md shadow-sm group hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.12)] transition-all duration-300",
+          "relative projectBtn overflow-hidden hover:cursor-pointer w-full rounded-2xl border border-gray-200/70 dark:border-[#1d2d55]/50 bg-white/70 dark:bg-[#111c35]/40 backdrop-blur-md shadow-sm group hover:border-cyan-500/50 hover:shadow-[0_12px_30px_rgba(6,182,212,0.18)] transition-all duration-500 ease-out transform-gpu hover:-translate-y-1",
           {
             "flex items-center gap-4 p-3": !isGridView && path !== "/",
           }
@@ -36,7 +36,7 @@ export default function Projects({ item, isGridView, path }) {
       >
         <div
           className={classnames(
-            "overflow-hidden relative",
+            "overflow-hidden relative transform-gpu [isolation:isolate]",
             path === "/" || isGridView
               ? "w-full h-64 sm:h-56 lg:h-60 rounded-2xl"
               : "w-48 sm:w-60 h-28 md:h-32 rounded-xl flex-shrink-0"
@@ -50,13 +50,14 @@ export default function Projects({ item, isGridView, path }) {
             effect="blur"
             height="100%"
             width="100%"
-            className="object-cover min-h-full block w-full transition-transform duration-500 group-hover:scale-110"
+            wrapperClassName="!w-full !h-full !block overflow-hidden"
+            className="object-cover h-full w-full block transition-transform duration-700 ease-out transform-gpu will-change-transform group-hover:scale-110"
             loading="lazy"
           />
         </div>
 
         {path === "/" || isGridView ? (
-          <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent backdrop-blur-sm transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 flex flex-col justify-end text-white">
+          <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent backdrop-blur-sm transform translate-y-1 group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end text-white pointer-events-none">
             <div className="font-bold capitalize text-base md:text-lg tracking-wide text-white drop-shadow">
               {name}
             </div>
@@ -73,7 +74,7 @@ export default function Projects({ item, isGridView, path }) {
           </div>
         ) : (
           <div className="w-full pr-2">
-            <div className="font-extrabold capitalize text-base text-gray-800 dark:text-gray-100 group-hover:text-cyan-500 transition-colors line-clamp-1">
+            <div className="font-extrabold capitalize text-base text-gray-800 dark:text-gray-100 group-hover:text-cyan-500 transition-colors duration-300 line-clamp-1">
               {name}
             </div>
             <div className="text-xs line-clamp-2 my-1.5 text-gray-600 dark:text-gray-400 leading-relaxed">
