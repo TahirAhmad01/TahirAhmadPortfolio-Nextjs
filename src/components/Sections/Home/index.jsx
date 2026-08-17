@@ -3,7 +3,7 @@ import avatar from "@/assets/images/webp/avater.webp";
 import useWindowDimensions from "@/hook/getWindowDimensions";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactTyped } from "react-typed";
+import { useState, useEffect } from "react";
 import Wave from "react-wavify";
 import SocialBtn from "../../SocialBtn";
 import socialBtnList from "./../../../utils/socialBtnList.json";
@@ -12,14 +12,68 @@ import { useTheme } from "next-themes";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
-import { useState } from "react";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import BoxReveal from "@/components/magicui/box-reveal";
 import CvDropdownButton from "@/components/CvDropdownButton";
 import { playMeow } from "@/utils/catAudio";
 
+const ROLES = [
+  "Full Stack Engineer",
+  "Software Engineer @ Nascenia",
+  "Cat Lover & Code Whiskerer 🐾",
+  "Next.js & React Specialist",
+  "Ruby on Rails Engineer",
+  "Purr-fect Web Developer 🐱"
+];
+
+function TypeWriter() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = ROLES[roleIndex] || "";
+    const chars = Array.from(currentRole);
+    let timer;
+
+    if (!isDeleting) {
+      if (charIndex < chars.length) {
+        timer = setTimeout(() => {
+          setCharIndex((prev) => prev + 1);
+        }, 55);
+      } else {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2000);
+      }
+    } else {
+      if (charIndex > 0) {
+        timer = setTimeout(() => {
+          setCharIndex((prev) => prev - 1);
+        }, 30);
+      } else {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % ROLES.length);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, roleIndex]);
+
+  const currentRole = ROLES[roleIndex] || "";
+  const displayedText = Array.from(currentRole).slice(0, charIndex).join("");
+
+  return (
+    <span className="inline-flex items-center justify-center">
+      <span>{displayedText}</span>
+      <span className="ml-1 inline-block w-[2.5px] h-[1.1em] bg-cyan-500 dark:bg-cyan-400 animate-pulse rounded-full" />
+    </span>
+  );
+}
+
 export default function Home() {
   const { height, width } = useWindowDimensions();
+  const { theme } = useTheme();
   const [isCatified, setIsCatified] = useState(false);
 
   const stats = [
@@ -46,7 +100,7 @@ export default function Home() {
               className={`flex items-center justify-center flex-col overflow-hidden h-full w-full relative z-20 pt-8 md:pt-12 pb-24 md:pb-28 px-4`}
             >
               {/* Status Badge */}
-              <BoxReveal boxColor={"#0b1327"} duration={0.4}>
+              <BoxReveal boxColor={theme === "dark" ? "#0b1327" : "#06b6d4"} duration={0.4}>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-4 shadow-sm">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -122,29 +176,16 @@ export default function Home() {
               </h2>
 
               {/* Typed Role */}
-              <BoxReveal boxColor={"#0b1327"} duration={0.5}>
-                <div className="font-medium">
-                  <ReactTyped
-                    strings={[
-                      "Full Stack Engineer",
-                      "Software Engineer @ Nascenia",
-                      "Cat Lover & Code Whiskerer 🐾",
-                      "Microservices & Load Balancer Specialist",
-                      "Next.js & React Specialist",
-                      "Ruby on Rails Engineer",
-                      "Purr-fect Web Developer 🐱",
-                      "Lead Code Reviewer @ Nascenia",
-                    ]}
-                    typeSpeed={70}
-                    backSpeed={60}
-                    loop
-                    className="text-base md:text-xl font-semibold text-cyan-600 dark:text-cyan-400"
-                  />
+              <BoxReveal boxColor={theme === "dark" ? "#0b1327" : "#06b6d4"} duration={0.5} width="100%">
+                <div className="font-medium min-h-[2rem] md:min-h-[2.5rem] flex items-center justify-center text-center px-2">
+                  <span className="text-base md:text-xl font-semibold text-cyan-600 dark:text-cyan-400 tracking-wide">
+                    <TypeWriter />
+                  </span>
                 </div>
               </BoxReveal>
 
               {/* Social Buttons */}
-              <BoxReveal boxColor={"#0b1327"} duration={0.5}>
+              <BoxReveal boxColor={theme === "dark" ? "#0b1327" : "#06b6d4"} duration={0.5}>
                 <div className="icons mt-4 text-gray-600 dark:text-white/70 flex justify-center flex-wrap gap-1.5 p-2 bg-white/30 dark:bg-[#111c35]/40 rounded-2xl border border-gray-200/50 dark:border-[#1d2d55]/40">
                   {socialBtnList.map((btn, idx) => {
                     const { link, hover, icon } = btn || {};
