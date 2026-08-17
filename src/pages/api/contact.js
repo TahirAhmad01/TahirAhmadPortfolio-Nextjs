@@ -17,8 +17,8 @@ export default async function handler(req, res) {
       port: Number(process.env.SMTP_PORT) || 465,
       secure: true,
       auth: {
-        user: process.env.SMTP_USER || "tahirahmadsani@gmail.com",
-        pass: process.env.SMTP_PASS || "nedfbqxncgamirfx",
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
